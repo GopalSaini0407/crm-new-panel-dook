@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="content ">
+        <div class="page-content">
+            <div class="table_title">
+                <div class="sale_bar">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 mb-3 mb-lg-0">
+                            <h5 class="m0"> Slider List</h5>
+                        </div>
+                        <div class="col-md-8 text-md-right">
+    
+                                                        <button class="badge badge-wt" view-data-modal="true" data-controller="slider" data-href="https://agent.dookinternational.com/adminpanel/slider/add-slider-template"><i class="fa-solid fa-add "></i> Add Slider
+                                </button>
+                            
+                                                        <button class="badge badge-wt" onclick="confirm_change_status('status_change')"><i class="fa-solid fa-exchange"></i> Change Status
+                                </button>
+                                                                                <button class="badge badge-danger badge-wt danger disable_badge" tts-disable_badge="" onclick="confirm_delete('formsliderlist')"><i class="fa-solid fa-trash"></i> Delete
+                                </button>
+                                                </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content-area">
+    
+    
+                <div class="card-body">
+    
+                    <div class="table-responsive">
+                                            <form action="https://agent.dookinternational.com/adminpanel/slider/remove-slider" method="POST" tts-form="true" id="formsliderlist">
+                            <table class="table table-bordered table-hover">
+                                <thead class="table-active">
+                                    <tr>
+                                                                                <th><label><input type="checkbox" name="check_all" id="selectall"></label>
+                                            </th>
+                                        
+                                        <th>Slider Image</th>
+                                        <th>Image Text1</th>
+                                        <th>Image Text2</th>
+                                        <th>Button Text</th>
+                                        <th>Category</th>
+                                        <th>Status</th>
+                                        <th>Created Date</th>
+                                        <th>Modified Date</th>
+                                                                                <th>Action</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="20"></label>
+                                                    </td>
+                                                
+                                                <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/sliders/thumbnail/1704098700_Transport-Banner.jpg" alt="Transport Banner" class="tts-blog-image">
+                                                </td>
+    
+                                                <td>
+                                                    Transport Banner                                            </td>
+                                                <td>
+                                                    Transport Banner                                            </td>
+                                                <td>Transport Banner</td>
+                                                <td>B2B-Transport</td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+    
+    
+    
+                                                <td>01 Jan 2024 / 2:15 PM</td>
+                                                <td>-                                            </td>
+                                                                                                <td>
+                                                        <a href="javascript:void(0);" view-data-modal="true" data-controller="slider" data-id="MjA-" data-href="https://agent.dookinternational.com/adminpanel/slider/edit-slider-template/MjA-"><i class="fa-solid fa-edit "></i></a>
+    
+                                                    </td>
+                                                
+                                            </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="19"></label>
+                                                    </td>
+                                                
+                                                <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/sliders/thumbnail/1704093480_Tour-Guide.jpg" alt="Tour Guide Banner" class="tts-blog-image">
+                                                </td>
+    
+                                                <td>
+                                                    Tour Guide Banner                                            </td>
+                                                <td>
+                                                    Tour Guide Banner                                            </td>
+                                                <td>Tour Guide Banner</td>
+                                                <td>B2B-Tourguide</td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+    
+    
+    
+                                                <td>01 Jan 2024 / 12:48 PM</td>
+                                                <td>-                                            </td>
+                                                                                                <td>
+                                                        <a href="javascript:void(0);" view-data-modal="true" data-controller="slider" data-id="MTk-" data-href="https://agent.dookinternational.com/adminpanel/slider/edit-slider-template/MTk-"><i class="fa-solid fa-edit "></i></a>
+    
+                                                    </td>
+                                                
+                                            </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="18"></label>
+                                                    </td>
+                                                
+                                                <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/sliders/thumbnail/1704093000_Restaurant.jpg" alt="Restaurant Banner" class="tts-blog-image">
+                                                </td>
+    
+                                                <td>
+                                                    Restaurant Banner                                            </td>
+                                                <td>
+                                                    Restaurant Banner                                            </td>
+                                                <td>Restaurant Banner</td>
+                                                <td>B2B-Restaurant</td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+    
+    
+    
+                                                <td>01 Jan 2024 / 12:40 PM</td>
+                                                <td>-                                            </td>
+                                                                                                <td>
+                                                        <a href="javascript:void(0);" view-data-modal="true" data-controller="slider" data-id="MTg-" data-href="https://agent.dookinternational.com/adminpanel/slider/edit-slider-template/MTg-"><i class="fa-solid fa-edit "></i></a>
+    
+                                                    </td>
+                                                
+                                            </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="17"></label>
+                                                    </td>
+                                                
+                                                <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/sliders/thumbnail/1704092760_Excursion.jpg" alt="Excursion Banner" class="tts-blog-image">
+                                                </td>
+    
+                                                <td>
+                                                    Excursion Banner                                            </td>
+                                                <td>
+                                                    Excursion Banner                                            </td>
+                                                <td>Excursion Banner</td>
+                                                <td>B2B-Excursion</td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+    
+    
+    
+                                                <td>01 Jan 2024 / 12:36 PM</td>
+                                                <td>01 Jan 2024 / 12:37 PM                                            </td>
+                                                                                                <td>
+                                                        <a href="javascript:void(0);" view-data-modal="true" data-controller="slider" data-id="MTc-" data-href="https://agent.dookinternational.com/adminpanel/slider/edit-slider-template/MTc-"><i class="fa-solid fa-edit "></i></a>
+    
+                                                    </td>
+                                                
+                                            </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="16"></label>
+                                                    </td>
+                                                
+                                                <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/sliders/thumbnail/1704092580_Fligh-Banner.jpg" alt="Flight Banner" class="tts-blog-image">
+                                                </td>
+    
+                                                <td>
+                                                    Flight Banner                                            </td>
+                                                <td>
+                                                    Flight Banner                                            </td>
+                                                <td>Flight Banner</td>
+                                                <td>B2B-Flight</td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+    
+    
+    
+                                                <td>01 Jan 2024 / 12:33 PM</td>
+                                                <td>01 Jan 2024 / 12:38 PM                                            </td>
+                                                                                                <td>
+                                                        <a href="javascript:void(0);" view-data-modal="true" data-controller="slider" data-id="MTY-" data-href="https://agent.dookinternational.com/adminpanel/slider/edit-slider-template/MTY-"><i class="fa-solid fa-edit "></i></a>
+    
+                                                    </td>
+                                                
+                                            </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="15"></label>
+                                                    </td>
+                                                
+                                                <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/sliders/thumbnail/1704353400_Departure-Banner.jpg" alt="Departure Banner" class="tts-blog-image">
+                                                </td>
+    
+                                                <td>
+                                                    Departure Banner                                            </td>
+                                                <td>
+                                                    Departure Banner                                            </td>
+                                                <td>Departure Banner</td>
+                                                <td>B2B-Departure</td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+    
+    
+    
+                                                <td>01 Jan 2024 / 12:32 PM</td>
+                                                <td>04 Jan 2024 / 1:00 PM                                            </td>
+                                                                                                <td>
+                                                        <a href="javascript:void(0);" view-data-modal="true" data-controller="slider" data-id="MTU-" data-href="https://agent.dookinternational.com/adminpanel/slider/edit-slider-template/MTU-"><i class="fa-solid fa-edit "></i></a>
+    
+                                                    </td>
+                                                
+                                            </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="14"></label>
+                                                    </td>
+                                                
+                                                <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/sliders/thumbnail/1704093540_Attraction.jpg" alt="Attraction Banner" class="tts-blog-image">
+                                                </td>
+    
+                                                <td>
+                                                    Attraction Banner                                            </td>
+                                                <td>
+                                                    Attraction Banner                                            </td>
+                                                <td>Attraction Banner</td>
+                                                <td>B2B-Attraction</td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+    
+    
+    
+                                                <td>01 Jan 2024 / 10:49 AM</td>
+                                                <td>01 Jan 2024 / 12:49 PM                                            </td>
+                                                                                                <td>
+                                                        <a href="javascript:void(0);" view-data-modal="true" data-controller="slider" data-id="MTQ-" data-href="https://agent.dookinternational.com/adminpanel/slider/edit-slider-template/MTQ-"><i class="fa-solid fa-edit "></i></a>
+    
+                                                    </td>
+                                                
+                                            </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="13"></label>
+                                                    </td>
+                                                
+                                                <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/sliders/thumbnail/1704090300_Hotel.jpg" alt="Hotel Banner" class="tts-blog-image">
+                                                </td>
+    
+                                                <td>
+                                                    Hotel Banner                                            </td>
+                                                <td>
+                                                    Hotel Banner                                            </td>
+                                                <td>Hotel Banner</td>
+                                                <td>B2B-Hotel</td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+    
+    
+    
+                                                <td>01 Jan 2024 / 10:43 AM</td>
+                                                <td>01 Jan 2024 / 2:16 PM                                            </td>
+                                                                                                <td>
+                                                        <a href="javascript:void(0);" view-data-modal="true" data-controller="slider" data-id="MTM-" data-href="https://agent.dookinternational.com/adminpanel/slider/edit-slider-template/MTM-"><i class="fa-solid fa-edit "></i></a>
+    
+                                                    </td>
+                                                
+                                            </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="11"></label>
+                                                    </td>
+                                                
+                                                <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/sliders/thumbnail/1704091140_Bus-Banner.jpg" alt="Bus Banner" class="tts-blog-image">
+                                                </td>
+    
+                                                <td>
+                                                    Bus Banner                                            </td>
+                                                <td>
+                                                    Bus Banner                                            </td>
+                                                <td>Bus Banner</td>
+                                                <td>B2B-Bus</td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+    
+    
+    
+                                                <td>19 Dec 2023 / 12:52 PM</td>
+                                                <td>01 Jan 2024 / 12:09 PM                                            </td>
+                                                                                                <td>
+                                                        <a href="javascript:void(0);" view-data-modal="true" data-controller="slider" data-id="MTE-" data-href="https://agent.dookinternational.com/adminpanel/slider/edit-slider-template/MTE-"><i class="fa-solid fa-edit "></i></a>
+    
+                                                    </td>
+                                                
+                                            </tr>
+                                                                    </tbody>
+                            </table>
+    
+                        </form>
+    
+                    </div>
+                    <div class="row pagiantion_row">
+                        <div class="tts-col-6">
+                            <p class="pagiantion_text">Page 1 of
+                                1, total 9 records found
+                            </p>
+                        </div>
+                        <div class="tts-col-6">
+                                                        <!-- DEBUG-VIEW START 3 SYSTEMPATH/Pager/Views/default_full.php -->
+    
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            
+                        <li class="active">
+                    <a href="https://agent.dookinternational.com/adminpanel/slider?page=1">
+                        1				</a>
+                </li>
+            
+                </ul>
+    </nav>
+    
+    <!-- DEBUG-VIEW ENDED 3 SYSTEMPATH/Pager/Views/default_full.php -->
+                                                </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+</body>
+</html>

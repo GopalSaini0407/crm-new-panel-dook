@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="content ">
+        <div class="page-content">
+            <div class="table_title">
+                <div class="sale_bar">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 mb-3 mb-lg-0">
+                            <h5 class="m0">Car Info List</h5>
+                        </div>
+                        <div class="col-md-8 text-md-right">
+                                                        <button class="badge badge-wt" view-data-modal="true" data-controller="car-extranet" data-href="https://agent.dookinternational.com/adminpanel/car-extranet/add-car-info-template">
+                                    <i class="fa-solid fa-add "></i> Add Car Info
+                                </button>
+                                                                                <button class="badge badge-wt" onclick="confirm_change_status('status_change')">
+                                    <i class="fa-solid fa-exchange"></i> Change Status
+                                </button>
+                                                                                <button class="badge badge-danger badge-wt danger disable_badge" tts-disable_badge="" onclick="confirm_delete('formcarextranetinfolist')"><i class="fa-solid fa-trash"></i>
+                                    Delete
+                                </button>
+                                                </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content-area">
+                <div class="card-body">
+                    <div class="row">
+                        <!----------Start Search Bar ----------------->
+                        <form action="https://agent.dookinternational.com/adminpanel/car-extranet" method="GET" class="tts-dis-content" name="car-extranet-search" onsubmit="return searchvalidateForm()">
+                            <div class="col-md-3">
+                                <div class="form-group form-mb-20">
+                                    <label>Select key to search by *</label>
+                                    <select name="key" class="form-control" onchange="tts_searchkey(this,'car-extranet-search')" tts-validatation="Required" tts-error-msg="Please select search key">
+                                        <option value="">Please select</option>
+                                        <option value="car_name">Car Name
+                                        </option>
+                                        <option value="car_type">Car Type
+                                        </option>
+                                        <option value="seat_capacity">Seat Capacity
+                                        </option>
+                                        <option value="luggage_capacity">Luggage Capacity
+                                        </option>
+                                        <option value="date-range">Date Range
+                                        </option>
+                                    </select>
+                                </div>
+                                <input type="hidden" name="key-text" value="">
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group form-mb-20">
+                                    <label>Value </label>
+                                    <input type="text" name="value" placeholder="Value" value="" class="form-control" tts-validatation="Required" tts-error-msg="Please enter value">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-mb-20">
+                                    <label>From Date</label><input type="text" data-searchbar-from="true" name="from_date" value="" placeholder="Select From Date" class="form-control" tts-error-msg="Please select from date" readonly="">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-mb-20">
+                                    <label>To Date</label>
+                                    <input type="text" data-searchbar-to="true" name="to_date" value="" placeholder="Select To Date" class="form-control" tts-error-msg="Please select to date" readonly="">
+                                </div>
+                            </div>
+                            <div class="col-md-2 align-self-end">
+                                <div class="form-group form-mb-20">
+                                   
+                                    <button type="submit" class="badge badge-md badge-primary badge_search">Search <i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                           
+                                                    
+                        </form>
+                    </div>
+                    <!----------End Search Bar ----------------->
+                    <div class="table-responsive">
+                                            <form action="https://agent.dookinternational.com/adminpanel/car-extranet/remove-car-info" method="POST" tts-form="true" id="formcarextranetinfolist">
+                            <table class="table table-bordered table-hover">
+                                <thead class="table-active">
+                                <tr>
+                                                                        <th><label><input type="checkbox" name="check_all" id="selectall"></label>
+                                        </th>
+                                                                    <th>Car Img</th>
+                                    <th>Car Name</th>
+                                    <th>Car Type</th>
+                                    <th>Seat Capacity</th>
+                                    <th>Luggage Capacity</th>
+                                    <th>Price Charge Info</th>
+                                    <th>Status</th>
+    
+                                    <th>Created Date</th>
+                                    <th>Modified Date</th>
+                                                                        <th>Action</th>
+                                                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                                                                        <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="10"></label>
+                                                </td>
+                                                                                    <td>
+                                                <img src="https://agent.dookinternational.com/uploads/car-extranet/xylo.png" alt="Luxury (4+1 seater)" class="tts-blog-image">
+                                            </td>
+                                            <td class="nowrap">
+                                                Skoda                                        </td>
+                                            <td class="nowrap">
+                                                Luxury (4+1 seater)                                        </td>
+                                            <td>5</td>
+                                            <td>
+                                                3                                        </td>
+                                            <td class="nowrap">
+                                                Per Killometer Charge -: <b>50</b><br>Per Killometer Charge After Ride -: <b>50 </b><br>Driver Stay Charge -: <b>500 </b><br>                                        </td>
+                                            <td>
+                                  <span class="active-status">
+                                  Active                              </span>
+                                            </td>
+    
+    
+                                            <td class="nowrap">13 Sep 2023 / 6:51 PM</td>
+                                            <td class="nowrap">-                                        </td>
+                                                                                    <td>
+                                                <div class="ropdown">
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
+                                                    <div class="dropdown-menu">
+                                                                                                            <a class="dropdown-item" href="javascript:void(0);" view-data-modal="true" data-controller="carextranet" data-id="MTA-" data-href="https://agent.dookinternational.com/adminpanel/car-extranet/edit-car-info-template/MTA-">Edit
+                                                            Car Info
+                                                        </a>
+                                                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/car-extranet/get-car-availability?key=MTA-&amp;year=2025">Car
+                                                            Availability
+                                                            List</a>
+                                                        
+                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/car-extranet/city-route-list/MTA-">City Route List</a>
+                                                                                                        </div>
+                                                </div>
+                                            </td>
+                                                                                </tr>
+                                                                        <tr>
+                                                                                        <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="9"></label>
+                                                </td>
+                                                                                    <td>
+                                                <img src="https://agent.dookinternational.com/uploads/car-extranet/xylo.png" alt="SUV (6+1 seater)" class="tts-blog-image">
+                                            </td>
+                                            <td class="nowrap">
+                                                Innova Crysta                                        </td>
+                                            <td class="nowrap">
+                                                SUV (6+1 seater)                                        </td>
+                                            <td>6</td>
+                                            <td>
+                                                3                                        </td>
+                                            <td class="nowrap">
+                                                Per Killometer Charge -: <b>18</b><br>Per Killometer Charge After Ride -: <b>19 </b><br>Driver Stay Charge -: <b>450 </b><br>                                        </td>
+                                            <td>
+                                  <span class="active-status">
+                                  Active                              </span>
+                                            </td>
+    
+    
+                                            <td class="nowrap">24 Aug 2023 / 12:34 PM</td>
+                                            <td class="nowrap">24 Aug 2023 / 12:37 PM                                        </td>
+                                                                                    <td>
+                                                <div class="ropdown">
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
+                                                    <div class="dropdown-menu">
+                                                                                                            <a class="dropdown-item" href="javascript:void(0);" view-data-modal="true" data-controller="carextranet" data-id="OQ--" data-href="https://agent.dookinternational.com/adminpanel/car-extranet/edit-car-info-template/OQ--">Edit
+                                                            Car Info
+                                                        </a>
+                                                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/car-extranet/get-car-availability?key=OQ--&amp;year=2025">Car
+                                                            Availability
+                                                            List</a>
+                                                        
+                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/car-extranet/city-route-list/OQ--">City Route List</a>
+                                                                                                        </div>
+                                                </div>
+                                            </td>
+                                                                                </tr>
+                                                                        <tr>
+                                                                                        <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="8"></label>
+                                                </td>
+                                                                                    <td>
+                                                <img src="https://agent.dookinternational.com/uploads/car-extranet/sedan.png" alt="Compact-SUV (4+1 seater)" class="tts-blog-image">
+                                            </td>
+                                            <td class="nowrap">
+                                                Xylo, Ertiga                                        </td>
+                                            <td class="nowrap">
+                                                Compact-SUV (4+1 seater)                                        </td>
+                                            <td>5</td>
+                                            <td>
+                                                2                                        </td>
+                                            <td class="nowrap">
+                                                Per Killometer Charge -: <b>17</b><br>Per Killometer Charge After Ride -: <b>17.5 </b><br>Driver Stay Charge -: <b>400 </b><br>                                        </td>
+                                            <td>
+                                  <span class="active-status">
+                                  Active                              </span>
+                                            </td>
+    
+    
+                                            <td class="nowrap">24 Aug 2023 / 12:30 PM</td>
+                                            <td class="nowrap">24 Aug 2023 / 12:37 PM                                        </td>
+                                                                                    <td>
+                                                <div class="ropdown">
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
+                                                    <div class="dropdown-menu">
+                                                                                                            <a class="dropdown-item" href="javascript:void(0);" view-data-modal="true" data-controller="carextranet" data-id="OA--" data-href="https://agent.dookinternational.com/adminpanel/car-extranet/edit-car-info-template/OA--">Edit
+                                                            Car Info
+                                                        </a>
+                                                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/car-extranet/get-car-availability?key=OA--&amp;year=2025">Car
+                                                            Availability
+                                                            List</a>
+                                                        
+                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/car-extranet/city-route-list/OA--">City Route List</a>
+                                                                                                        </div>
+                                                </div>
+                                            </td>
+                                                                                </tr>
+                                                                        <tr>
+                                                                                        <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="7"></label>
+                                                </td>
+                                                                                    <td>
+                                                <img src="https://agent.dookinternational.com/uploads/car-extranet/sedan.png" alt="Compact-SUV (4+1 seater)" class="tts-blog-image">
+                                            </td>
+                                            <td class="nowrap">
+                                                Dzire, Etios                                        </td>
+                                            <td class="nowrap">
+                                                Compact-SUV (4+1 seater)                                        </td>
+                                            <td>4</td>
+                                            <td>
+                                                2                                        </td>
+                                            <td class="nowrap">
+                                                Per Killometer Charge -: <b>16</b><br>Per Killometer Charge After Ride -: <b>16 </b><br>Driver Stay Charge -: <b>300 </b><br>                                        </td>
+                                            <td>
+                                  <span class="active-status">
+                                  Active                              </span>
+                                            </td>
+    
+    
+                                            <td class="nowrap">24 Aug 2023 / 12:25 PM</td>
+                                            <td class="nowrap">24 Aug 2023 / 12:38 PM                                        </td>
+                                                                                    <td>
+                                                <div class="ropdown">
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
+                                                    <div class="dropdown-menu">
+                                                                                                            <a class="dropdown-item" href="javascript:void(0);" view-data-modal="true" data-controller="carextranet" data-id="Nw--" data-href="https://agent.dookinternational.com/adminpanel/car-extranet/edit-car-info-template/Nw--">Edit
+                                                            Car Info
+                                                        </a>
+                                                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/car-extranet/get-car-availability?key=Nw--&amp;year=2025">Car
+                                                            Availability
+                                                            List</a>
+                                                        
+                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/car-extranet/city-route-list/Nw--">City Route List</a>
+                                                                                                        </div>
+                                                </div>
+                                            </td>
+                                                                                </tr>
+                                                                        <tr>
+                                                                                        <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="6"></label>
+                                                </td>
+                                                                                    <td>
+                                                <img src="https://agent.dookinternational.com/uploads/car-extranet/hatchback.png" alt="hatchback (4+1 seater)" class="tts-blog-image">
+                                            </td>
+                                            <td class="nowrap">
+                                                Indica, Swift                                        </td>
+                                            <td class="nowrap">
+                                                hatchback (4+1 seater)                                        </td>
+                                            <td>4</td>
+                                            <td>
+                                                2                                        </td>
+                                            <td class="nowrap">
+                                                Per Killometer Charge -: <b>15</b><br>Per Killometer Charge After Ride -: <b>15 </b><br>Driver Stay Charge -: <b>250 </b><br>                                        </td>
+                                            <td>
+                                  <span class="active-status">
+                                  Active                              </span>
+                                            </td>
+    
+    
+                                            <td class="nowrap">24 Aug 2023 / 10:47 AM</td>
+                                            <td class="nowrap">24 Aug 2023 / 12:35 PM                                        </td>
+                                                                                    <td>
+                                                <div class="ropdown">
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
+                                                    <div class="dropdown-menu">
+                                                                                                            <a class="dropdown-item" href="javascript:void(0);" view-data-modal="true" data-controller="carextranet" data-id="Ng--" data-href="https://agent.dookinternational.com/adminpanel/car-extranet/edit-car-info-template/Ng--">Edit
+                                                            Car Info
+                                                        </a>
+                                                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/car-extranet/get-car-availability?key=Ng--&amp;year=2025">Car
+                                                            Availability
+                                                            List</a>
+                                                        
+                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/car-extranet/city-route-list/Ng--">City Route List</a>
+                                                                                                        </div>
+                                                </div>
+                                            </td>
+                                                                                </tr>
+                                                                        <tr>
+                                                                                        <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="1"></label>
+                                                </td>
+                                                                                    <td>
+                                                <img src="https://agent.dookinternational.com/uploads/car-extranet/xylo.png" alt="SUV (6+1 seater)" class="tts-blog-image">
+                                            </td>
+                                            <td class="nowrap">
+                                                Toyota Innova specific model                                        </td>
+                                            <td class="nowrap">
+                                                SUV (6+1 seater)                                        </td>
+                                            <td>4</td>
+                                            <td>
+                                                1                                        </td>
+                                            <td class="nowrap">
+                                                Per Killometer Charge -: <b>22</b><br>Per Killometer Charge After Ride -: <b>22 </b><br>Driver Stay Charge -: <b>450 </b><br>                                        </td>
+                                            <td>
+                                  <span class="active-status">
+                                  Active                              </span>
+                                            </td>
+    
+    
+                                            <td class="nowrap">19 Jan 2023 / 7:23 PM</td>
+                                            <td class="nowrap">24 Aug 2023 / 10:51 AM                                        </td>
+                                                                                    <td>
+                                                <div class="ropdown">
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
+                                                    <div class="dropdown-menu">
+                                                                                                            <a class="dropdown-item" href="javascript:void(0);" view-data-modal="true" data-controller="carextranet" data-id="MQ--" data-href="https://agent.dookinternational.com/adminpanel/car-extranet/edit-car-info-template/MQ--">Edit
+                                                            Car Info
+                                                        </a>
+                                                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/car-extranet/get-car-availability?key=MQ--&amp;year=2025">Car
+                                                            Availability
+                                                            List</a>
+                                                        
+                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/car-extranet/city-route-list/MQ--">City Route List</a>
+                                                                                                        </div>
+                                                </div>
+                                            </td>
+                                                                                </tr>
+                                                                </tbody>
+                            </table>
+                        </form>
+                       
+                    </div>
+                    <div class="row pagiantion_row align-items-center">
+                                <div class="col-md-6 mb-3 mb-lg-0">
+                                    <p class="pagiantion_text">Page 1                                    of 1, total 6 records found
+                                    </p>
+                                </div>
+                                <div class="col-md-6">
+                                                                        <!-- DEBUG-VIEW START 3 SYSTEMPATH/Pager/Views/default_full.php -->
+    
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            
+                        <li class="active">
+                    <a href="https://agent.dookinternational.com/adminpanel/car-extranet/car-info-list?page=1">
+                        1				</a>
+                </li>
+            
+                </ul>
+    </nav>
+    
+    <!-- DEBUG-VIEW ENDED 3 SYSTEMPATH/Pager/Views/default_full.php -->
+                                                                </div>
+                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

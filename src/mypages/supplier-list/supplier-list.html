@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="content ">
+        <div class="page-content">
+            <div class="table_title">
+                <div class="sale_bar">
+                    <div class="row align-items-center">
+                        <div class="col-md-4">
+                            <h5 class="m0">Supplier List</h5>
+                        </div>
+                        <div class="col-md-8 text-md-right">
+                                                                           <a href="https://agent.dookinternational.com/adminpanel/suppliers/add-supplier-view" class="badge badge-wt">Add
+                                Supplier</a>
+                                                 
+    
+                                                       <button class="badge badge-wt" onclick="confirm_change_status('status_change')">
+                                    <i class="fa fa-exchange"></i> Change Status
+                                </button>
+                         
+                            <!--                             <button class="badge badge-danger badge-wt danger disable_badge" tts-disable_badge
+                                        onclick="confirm_delete('formbloglist')"><i class="tts-icon delete "></i> Delete
+                                </button>
+                            -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content-area">
+    
+                <div class="card-body">
+                    <div class="row">
+                        <!----------Start Search Bar ----------------->
+                        <form action="https://agent.dookinternational.com/adminpanel/suppliers" method="GET" class="tts-dis-content" name="web-partner-search" onsubmit="return searchvalidateForm()">
+                            <div class="col-md-2">
+                                <div class="form-group form-mb-20">
+                                    <label>Select key to search by *</label>
+                                    <select name="key" class="form-control" onchange="tts_searchkey(this,'web-partner-search')" tts-validatation="Required" tts-error-msg="Please select search key">
+                                        <option value="">Please select</option>
+    
+                                        <option value="company_id">Company Id
+                                        </option>
+                                        <option value="company_name">Company Name
+                                        </option>
+                                        <option value="pan_name">PAN Name
+                                        </option>
+                                        <option value="pan_number">PAN No.
+                                        </option>
+    
+                                        <option value="status">Status
+                                        </option>
+                                        <option value="date-range">Date Range
+                                        </option>
+                                    </select>
+                                </div>
+                                <input type="hidden" name="key-text" value="">
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-mb-20">
+                                    <label>Value </label>
+                                    <input type="text" name="value" placeholder="Value" value="" class="form-control" tts-validatation="Required" tts-error-msg="Please enter value">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-mb-20">
+                                    <label>From Date</label>
+                                    <input type="text" data-searchbar-from="true" name="from_date" value="" placeholder="Select From Date" class="form-control" tts-error-msg="Please select from date" readonly="">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-mb-20">
+                                    <label>To Date</label>
+                                    <input type="text" data-searchbar-to="true" name="to_date" value="" placeholder="Select To Date" class="form-control" tts-error-msg="Please select to date" readonly="">
+                                </div>
+                            </div>
+                            <div class="col-md-2 align-self-end">
+                                <div class="form-group form-mb-20">
+                                    <button type="submit" class="badge badge-md badge-primary badge_search">Search <i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <!--? if (isset($search_bar_data['key'])) : ?-->
+    
+                                    <div class="search-reset-btn">
+                                        <a href="https://agent.dookinternational.com/adminpanel/suppliers">Reset Search</a>
+                                    </div>
+    
+                                <!--? endif ?-->
+                            </div>
+                        </form>
+                    </div>
+    
+                    <!----------End Search Bar ----------------->
+    
+    
+                                    <form action="https://agent.dookinternational.com/adminpanel/suppliers/remove-supplier" method="POST" tts-form="true" id="formbloglist">
+                        <div class="table-responsive ">
+                            <table class="table table-bordered table-hover">
+                                <thead class="table-active">
+                                <tr>
+    
+                                                                <th><label><input type="checkbox" name="check_all" id="selectall"></label></th>
+                                                                    <th>Company Id</th>
+                                    <th>Company Name</th>
+                                    <th>Class Name</th>
+                                    <th>Login Email</th>
+                                    <th>Mobile</th>
+                                    <th>Balance</th>
+                                    <th>Region</th>
+                                    <th>Status</th>
+                                    <th>Created Date</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                
+                                        <tr>
+                                                                                <td>
+                                                <label><input type="checkbox" name="checklist[]" class="checkbox" value="3"></label>
+                                            </td>
+                                                                                    <td>
+                                                <a href="javascript:void(0);" view-data-modal="true" data-controller="suppliers" data-id="Mw--" data-href="https://agent.dookinternational.com/adminpanel/suppliers/supplier-details/Mw--">3</a>
+                                            </td>
+    
+                                            <td>
+                                                <a href="javascript:void(0);" view-data-modal="true" data-controller="suppliers" data-id="Mw--" data-href="https://agent.dookinternational.com/adminpanel/suppliers/supplier-details/Mw--">Dookinternational - Baku</a>
+                                            </td>
+    
+    
+                                            <td>
+                                                Platinum                                        </td>
+                                            <td>
+                                                Aisuluu.konurbaeva@dookinternational.com                                        </td>
+                                            <td>91994552244442</td>
+    
+                                            <td><i class="fa fa-inr" aria-hidden="true"></i>-10,000,000                                        </td>
+    
+                                            <td>Baku | Bakiu                                            | Azerbaijan</td>
+                                            <td>
+                                                <div class="active-status">
+                                                    Active                                            </div>
+                                            </td>
+    
+                                            <td>
+                                                30 Oct 2023 / 3:09 PM                                        </td>
+    
+                                            <td>
+    
+    
+                                                <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Action
+                                                </button>
+                                                <!-- <button class="actbtn" type="button"></button> -->
+                                                <div class="dropdown-menu"> 
+                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/suppliers/edit-supplier-view/Mw--">Edit</a>
+                                                                                                                                                  <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/suppliers/supplier-account-logs/Mw--">Account
+                                                            Logs</a>
+                                                                                                                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/suppliers/supplier-manage?search-text=Dookinternational+-+Baku%28+3%29%2C+ASDFE1234Y&amp;key-value=3">Manage
+                                                        Account
+                                                    </a>
+                                                                                                   <a class="dropdown-item" href="javascript:void(0);" onclick="change_password_modal(&quot;Mw--&quot;,&quot;Dookinternational - Baku&quot;)">Change
+                                                        Password</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="https://agent.dookinternational.com/b2c/supplier/access-account/YWlzdWx1dS5rb251cmJhZXZhQGRvb2tpbnRlcm5hdGlvbmFsLmNvbS0zLTEwNi4yMTkuMTIzLjk3" target="_blank">Access Account</a>
+                                                </div> 
+                                            </td> 
+                                        </tr>
+                                    
+                                        <tr>
+                                                                                <td>
+                                                <label><input type="checkbox" name="checklist[]" class="checkbox" value="2"></label>
+                                            </td>
+                                                                                    <td>
+                                                <a href="javascript:void(0);" view-data-modal="true" data-controller="suppliers" data-id="Mg--" data-href="https://agent.dookinternational.com/adminpanel/suppliers/supplier-details/Mg--">2</a>
+                                            </td>
+    
+                                            <td>
+                                                <a href="javascript:void(0);" view-data-modal="true" data-controller="suppliers" data-id="Mg--" data-href="https://agent.dookinternational.com/adminpanel/suppliers/supplier-details/Mg--">Dook Supplier Test</a>
+                                            </td>
+    
+    
+                                            <td>
+                                                Platinum                                        </td>
+                                            <td>
+                                                Aditya.kumar@dooktravels.com                                        </td>
+                                            <td>911234567890</td>
+    
+                                            <td><i class="fa fa-inr" aria-hidden="true"></i>0                                        </td>
+    
+                                            <td>Delhi | New Delhi                                            | India</td>
+                                            <td>
+                                                <div class="active-status">
+                                                    Active                                            </div>
+                                            </td>
+    
+                                            <td>
+                                                30 Oct 2023 / 3:01 PM                                        </td>
+    
+                                            <td>
+    
+    
+                                                <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Action
+                                                </button>
+                                                <!-- <button class="actbtn" type="button"></button> -->
+                                                <div class="dropdown-menu"> 
+                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/suppliers/edit-supplier-view/Mg--">Edit</a>
+                                                                                                                                                  <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/suppliers/supplier-account-logs/Mg--">Account
+                                                            Logs</a>
+                                                                                                                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/suppliers/supplier-manage?search-text=Dook+Supplier+Test%28+2%29%2C+Dook+Supplier+Test&amp;key-value=2">Manage
+                                                        Account
+                                                    </a>
+                                                                                                   <a class="dropdown-item" href="javascript:void(0);" onclick="change_password_modal(&quot;Mg--&quot;,&quot;Dook Supplier Test&quot;)">Change
+                                                        Password</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="https://agent.dookinternational.com/b2c/supplier/access-account/YWRpdHlhLmt1bWFyQGRvb2t0cmF2ZWxzLmNvbS0yLTEwNi4yMTkuMTIzLjk3" target="_blank">Access Account</a>
+                                                </div> 
+                                            </td> 
+                                        </tr>
+                                    
+                                        <tr>
+                                                                                <td>
+                                                <label><input type="checkbox" name="checklist[]" class="checkbox" value="1"></label>
+                                            </td>
+                                                                                    <td>
+                                                <a href="javascript:void(0);" view-data-modal="true" data-controller="suppliers" data-id="MQ--" data-href="https://agent.dookinternational.com/adminpanel/suppliers/supplier-details/MQ--">1</a>
+                                            </td>
+    
+                                            <td>
+                                                <a href="javascript:void(0);" view-data-modal="true" data-controller="suppliers" data-id="MQ--" data-href="https://agent.dookinternational.com/adminpanel/suppliers/supplier-details/MQ--">BDSD Technology</a>
+                                            </td>
+    
+    
+                                            <td>
+                                                Gold                                        </td>
+                                            <td>
+                                                Abhay@bdsdtechnology.com                                        </td>
+                                            <td>917418529630</td>
+    
+                                            <td><i class="fa fa-inr" aria-hidden="true"></i>0                                        </td>
+    
+                                            <td>Uttar Pradesh | Delhi NCR                                            | India</td>
+                                            <td>
+                                                <div class="active-status">
+                                                    Active                                            </div>
+                                            </td>
+    
+                                            <td>
+                                                13 Jun 2023 / 1:18 PM                                        </td>
+    
+                                            <td>
+    
+    
+                                                <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Action
+                                                </button>
+                                                <!-- <button class="actbtn" type="button"></button> -->
+                                                <div class="dropdown-menu"> 
+                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/suppliers/edit-supplier-view/MQ--">Edit</a>
+                                                                                                                                                  <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/suppliers/supplier-account-logs/MQ--">Account
+                                                            Logs</a>
+                                                                                                                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/suppliers/supplier-manage?search-text=BDSD+Technology%28+1%29%2C+BDSDTechnology&amp;key-value=1">Manage
+                                                        Account
+                                                    </a>
+                                                                                                   <a class="dropdown-item" href="javascript:void(0);" onclick="change_password_modal(&quot;MQ--&quot;,&quot;BDSD Technology&quot;)">Change
+                                                        Password</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="https://agent.dookinternational.com/b2c/supplier/access-account/YWJoYXlAYmRzZHRlY2hub2xvZ3kuY29tLTEtMTA2LjIxOS4xMjMuOTc-" target="_blank">Access Account</a>
+                                                </div> 
+                                            </td> 
+                                        </tr>
+                                                                </tbody>
+                            </table>
+                        </div>
+                    </form>
+    
+    
+                    <div class="row pagiantion_row align-items-center">
+                        <div class="col-md-6 mb-3 mb-lg-0">
+                            <p class="pagiantion_text">Page 1                            of 1, total 3 records found </p>
+                        </div>
+                        <div class="col-md-6">
+                                                        <!-- DEBUG-VIEW START 3 SYSTEMPATH/Pager/Views/default_full.php -->
+    
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            
+                        <li class="active">
+                    <a href="https://agent.dookinternational.com/adminpanel/suppliers?page=1">
+                        1				</a>
+                </li>
+            
+                </ul>
+    </nav>
+    
+    <!-- DEBUG-VIEW ENDED 3 SYSTEMPATH/Pager/Views/default_full.php -->
+                                                </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

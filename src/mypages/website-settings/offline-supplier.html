@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="content">
+        <div class="page-content">
+            <div class="table_title">
+                <div class="sale_bar">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 mb-3 mb-lg-0">
+                            <h5 class="m0"> Offline Supplier List</h5>
+                        </div>
+                        <div class="col-md-8 text-md-right">
+                        
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#largeModal2">
+                            Add Offline Supplier
+                          </button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content-area">
+                <div class="card-body">
+                    <div class="row ">
+                        <!----------Start Search Bar ----------------->
+                        <form action="https://agent.dookinternational.com/adminpanel/supplier" method="GET" class="tts-dis-content" name="newsletter-search" onsubmit="return searchvalidateForm()">
+                            <div class="col-md-2">
+                                <div class="form-group form-mb-20 ">
+                                    <label>Select key to search by *</label>
+                                    <select name="key" class="form-control" onchange="tts_searchkey(this,'newsletter-search')" tts-validatation="Required" tts-error-msg="Please select search key">
+                                        <option value="">Please select</option>
+                                        <option value="supplier_name">Supplier Name
+                                        </option>
+                                        <option value="email">Email
+                                        </option>
+                                        <option value="date-range">Date Range
+                                        </option>
+                                    </select>
+                                </div>
+                                <input type="hidden" name="key-text" value="">
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-mb-20">
+                                    <label>
+                                        Value                                </label>
+                                    <input type="text" name="value" placeholder="Value" value="" class="form-control" tts-validatation="Required" tts-error-msg="Please enter value">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-mb-20">
+                                    <label>From Date</label><input type="text" data-searchbar-from="true" name="from_date" value="" placeholder="Select From Date" class="form-control" tts-error-msg="Please select from date" readonly="">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-mb-20">
+                                    <label>To Date</label><input type="text" data-searchbar-to="true" name="to_date" value="" placeholder="Select To Date" class="form-control" tts-error-msg="Please select to date" readonly="">
+                                </div>
+                            </div>
+                            <div class="col-md-2 align-self-end">
+                                <div class="form-group form-mb-20">
+    
+                                    <button type="submit" class="badge badge-md badge-primary badge_search">Search <i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <!--? if (isset($search_bar_data['key'])): ?-->
+    
+                                <div class="search-reset-btn">
+                                    <a href="https://agent.dookinternational.com/adminpanel/supplier">Reset Search</a>
+                                </div>
+    
+                                <!--? endif ?-->
+                            </div>
+                        </form>
+                    </div>
+    
+                    <!----------End Search Bar ----------------->
+    
+    
+                                    <form action="https://agent.dookinternational.com/adminpanel/supplier/" method="POST" tts-form="true" id="formbloglist">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead class="table-active">
+                                    <tr>
+                                                                            <!-- <th><label><input type="checkbox" name="check_all" id="selectall"/></label></th>-->
+                                                                            <th>Service</th>
+                                        <th>Supplier Name</th>
+                                        <th>ITQ Vendor Code</th>
+                                        <th>Email</th>
+                                        <th>Mobile</th>
+                                        <th>Created Date</th>
+                                                                                <th>Action</th>
+                                                                        </tr>
+                                </thead>
+                                <tbody>
+                                                                            <tr>
+                                                                                            <!--<td>
+                                                <label><input type="checkbox" name="checklist[]" class="checkbox"
+                                                              value=""/></label>
+                                            </td>-->
+                                                                                            <td>
+                                                    Flight                                            </td>
+                                                <td>CRS</td>
+                                                <td></td>
+                                                <td>support@dookinternational.com</td>
+                                                <td></td>
+                                                <td>15 Apr 2024 / 10:38 AM</td>
+                                                     <td>
+                                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#largeModal">
+                                                            Edit
+                                                          </button>
+                                                    </td>
+                                                                                        </tr>
+                                                                                <tr>
+                                                                                            <!--<td>
+                                                <label><input type="checkbox" name="checklist[]" class="checkbox"
+                                                              value=""/></label>
+                                            </td>-->
+                                                                                            <td>
+                                                     Holiday                                            </td>
+                                                <td>DOOK</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>20 Sep 2023 / 11:53 AM</td>
+                                                                                                <td>
+                                                        <a href="javascript:void(0);" view-data-modal="true" data-id="MTA-" data-href="https://agent.dookinternational.com/adminpanel/supplier/edit-supplier-template/MTA-">
+                                                            <i class="fa fa-edit"></i></a>
+                                                    </td>
+                                                                                        </tr>
+                                                                                <tr>
+                                                                                            <!--<td>
+                                                <label><input type="checkbox" name="checklist[]" class="checkbox"
+                                                              value=""/></label>
+                                            </td>-->
+                                                                                            <td>
+                                                     Restaurant                                            </td>
+                                                <td>ramanta</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>12 Sep 2023 / 12:31 PM</td>
+                                                                                                <td>
+                                                        <a href="javascript:void(0);" view-data-modal="true" data-id="OQ--" data-href="https://agent.dookinternational.com/adminpanel/supplier/edit-supplier-template/OQ--">
+                                                            <i class="fa fa-edit"></i></a>
+                                                    </td>
+                                                                                        </tr>
+                                                                                <tr>
+                                                                                            <!--<td>
+                                                <label><input type="checkbox" name="checklist[]" class="checkbox"
+                                                              value=""/></label>
+                                            </td>-->
+                                                                                            <td>
+                                                     Activity                                            </td>
+                                                <td>Rajat</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>08 Sep 2023 / 1:31 PM</td>
+                                                                                                <td>
+                                                        <a href="javascript:void(0);" view-data-modal="true" data-id="OA--" data-href="https://agent.dookinternational.com/adminpanel/supplier/edit-supplier-template/OA--">
+                                                            <i class="fa fa-edit"></i></a>
+                                                    </td>
+                                                                                        </tr>
+                                                                                <tr>
+                                                                                            <!--<td>
+                                                <label><input type="checkbox" name="checklist[]" class="checkbox"
+                                                              value=""/></label>
+                                            </td>-->
+                                                                                            <td>
+                                                     Holiday                                            </td>
+                                                <td>YATRA</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>08 Sep 2023 / 1:27 PM</td>
+                                                                                                <td>
+                                                        <a href="javascript:void(0);" view-data-modal="true" data-id="Nw--" data-href="https://agent.dookinternational.com/adminpanel/supplier/edit-supplier-template/Nw--">
+                                                            <i class="fa fa-edit"></i></a>
+                                                    </td>
+                                                                                        </tr>
+                                                                                <tr>
+                                                                                            <!--<td>
+                                                <label><input type="checkbox" name="checklist[]" class="checkbox"
+                                                              value=""/></label>
+                                            </td>-->
+                                                                                            <td>
+                                                     Car                                            </td>
+                                                <td>Tata</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>08 Sep 2023 / 1:07 PM</td>
+                                                                                                <td>
+                                                        <a href="javascript:void(0);" view-data-modal="true" data-id="Ng--" data-href="https://agent.dookinternational.com/adminpanel/supplier/edit-supplier-template/Ng--">
+                                                            <i class="fa fa-edit"></i></a>
+                                                    </td>
+                                                                                        </tr>
+                                                                                <tr>
+                                                                                            <!--<td>
+                                                <label><input type="checkbox" name="checklist[]" class="checkbox"
+                                                              value=""/></label>
+                                            </td>-->
+                                                                                            <td>
+                                                     Holiday                                            </td>
+                                                <td>MMT</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>08 Sep 2023 / 1:02 PM</td>
+                                                                                                <td>
+                                                        <a href="javascript:void(0);" view-data-modal="true" data-id="NQ--" data-href="https://agent.dookinternational.com/adminpanel/supplier/edit-supplier-template/NQ--">
+                                                            <i class="fa fa-edit"></i></a>
+                                                    </td>
+                                                                                        </tr>
+                                                                                <tr>
+                                                                                            <!--<td>
+                                                <label><input type="checkbox" name="checklist[]" class="checkbox"
+                                                              value=""/></label>
+                                            </td>-->
+                                                                                            <td>
+                                                    Flight                                            </td>
+                                                <td>Yatra</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>08 Sep 2023 / 11:51 AM</td>
+                                                                                                <td>
+                                                        <a href="javascript:void(0);" view-data-modal="true" data-id="Mg--" data-href="https://agent.dookinternational.com/adminpanel/supplier/edit-supplier-template/Mg--">
+                                                            <i class="fa fa-edit"></i></a>
+                                                    </td>
+                                                                                        </tr>
+                                                                                <tr>
+                                                                                            <!--<td>
+                                                <label><input type="checkbox" name="checklist[]" class="checkbox"
+                                                              value=""/></label>
+                                            </td>-->
+                                                                                            <td>
+                                                    Flight Hotel Bus                                            </td>
+                                                <td>TBO</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>27 Apr 2023 / 5:18 PM</td>
+                                                                                                <td>
+                                                        <a href="javascript:void(0);" view-data-modal="true" data-id="MQ--" data-href="https://agent.dookinternational.com/adminpanel/supplier/edit-supplier-template/MQ--">
+                                                            <i class="fa fa-edit"></i></a>
+                                                    </td>
+                                                                                        </tr>
+                                                                    </tbody>
+                            </table>
+                        </div>
+                    </form>
+    
+    
+                    <div class="row align-items-center">
+                        <div class="col-md-6 mb-3 mb-lg-0">
+                            <p class="pagiantion_text">Page 1                            of 1, total 9 records found </p>
+                        </div>
+                        <div class="col-md-6">
+                                                        <!-- DEBUG-VIEW START 3 SYSTEMPATH/Pager/Views/default_full.php -->
+    
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            
+                        <li class="active">
+                    <a href="https://agent.dookinternational.com/adminpanel/supplier?page=1">
+                        1				</a>
+                </li>
+            
+                </ul>
+    </nav>
+    
+    <!-- DEBUG-VIEW ENDED 3 SYSTEMPATH/Pager/Views/default_full.php -->
+                                                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Large Modal Structure -->
+<div class="modal fade" id="largeModal" tabindex="-1" aria-labelledby="largeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="largeModalLabel">Edit Offline Supplier</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="https://agent.dookinternational.com/adminpanel/supplier/edit-supplier/MTE-" method="post" onsubmit="return validateForm()" tts-form="true" name="add_blogs" enctype="multipart/form-data">
+
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group form-mb-20">
+                                <label> Supplier Name </label>
+                                <input class="form-control" type="text" value="CRS" name="supplier_name" placeholder="Supplier Name">
+                            </div>
+                        </div>
+        
+                        <div class="col-md-4">
+                            <div class="form-group form-mb-20">
+                                <label> Email  </label>
+                                <input class="form-control" type="email" value="support@dookinternational.com" name="email" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group form-mb-20">
+                                <label>Mobile</label>
+                                <input class="form-control" type="text" name="mobile_no" value="" placeholder="Mobile">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group form-mb-20">
+                                <label>ITQ Vendor Code</label>
+                                <input class="form-control" type="text" name="itq_vendor_code" value="" placeholder="ITQ Vendor Code">
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row">
+                        <div class="col-md-4">
+        
+                            <label>
+                                <input type="checkbox" name="flight_service" value="1" class="Lead" checked="">Flight Service
+                            </label>
+        
+                        </div>
+        
+                        <div class="col-md-4">
+        
+                            <label>
+                                <input type="checkbox" name="hotel_service" value="1" class="Lead">Hotel Service
+                            </label>
+        
+                        </div>
+                        <div class="col-md-4">
+        
+                            <label>
+                                <input type="checkbox" name="activity_service" value="1" class="Lead">Activity Service
+                            </label>
+        
+                        </div>
+                        <div class="col-md-4">
+        
+                            <label>
+                                <input type="checkbox" name="holiday_service" value="1" class="Lead">Holiday Service
+                            </label>
+        
+                        </div>
+                        <div class="col-md-4">
+        
+                            <label>
+                                <input type="checkbox" name="car_service" value="1" class="Lead">CAR Service
+                            </label>
+        
+                        </div>
+                        <div class="col-md-4">
+        
+                            <label>
+                                <input type="checkbox" name="bus_service" value="1" class="Lead">Bus Service
+                            </label>
+        
+                        </div>
+                        <div class="col-md-4">
+        
+                            <label>
+                                <input type="checkbox" name="tourguide_service" value="1" class="Lead">Restaurant Service
+                            </label>
+        
+                        </div>
+                        <div class="col-md-4">
+        
+                            <label>
+                                <input type="checkbox" name="point_of_attraction_service" value="1" class="Lead">Point Of Attractions Service
+                            </label>
+        
+                        </div>
+                        
+                        <div class="col-md-4">
+        
+                            <label>
+                                <input type="checkbox" name="tourguide_service" value="1" class="Lead">TourGuide Service
+                            </label>
+        
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save </button>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Large Modal Structure -->
+<div class="modal fade" id="largeModal2" tabindex="-1" aria-labelledby="largeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="largeModalLabel">Add Offline Supplier</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="https://agent.dookinternational.com/adminpanel/supplier/add-supplier" method="post" onsubmit="return validateForm()" tts-form="true" name="add_blogs" enctype="multipart/form-data">
+
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group form-mb-20">
+                                <label> Supplier Name </label>
+                                <input class="form-control" type="text" name="supplier_name" placeholder="Supplier Name">
+                            </div>
+                        </div>
+            
+                        <div class="col-md-4">
+                            <div class="form-group form-mb-20">
+                                <label> Email </label>
+                                <input class="form-control" type="email" name="email" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group form-mb-20">
+                                <label>Mobile</label>
+                                <input class="form-control" type="text" name="mobile_no" placeholder="Mobile">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group form-mb-20">
+                                <label>ITQ Vendor Code</label>
+                                <input class="form-control" type="text" name="itq_vendor_code" placeholder="ITQ Vendor Code">
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>
+                                <input type="checkbox" name="flight_service" value="1" class="Lead">Flight Service
+                            </label>
+            
+                        </div>
+            
+                        <div class="col-md-4">
+            
+                            <label>
+                                <input type="checkbox" name="hotel_service" value="1" class="Lead">Hotel Service
+                            </label>
+            
+                        </div>
+            
+                        <div class="col-md-4">
+            
+                            <label>
+                                <input type="checkbox" name="activity_service" value="1" class="Lead">Activity Service
+                            </label>
+            
+                            </div>
+            
+                            <div class="col-md-4">
+            
+                            <label>
+                                <input type="checkbox" name="holiday_service" value="1" class="Lead">Holiday Service
+                            </label>
+            
+                            </div>
+            
+                            <div class="col-md-4">
+            
+                            <label>
+                                <input type="checkbox" name="car_service" value="1" class="Lead">CAR Service
+                            </label>
+            
+                            </div>
+            
+                            <div class="col-md-4">
+            
+                                <label>
+                                    <input type="checkbox" name="bus_service" value="1" class="Lead">Bus Service
+                                </label>
+            
+                                </div>
+                                <div class="col-md-4">
+            
+                                <label>
+                                    <input type="checkbox" name="restaurant_service" value="1" class="Lead">Restaurant Service
+                                </label>
+            
+                                </div>
+                                <div class="col-md-4">
+            
+                                <label>
+                                    <input type="checkbox" name="hotel_service" value="1" class="Lead">Hotel Service
+                                </label>
+            
+                                </div>
+                                <div class="col-md-4">
+            
+                                <label>
+                                    <input type="checkbox" name=" point_of_attraction_service" value="1" class="Lead">Point Of Attractions Service
+                                </label>
+            
+                                </div>
+            
+                        
+                        <div class="col-md-4">
+            
+                            <label>
+                                <input type="checkbox" name="tourguide_service" value="1" class="Lead">TourGuide Service
+                            </label>
+            
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save </button>
+            
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+    </div>
+</body>
+</html>

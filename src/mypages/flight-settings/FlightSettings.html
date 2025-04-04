@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="content ">
+        <div class="page-content">
+           <div class="table_title">
+              <div class="sale_bar">
+                 <div class="row align-items-center">
+                    <div class="col-md-4 mb-3 mb-lg-0">
+                       <h5 class="m0"> Flight Settings</h5>
+                    </div>
+                    <div class="col-md-8 text-md-right">
+                                         <button class="badge badge-wt" view-data-modal="true" data-controller="flightsettings" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/add-airport-template"><i class="fa-solid fa-add "></i> Add Airport
+                       </button>
+                                                           <button class="badge badge-danger badge-wt danger disable_badge" tts-disable_badge="" onclick="confirm_delete('formairportlist')"><i class="fa-solid fa-trash"></i> Delete
+                       </button>
+                                      </div>
+                 </div>
+              </div>
+           </div>
+           <div class="page-content-area">
+            <div class="query-followup">
+               <ul class="lm_navigation">
+                  <li class="lm_navLst active">
+                     <a href="https://agent.dookinternational.com/adminpanel/flightsettings"> <span> Airports List</span> </a>
+                  </li>
+                                 <li class="lm_navLst ">
+                     <a href="https://agent.dookinternational.com/adminpanel/flightsettings/flight-airlines-list">
+                     <span>Airlines List</span>
+                     </a>
+                  </li>
+                              </ul>
+            </div>
+            <!-- Airports List -->
+            <div class="card-body">
+               <div class="row ">
+                  <!----------Start Search Bar ----------------->
+                  <form action="https://agent.dookinternational.com/adminpanel/flightsettings" method="GET" class="tts-dis-content" name="airport-search" onsubmit="return searchvalidateForm()">
+                     <div class="col-md-3">
+                        <div class="form-group form-mb-20">
+                           <label>Select key to search by *</label>
+                           <select name="key" class="form-control" onchange="tts_searchkey(this,'airport-search')" tts-validatation="Required" tts-error-msg="Please select search key">
+                              <option value="">Please select</option>
+                              <option value="code">Airport Code
+                              </option>
+                              <option value="name">Airport Name
+                              </option>
+                              <option value="city_code">City Code
+                              </option>
+                              <option value="country_name">Country Name
+                              </option>
+                              <option value="country_code">Country Code
+                              </option>
+                           </select>
+                        </div>
+                        <input type="hidden" name="key-text" value="">
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group form-mb-20">
+                           <label>Value </label>
+                           <input type="text" name="value" placeholder="Value" value="" class="form-control" tts-validatation="Required" tts-error-msg="Please enter value">
+                        </div>
+                     </div>
+                     <div class="col-md-2 align-self-end">
+                        <div class="form-group form-mb-20">
+                         
+                           <button type="submit" class="badge badge-md badge-primary badge_search">Search <i class="fa fa-search"></i></button>
+                        </div>
+                     </div>
+                     <!--? if (isset($search_bar_data['key'])): ?-->
+                     <div class="col-md-3">
+                        <div class="search-reset-btn">
+                           <a href="https://agent.dookinternational.com/adminpanel/flightsettings">Reset Search</a>
+                        </div>
+                     </div>
+                     <!--? endif ?-->
+                  </form>
+               </div>
+               <!----------End Search Bar ----------------->
+               <div class="table-responsive">
+                                 <form action="https://agent.dookinternational.com/adminpanel/flightsettings/remove-airport" method="POST" tts-form="true" id="formairportlist">
+                     <table class="table table-bordered table-hover">
+                        <thead class="table-active">
+                           <tr>
+                                                         <th><label><input type="checkbox" name="check_all" id="selectall"></label>
+                              </th>
+                                                         <th>Airport Code</th>
+                              <th>Airport Name</th>
+                              <th>City Code</th>
+                              <th>Country Name</th>
+                              <th>Country Code</th>
+                                                         <th>Action</th>
+                                                      </tr>
+                        </thead>
+                        <tbody>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="1"></label>
+                              </td>
+                                                         <td>
+                                 BAN                           </td>
+                              <td>
+                                 Basongo Airport                           </td>
+                              <td>BAN</td>
+                              <td>
+                                                            </td>
+                              <td>
+                                 CG                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MQ--" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/MQ--"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="2"></label>
+                              </td>
+                                                         <td>
+                                 KDH                           </td>
+                              <td>
+                                 Kandahar International Airport                           </td>
+                              <td>KDH</td>
+                              <td>
+                                 Afghanistan                           </td>
+                              <td>
+                                 AF                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="Mg--" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/Mg--"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="3"></label>
+                              </td>
+                                                         <td>
+                                 MZR                           </td>
+                              <td>
+                                 Mazar I Sharif Arpt                           </td>
+                              <td>MZR</td>
+                              <td>
+                                 Afghanistan                           </td>
+                              <td>
+                                 AF                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="Mw--" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/Mw--"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="4"></label>
+                              </td>
+                                                         <td>
+                                 KBL                           </td>
+                              <td>
+                                 Khwaja Rawash Arpt                           </td>
+                              <td>KBL</td>
+                              <td>
+                                 Afghanistan                           </td>
+                              <td>
+                                 AF                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="NA--" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/NA--"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="5"></label>
+                              </td>
+                                                         <td>
+                                 FBD                           </td>
+                              <td>
+                                 Faizabad Arpt                           </td>
+                              <td>FBD</td>
+                              <td>
+                                 Afghanistan                           </td>
+                              <td>
+                                 AF                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="NQ--" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/NQ--"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="6"></label>
+                              </td>
+                                                         <td>
+                                 HEA                           </td>
+                              <td>
+                                 Herat Arpt                           </td>
+                              <td>HEA</td>
+                              <td>
+                                 Afghanistan                           </td>
+                              <td>
+                                 AF                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="Ng--" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/Ng--"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="7"></label>
+                              </td>
+                                                         <td>
+                                 TIA                           </td>
+                              <td>
+                                 Rinas Arpt                           </td>
+                              <td>TIA</td>
+                              <td>
+                                 Albania                           </td>
+                              <td>
+                                 AL                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="Nw--" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/Nw--"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="8"></label>
+                              </td>
+                                                         <td>
+                                 BJA                           </td>
+                              <td>
+                                 Bejaia Arpt                           </td>
+                              <td>BJA</td>
+                              <td>
+                                 Algeria                           </td>
+                              <td>
+                                 DZ                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="OA--" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/OA--"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="9"></label>
+                              </td>
+                                                         <td>
+                                 BLJ                           </td>
+                              <td>
+                                 Batna Arpt                           </td>
+                              <td>BLJ</td>
+                              <td>
+                                 Algeria                           </td>
+                              <td>
+                                 DZ                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="OQ--" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/OQ--"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="10"></label>
+                              </td>
+                                                         <td>
+                                 AAE                           </td>
+                              <td>
+                                 Les Salines Arpt                           </td>
+                              <td>AAE</td>
+                              <td>
+                                 Algeria                           </td>
+                              <td>
+                                 DZ                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MTA-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/MTA-"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="11"></label>
+                              </td>
+                                                         <td>
+                                 ALG                           </td>
+                              <td>
+                                 Houari Boumedienne Arpt                           </td>
+                              <td>ALG</td>
+                              <td>
+                                 Algeria                           </td>
+                              <td>
+                                 DZ                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MTE-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/MTE-"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="12"></label>
+                              </td>
+                                                         <td>
+                                 INF                           </td>
+                              <td>
+                                 In Guezzam Airport                           </td>
+                              <td>INF</td>
+                              <td>
+                                 Algeria                           </td>
+                              <td>
+                                 DZ                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MTI-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/MTI-"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="13"></label>
+                              </td>
+                                                         <td>
+                                 ORN                           </td>
+                              <td>
+                                 Es Senia                           </td>
+                              <td>ORN</td>
+                              <td>
+                                 Algeria                           </td>
+                              <td>
+                                 DZ                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MTM-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/MTM-"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="14"></label>
+                              </td>
+                                                         <td>
+                                 TLM                           </td>
+                              <td>
+                                 Zenata Messali El Hadj Airport                           </td>
+                              <td>TLM</td>
+                              <td>
+                                 Algeria                           </td>
+                              <td>
+                                 DZ                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MTQ-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/MTQ-"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="15"></label>
+                              </td>
+                                                         <td>
+                                 QSF                           </td>
+                              <td>
+                                 Setif Arpt                           </td>
+                              <td>QSF</td>
+                              <td>
+                                 Algeria                           </td>
+                              <td>
+                                 DZ                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MTU-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/MTU-"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="16"></label>
+                              </td>
+                                                         <td>
+                                 CZL                           </td>
+                              <td>
+                                 Ain El Bey Arpt                           </td>
+                              <td>CZL</td>
+                              <td>
+                                 Algeria                           </td>
+                              <td>
+                                 DZ                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MTY-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/MTY-"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="17"></label>
+                              </td>
+                                                         <td>
+                                 GHA                           </td>
+                              <td>
+                                 Noumerate Arpt                           </td>
+                              <td>GHA</td>
+                              <td>
+                                 Algeria                           </td>
+                              <td>
+                                 DZ                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MTc-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/MTc-"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="18"></label>
+                              </td>
+                                                         <td>
+                                 CFK                           </td>
+                              <td>
+                                 Chlef Arpt                           </td>
+                              <td>CFK</td>
+                              <td>
+                                 Algeria                           </td>
+                              <td>
+                                 DZ                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MTg-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/MTg-"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="19"></label>
+                              </td>
+                                                         <td>
+                                 BSK                           </td>
+                              <td>
+                                 Biskra Arpt                           </td>
+                              <td>BSK</td>
+                              <td>
+                                 Algeria                           </td>
+                              <td>
+                                 DZ                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MTk-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/MTk-"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="20"></label>
+                              </td>
+                                                         <td>
+                                 TAF                           </td>
+                              <td>
+                                 Tafaraoui Arpt                           </td>
+                              <td>ORN</td>
+                              <td>
+                                 Algeria                           </td>
+                              <td>
+                                 DZ                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MjA-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/MjA-"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="21"></label>
+                              </td>
+                                                         <td>
+                                 HME                           </td>
+                              <td>
+                                 Oued Irara Arpt                           </td>
+                              <td>HME</td>
+                              <td>
+                                 Algeria                           </td>
+                              <td>
+                                 DZ                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MjE-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/MjE-"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="22"></label>
+                              </td>
+                                                         <td>
+                                 VVZ                           </td>
+                              <td>
+                                 Takhamalt Arpt                           </td>
+                              <td>VVZ</td>
+                              <td>
+                                 Algeria                           </td>
+                              <td>
+                                 DZ                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MjI-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/MjI-"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="23"></label>
+                              </td>
+                                                         <td>
+                                 PPG                           </td>
+                              <td>
+                                 Pago Pago Arpt                           </td>
+                              <td>PPG</td>
+                              <td>
+                                 American Samoa                           </td>
+                              <td>
+                                 AS                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MjM-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/MjM-"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="24"></label>
+                              </td>
+                                                         <td>
+                                 ALV                           </td>
+                              <td>
+                                 Andorra La Vella Hlpt                           </td>
+                              <td>ALV</td>
+                              <td>
+                                 Andorra                           </td>
+                              <td>
+                                 AD                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MjQ-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/MjQ-"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="25"></label>
+                              </td>
+                                                         <td>
+                                 SDD                           </td>
+                              <td>
+                                 Mukanka Airport                           </td>
+                              <td>SDD</td>
+                              <td>
+                                 Angola                           </td>
+                              <td>
+                                 AO                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MjU-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/MjU-"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="26"></label>
+                              </td>
+                                                         <td>
+                                 LAD                           </td>
+                              <td>
+                                 Four De Fevereiro Arpt                           </td>
+                              <td>LAD</td>
+                              <td>
+                                 Angola                           </td>
+                              <td>
+                                 AO                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MjY-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/MjY-"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="27"></label>
+                              </td>
+                                                         <td>
+                                 AXA                           </td>
+                              <td>
+                                 Wallblake Municipal                           </td>
+                              <td>AXA</td>
+                              <td>
+                                 Anguilla                           </td>
+                              <td>
+                                 AI                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="Mjc-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/Mjc-"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="28"></label>
+                              </td>
+                                                         <td>
+                                 ANU                           </td>
+                              <td>
+                                 V C Bird Intl Arpt                           </td>
+                              <td>ANU</td>
+                              <td>
+                                 Antigua and Barbuda                           </td>
+                              <td>
+                                 AG                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="Mjg-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/Mjg-"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="29"></label>
+                              </td>
+                                                         <td>
+                                 IGR                           </td>
+                              <td>
+                                 Iguazu Intl                           </td>
+                              <td>IGR</td>
+                              <td>
+                                 Argentina                           </td>
+                              <td>
+                                 AR                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="Mjk-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/Mjk-"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="30"></label>
+                              </td>
+                                                         <td>
+                                 VME                           </td>
+                              <td>
+                                 Villa Mercedes Arpt                           </td>
+                              <td>VME</td>
+                              <td>
+                                 Argentina                           </td>
+                              <td>
+                                 AR                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MzA-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/MzA-"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="31"></label>
+                              </td>
+                                                         <td>
+                                 SFN                           </td>
+                              <td>
+                                 Santa Fe Arpt                           </td>
+                              <td>SFN</td>
+                              <td>
+                                 Argentina                           </td>
+                              <td>
+                                 AR                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MzE-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/MzE-"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="32"></label>
+                              </td>
+                                                         <td>
+                                 RSA                           </td>
+                              <td>
+                                 Santa Rosa Arpt                           </td>
+                              <td>RSA</td>
+                              <td>
+                                 Argentina                           </td>
+                              <td>
+                                 AR                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MzI-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/MzI-"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="33"></label>
+                              </td>
+                                                         <td>
+                                 SDE                           </td>
+                              <td>
+                                 Santiago Des Estero Arpt                           </td>
+                              <td>SDE</td>
+                              <td>
+                                 Argentina                           </td>
+                              <td>
+                                 AR                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MzM-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/MzM-"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="34"></label>
+                              </td>
+                                                         <td>
+                                 TDL                           </td>
+                              <td>
+                                 Tandil Arpt                           </td>
+                              <td>TDL</td>
+                              <td>
+                                 Argentina                           </td>
+                              <td>
+                                 AR                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MzQ-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/MzQ-"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="35"></label>
+                              </td>
+                                                         <td>
+                                 REL                           </td>
+                              <td>
+                                 Trelew Arpt                           </td>
+                              <td>REL</td>
+                              <td>
+                                 Argentina                           </td>
+                              <td>
+                                 AR                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MzU-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/MzU-"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="36"></label>
+                              </td>
+                                                         <td>
+                                 BHI                           </td>
+                              <td>
+                                 Commandante Airport                           </td>
+                              <td>BHI</td>
+                              <td>
+                                 Argentina                           </td>
+                              <td>
+                                 AR                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MzY-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/MzY-"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="37"></label>
+                              </td>
+                                                         <td>
+                                 AEP                           </td>
+                              <td>
+                                 Jorge Newbery                           </td>
+                              <td>BUE</td>
+                              <td>
+                                 Argentina                           </td>
+                              <td>
+                                 AR                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="Mzc-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/Mzc-"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="38"></label>
+                              </td>
+                                                         <td>
+                                 EZE                           </td>
+                              <td>
+                                 Ministro Pistarini                           </td>
+                              <td>BUE</td>
+                              <td>
+                                 Argentina                           </td>
+                              <td>
+                                 AR                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="Mzg-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/Mzg-"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="39"></label>
+                              </td>
+                                                         <td>
+                                 CTC                           </td>
+                              <td>
+                                 Choya Arpt                           </td>
+                              <td>CTC</td>
+                              <td>
+                                 Argentina                           </td>
+                              <td>
+                                 AR                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="Mzk-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/Mzk-"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                   <tr>
+                                                         <td>
+                                 <label><input type="checkbox" name="checklist[]" class="checkbox" value="40"></label>
+                              </td>
+                                                         <td>
+                                 CPC                           </td>
+                              <td>
+                                 Chapelco Arpt                           </td>
+                              <td>CPC</td>
+                              <td>
+                                 Argentina                           </td>
+                              <td>
+                                 AR                           </td>
+                                                         <td>
+                                 <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="NDA-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airport-template/NDA-"><i class="fa-solid fa-edit "></i></a>
+                              </td>
+                                                      </tr>
+                                                </tbody>
+                     </table>
+                  </form>
+               </div>
+               <div class="row pagiantion_row align-items-center">
+                  <div class="col-md-6 mb-3 mb-lg-0">
+                     <p class="pagiantion_text">Page 1                     of 135, total 5386 records found 
+                     </p>
+                  </div>
+                  <div class="col-md-6">
+                                       
+   <nav aria-label="Page navigation">
+       <ul class="pagination">
+           
+                       <li class="active">
+                   <a href="https://agent.dookinternational.com/adminpanel/flightsettings?page=1">
+                       1				</a>
+               </li>
+                       <li>
+                   <a href="https://agent.dookinternational.com/adminpanel/flightsettings?page=2">
+                       2				</a>
+               </li>
+                       <li>
+                   <a href="https://agent.dookinternational.com/adminpanel/flightsettings?page=3">
+                       3				</a>
+               </li>
+           
+                       <li>
+                   <a href="https://agent.dookinternational.com/adminpanel/flightsettings?page=4" aria-label="Next">
+                       <span aria-hidden="true">Next</span>
+                   </a>
+               </li>
+               <li>
+                   <a href="https://agent.dookinternational.com/adminpanel/flightsettings?page=135" aria-label="Last">
+                       <span aria-hidden="true">Last</span>
+                   </a>
+               </li>
+               </ul>
+   </nav>
+                                    </div>
+               </div>
+            </div>
+          <!-- Airports List end -->
+           <!-- Airline list -->
+            <h1>Airline list</h1>
+           <div class="card-body">
+            <div class="row ">
+               <!----------Start Search Bar ----------------->
+               <form action="https://agent.dookinternational.com/adminpanel/flightsettings/flight-airlines-list" method="GET" class="tts-dis-content" name="airline-search" onsubmit="return searchvalidateForm()">
+                  <div class="col-md-3">
+                     <div class="form-group form-mb-20">
+                        <label>Select key to search by *</label>
+                        <select name="key" class="form-control" onchange="tts_searchkey(this,'airline-search')" tts-validatation="Required" tts-error-msg="Please select search key">
+                           <option value="">Please select</option>
+                           <option value="airline_code">Airline Code
+                           </option>
+                           <option value="airline_name">Airline Name
+                           </option>
+                           <option value="airline_contact_no">Airline Contact No
+                           </option>
+                        </select>
+                     </div>
+                     <input type="hidden" name="key-text" value="">
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group form-mb-20">
+                        <label>Value </label>
+                        <input type="text" name="value" placeholder="Value" value="" class="form-control" tts-validatation="Required" tts-error-msg="Please enter value">
+                     </div>
+                  </div>
+                  <div class="col-md-2 align-self-end">
+                     <div class="form-group form-mb-20">
+                        
+                        <button type="submit" class="badge badge-md badge-primary badge_search">Search <i class="fa fa-search"></i></button>
+                     </div>
+                  </div>
+                  <!--? if (isset($search_bar_data['key'])): ?-->
+                  <div class="col-md-3 mb-3">
+                     <div class="search-reset-btn">
+                        <a href="https://agent.dookinternational.com/adminpanel/flightsettings/flight-airlines-list">Reset Search</a>
+                     </div>
+                  </div>
+                  <!--? endif ?-->
+               </form>
+            </div>
+            <!----------End Search Bar ----------------->
+            <div class="table-responsive">
+                              <form action="https://agent.dookinternational.com/adminpanel/flightsettings/remove-airline" method="POST" tts-form="true" id="formairlinelist">
+                  <table class="table table-bordered table-hover">
+                     <thead class="table-active">
+                        <tr>
+                                                      <th><label><input type="checkbox" name="check_all" id="selectall"></label>
+                           </th>
+                                                      <th>Airline Code</th>
+                           <th>Airline Name</th>
+                           <th>Airline Contact No</th>
+                           <th>ITQ Supplier Code</th>
+                           <th>Validating Airline Code</th>
+                                                      <th>Action</th>
+                                                   </tr>
+                     </thead>
+                     <tbody>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="1"></label>
+                           </td>
+                                                      <td>
+                              0B                           </td>
+                           <td>
+                              Blue Air Transport Aerian                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MQ--" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/MQ--"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="2"></label>
+                           </td>
+                                                      <td>
+                              0D                           </td>
+                           <td>
+                              Darwin Airline                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="Mg--" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/Mg--"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="3"></label>
+                           </td>
+                                                      <td>
+                              0V                           </td>
+                           <td>
+                              VIETNAM AIR SERVICE                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="Mw--" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/Mw--"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="4"></label>
+                           </td>
+                                                      <td>
+                              1B                           </td>
+                           <td>
+                              BH Air                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="NA--" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/NA--"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="5"></label>
+                           </td>
+                                                      <td>
+                              1X                           </td>
+                           <td>
+                              Branson Air Express                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="NQ--" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/NQ--"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="6"></label>
+                           </td>
+                                                      <td>
+                              2A                           </td>
+                           <td>
+                              DEUTSCHE BAHN AG                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="Ng--" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/Ng--"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="7"></label>
+                           </td>
+                                                      <td>
+                              2B                           </td>
+                           <td>
+                              Aerocondor                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="Nw--" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/Nw--"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="8"></label>
+                           </td>
+                                                      <td>
+                              2C                           </td>
+                           <td>
+                              SNCF                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="OA--" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/OA--"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="9"></label>
+                           </td>
+                                                      <td>
+                              2D                           </td>
+                           <td>
+                              Dynamic Airways                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="OQ--" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/OQ--"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="10"></label>
+                           </td>
+                                                      <td>
+                              2E                           </td>
+                           <td>
+                              Smokey Bay Air                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MTA-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/MTA-"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="11"></label>
+                           </td>
+                                                      <td>
+                              2F                           </td>
+                           <td>
+                              Frontier Flying Service                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MTE-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/MTE-"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="12"></label>
+                           </td>
+                                                      <td>
+                              2H                           </td>
+                           <td>
+                              European Airlines                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MTI-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/MTI-"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="13"></label>
+                           </td>
+                                                      <td>
+                              2I                           </td>
+                           <td>
+                              Star Peru                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MTM-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/MTM-"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="14"></label>
+                           </td>
+                                                      <td>
+                              2J                           </td>
+                           <td>
+                              Air Burkina                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MTQ-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/MTQ-"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="15"></label>
+                           </td>
+                                                      <td>
+                              2K                           </td>
+                           <td>
+                              AEROGAL                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MTU-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/MTU-"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="16"></label>
+                           </td>
+                                                      <td>
+                              2L                           </td>
+                           <td>
+                              Helvetic Airways                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MTY-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/MTY-"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="17"></label>
+                           </td>
+                                                      <td>
+                              2M                           </td>
+                           <td>
+                              Moldavian Airlines                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MTc-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/MTc-"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="18"></label>
+                           </td>
+                                                      <td>
+                              2N                           </td>
+                           <td>
+                              Next Jet                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MTg-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/MTg-"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="19"></label>
+                           </td>
+                                                      <td>
+                              2P                           </td>
+                           <td>
+                              Air Philippines                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MTk-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/MTk-"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="20"></label>
+                           </td>
+                                                      <td>
+                              2R                           </td>
+                           <td>
+                              VIA Rail                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MjA-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/MjA-"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="21"></label>
+                           </td>
+                                                      <td>
+                              2S                           </td>
+                           <td>
+                              Air Carnival                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MjE-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/MjE-"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="22"></label>
+                           </td>
+                                                      <td>
+                              2T                           </td>
+                           <td>
+                              Turbo Megha Airways Private Limited                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MjI-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/MjI-"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="23"></label>
+                           </td>
+                                                      <td>
+                              2V                           </td>
+                           <td>
+                              AMTRAK                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MjM-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/MjM-"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="24"></label>
+                           </td>
+                                                      <td>
+                              2W                           </td>
+                           <td>
+                              Welcome Air                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MjQ-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/MjQ-"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="25"></label>
+                           </td>
+                                                      <td>
+                              2Y                           </td>
+                           <td>
+                              Air Andaman                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MjU-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/MjU-"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="26"></label>
+                           </td>
+                                                      <td>
+                              2Z                           </td>
+                           <td>
+                              Passaredo Airlines                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MjY-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/MjY-"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="27"></label>
+                           </td>
+                                                      <td>
+                              3B                           </td>
+                           <td>
+                              Job Air                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="Mjc-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/Mjc-"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="28"></label>
+                           </td>
+                                                      <td>
+                              3C                           </td>
+                           <td>
+                              Corporate Express Airlines                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="Mjg-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/Mjg-"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="29"></label>
+                           </td>
+                                                      <td>
+                              3D                           </td>
+                           <td>
+                              Denim Air                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="Mjk-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/Mjk-"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="30"></label>
+                           </td>
+                                                      <td>
+                              3E                           </td>
+                           <td>
+                              Air Choice One                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MzA-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/MzA-"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="31"></label>
+                           </td>
+                                                      <td>
+                              3F                           </td>
+                           <td>
+                              Pacific Airways                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MzE-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/MzE-"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="32"></label>
+                           </td>
+                                                      <td>
+                              3G                           </td>
+                           <td>
+                              Atlant-Soyuz                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MzI-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/MzI-"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="33"></label>
+                           </td>
+                                                      <td>
+                              3H                           </td>
+                           <td>
+                              Air Inuit                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MzM-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/MzM-"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="34"></label>
+                           </td>
+                                                      <td>
+                              3J                           </td>
+                           <td>
+                              JUBBA AIRWAYS                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MzQ-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/MzQ-"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="35"></label>
+                           </td>
+                                                      <td>
+                              3K                           </td>
+                           <td>
+                              JetStar Asia Airways                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MzU-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/MzU-"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="36"></label>
+                           </td>
+                                                      <td>
+                              3L                           </td>
+                           <td>
+                              Intersky                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="MzY-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/MzY-"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="37"></label>
+                           </td>
+                                                      <td>
+                              3M                           </td>
+                           <td>
+                              Silver Airways                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="Mzc-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/Mzc-"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="38"></label>
+                           </td>
+                                                      <td>
+                              3N                           </td>
+                           <td>
+                              Air Urga                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="Mzg-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/Mzg-"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="39"></label>
+                           </td>
+                                                      <td>
+                              3O                           </td>
+                           <td>
+                              AIR ARABIA MAROC                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="Mzk-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/Mzk-"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                                <tr>
+                                                      <td>
+                              <label><input type="checkbox" name="checklist[]" class="checkbox" value="40"></label>
+                           </td>
+                                                      <td>
+                              3P                           </td>
+                           <td>
+                              Tiara Air                           </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                           <td>
+                                                         </td>
+                                                      <td>
+                              <a href="javascript:void(0);" view-data-modal="true" data-controller="flightsettings" data-id="NDA-" data-href="https://agent.dookinternational.com/adminpanel/flightsettings/edit-airline-template/NDA-"><i class="fa-solid fa-edit "></i></a>
+                           </td>
+                                                   </tr>
+                                             </tbody>
+                  </table>
+               </form>
+            </div>
+            <div class="row pagiantion_row align-items-center">
+               <div class="col-md-6 mb-3 mb-lg-0">
+                  <p class="pagiantion_text">Page 1                     of 24, total 953 records found 
+                  </p>
+               </div>
+               <div class="col-md-6">
+                                    
+<nav aria-label="Page navigation">
+	<ul class="pagination">
+		
+					<li class="active">
+				<a href="https://agent.dookinternational.com/adminpanel/flightsettings/flight-airlines-list?page=1">
+					1				</a>
+			</li>
+					<li>
+				<a href="https://agent.dookinternational.com/adminpanel/flightsettings/flight-airlines-list?page=2">
+					2				</a>
+			</li>
+					<li>
+				<a href="https://agent.dookinternational.com/adminpanel/flightsettings/flight-airlines-list?page=3">
+					3				</a>
+			</li>
+		
+					<li>
+				<a href="https://agent.dookinternational.com/adminpanel/flightsettings/flight-airlines-list?page=4" aria-label="Next">
+					<span aria-hidden="true">Next</span>
+				</a>
+			</li>
+			<li>
+				<a href="https://agent.dookinternational.com/adminpanel/flightsettings/flight-airlines-list?page=24" aria-label="Last">
+					<span aria-hidden="true">Last</span>
+				</a>
+			</li>
+			</ul>
+</nav>
+                                 </div>
+            </div>
+         </div>
+    <!-- Airline list end-->
+         </div>
+        </div>
+     </div>
+</body>
+</html>

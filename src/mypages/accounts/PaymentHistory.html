@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="content ">
+        <div class="page-content">
+           <div class="table_title">
+              <div class="sale_bar">
+                 <div class="row">
+                    <div class="col-md-2">
+                       <h5 class="m0">Payment History</h5>
+                    </div>
+                 </div>
+              </div>
+           </div>
+           <div class="page-content-area">
+              <div class="card-body">
+              <div class="row  align-items-center">
+                 <!----------Start Search Bar ----------------->
+                 <form action="https://agent.dookinternational.com/adminpanel/webpartner/payment-history-log" method="GET" class="tts-dis-content" name="web-partner-search" onsubmit="return searchvalidateForm()">
+                    <div class="col-md-3">
+                       <div class="form-group form-mb-20">
+                          <label> Search by Company ID / Company Name</label>
+                          <input type="text" class="form-control" name="search-text" value="" tts-get-web-partner-info="true" tts-error-msg="Please enter search type" placeholder="Search by Company ID / Company Name">
+                          <input type="hidden" name="key-value" tts-web-partner-info-id="true" value="">
+                       </div>
+                    </div>
+                    <div class="col-md-2">
+                       <div class="form-group form-mb-20">
+                          <label>From Date</label>
+                          <input type="text" data-searchbar-from="true" name="from_date" value="01 Feb 2025" placeholder="Select From Date" class="form-control" tts-error-msg="Please select from date" tts-validatation="Required" readonly="">
+                       </div>
+                    </div>
+                    <div class="col-md-2">
+                       <div class="form-group form-mb-20">
+                          <label>To Date</label>
+                          <input type="hidden" name="export_excel" value="0">
+                          <input type="text" data-searchbar-to="true" name="to_date" value="01 Feb 2025" placeholder="Select To Date" class="form-control" tts-error-msg="Please select to date" tts-validatation="Required" readonly="">
+                       </div>
+                    </div>
+                    <input type="hidden" name="key" value="date-range">
+                    <div class="col-md-2 align-self-end">
+                       <div class="form-group form-mb-20">
+                          <button type="submit" class="badge badge-md badge-primary badge_search" onclick="noExportExcel()">Search <i class="fa fa-search"></i></button>
+                       </div>
+                    </div>
+                    
+                    <div class="col-md-2">
+                    <!--? if(isset($search_bar_data['key'])): ?-->
+                   
+                       <div class="search-reset-btn">
+                          <a href="https://agent.dookinternational.com/adminpanel/webpartner/payment-history-log">Reset Search</a>
+                       </div>
+                    
+                    <!--? endif ?-->
+                    </div>
+                    <div class="col-md-1 text-md-right align-self-end">
+                       <div class="form-group form-mb-20">
+                          <label></label>
+                          <button type="submit" class="btn_excel" onclick="exportExcel()">
+                             <img src="https://agent.dookinternational.com/adminpanel/webroot/img/excel.svg" class="img_fluid">
+                          </button>
+                       </div>
+                    </div>
+                 </form>
+              </div>
+             </div> 
+              <!----------End Search Bar ----------------->
+                    </div>
+        </div>
+     </div>
+</body>
+</html>

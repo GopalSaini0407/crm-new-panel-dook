@@ -1,0 +1,2363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="content ">
+        <div class="page-content">
+            <div class="table_title">
+                <div class="sale_bar">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 mb-3 mb-lg-0">
+                            <h5 class="m0"> Restaurant List</h5>
+                        </div>
+                        <div class="col-md-8 text-md-right">
+    
+                                                        <button class="badge badge-wt" view-data-modal="true" data-controller="restaurant" data-href="https://agent.dookinternational.com/adminpanel/restaurant/add-restaurant-template"><i class="fa-solid fa-add "></i> Add Restaurant
+                                </button>
+                            
+                                                        <button class="badge badge-wt" onclick="confirm_change_status('status_change')"><i class="fa-solid fa-exchange"></i> Change Status
+                                </button>
+                                                                                <button class="badge badge-danger badge-wt danger disable_badge" tts-disable_badge="" onclick="confirm_delete('formsliderlist')"><i class="fa-solid fa-trash"></i> Delete
+                                </button>
+                                                </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content-area">
+    
+                <div class="card-body">
+                    <!-- Start of Search Bar -->
+                    <div class="row">
+                        <form action="https://agent.dookinternational.com/adminpanel/restaurant" method="GET" class="tts-dis-content" name="restaurant-search" onsubmit="return searchvalidateForm()">
+                            <div class="col-md-3">
+                                <div class="form-group form-mb-20">
+                                    <label>Select key to search by * </label>
+                                    <select name="key" class="form-control" onchange="tts_searchkey(this, 'restaurant-search')" tts-validatation="Required" tts-error-msg="Please select search key">
+                                        <option value="">Please Select</option>
+                                        <option value="restaurant-name">Restaurant Name
+                                        </option>
+                                        <option value="rating">Rating
+                                        </option>
+                                        <option value="location">Location
+                                        </option>
+                                        <option value="status">Status
+                                        </option>
+                                        <option value="date-range">Date Range</option>
+                                    </select>
+    
+                                    <input type="hidden" name="key-text" value="">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group form-mb-20">
+                                    <label>
+                                        Value                                </label>
+                                    <input type="text" name="value" placeholder="Value" value="" class="form-control" tts-validatation="Required" tts-error-msg="Please enter value">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-mb-20">
+                                    <label for="from-date">From Date</label>
+                                    <input type="text" class="form-control" id="from-date" data-searchbar-from="true" name="from_date" placeholder="Select From Date" value="" tts-error-msg="Please Select From Date" readonly="">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-mb-20">
+                                    <label for="to-date">To Date</label>
+                                    <input type="text" class="form-control" id="to-date" data-searchbar-to="true" name="to_date" placeholder="Select To Date" value="" tts-error-msg="Please Select To Date" readonly="">
+                                </div>
+                            </div>
+    
+                            <div class="col-md-2 align-self-end">
+                                <div class="form-group form-mb-20">
+                                    <button type="submit" class="badge badge-md badge-primary badge_search">Search <i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+    
+                            
+                        </form>
+                    </div>
+                    <!-- End of Search Bar -->
+    
+                    <div class="table-responsive">
+                                            <form action="https://agent.dookinternational.com/adminpanel/restaurant/remove-restaurant" method="POST" tts-form="true" id="formsliderlist">
+                            <table class="table table-bordered table-hover">
+                                <thead class="table-active">
+                                    <tr>
+                                                                                <th><label><input type="checkbox" name="check_all" id="selectall"></label>
+                                            </th>
+                                        
+                                        <th>Restaurant Image</th>
+                                        <th>Restaurant Name</th>
+                                        <th>Star Rating</th>
+                                        <th>Location</th>
+                                        <th>Status</th>
+                                        <th>Created Date</th>
+                                        <th>Modified Date</th>
+                                                                                <th>Action</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="176"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1726746217985_Junction_1.jpg" alt="Masala Junction" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Masala Junction                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Baku                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    19 Sep 2024 / 5:10 PM                                            </td>
+                                                <td>
+                                                    10 Oct 2024 / 11:33 AM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTc2" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTc2">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTc2">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="175"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1720525817465_Mabrur 1 u.jpg" alt="Mabrur Halal Dining" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Mabrur Halal Dining                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Istanbul                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    09 Jul 2024 / 5:20 PM                                            </td>
+                                                <td>
+                                                    18 Oct 2024 / 2:25 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTc1" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTc1">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTc1">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="174"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1720520806719_Kerala 1 u.jpg" alt="Indian Restaurant Kerala" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Indian Restaurant Kerala                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Kyoto                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    09 Jul 2024 / 3:56 PM                                            </td>
+                                                <td>
+                                                    25 Oct 2024 / 4:07 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTc0" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTc0">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTc0">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="173"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1720516786967_Mughal 1 u.jpeg" alt="Indian Restaurant Mughal" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Indian Restaurant Mughal                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Kyoto                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    09 Jul 2024 / 2:49 PM                                            </td>
+                                                <td>
+                                                    25 Oct 2024 / 4:06 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTcz" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTcz">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTcz">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="172"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1720510361729_Yak 1 u.jpg" alt="Yak &amp; Yeti" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Yak &amp; Yeti                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Kyoto                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    09 Jul 2024 / 1:02 PM                                            </td>
+                                                <td>
+                                                    25 Oct 2024 / 4:03 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTcy" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTcy">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTcy">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="171"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1720507104372_Arash 2 u.jpg" alt="Arash's Kitchen" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Arash's Kitchen                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Kyoto                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    09 Jul 2024 / 12:08 PM                                            </td>
+                                                <td>
+                                                    29 Oct 2024 / 11:25 AM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTcx" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTcx">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTcx">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="170"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1720174154989_Ali 1 u.jpg" alt="Ali's Kitchen" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Ali's Kitchen                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Osaka                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    05 Jul 2024 / 3:39 PM                                            </td>
+                                                <td>
+                                                    25 Oct 2024 / 3:36 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTcw" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTcw">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTcw">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="169"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1720164455591_Mama  2 u.jpg" alt="Mama San Bali" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Mama San Bali                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Bali                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    05 Jul 2024 / 12:57 PM                                            </td>
+                                                <td>
+                                                    25 Oct 2024 / 3:32 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTY5" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTY5">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTY5">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="168"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/17200945371_Red 1 u.jpg" alt="Red Gunpowder" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Red Gunpowder                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Bali                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    04 Jul 2024 / 5:32 PM                                            </td>
+                                                <td>
+                                                    18 Oct 2024 / 2:58 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTY4" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTY4">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTY4">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="167"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1720088834702_Apsara 1 u.jpg" alt="Apsara" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Apsara                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Bali                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    04 Jul 2024 / 3:57 PM                                            </td>
+                                                <td>
+                                                    18 Oct 2024 / 2:58 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTY3" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTY3">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTY3">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="166"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1720086095236_Muse 1 u.jpg" alt="Muse Cafe &amp; Art" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Muse Cafe &amp; Art                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Bali                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    04 Jul 2024 / 3:11 PM                                            </td>
+                                                <td>
+                                                    25 Oct 2024 / 3:28 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTY2" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTY2">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTY2">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="165"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1720077471791_Galle 1 u.jpg" alt="Galle Club" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Galle Club                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Bali                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    04 Jul 2024 / 12:47 PM                                            </td>
+                                                <td>
+                                                    21 Oct 2024 / 11:23 AM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTY1" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTY1">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTY1">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="164"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1720007163745_Manvar 1 u.jpg" alt="Manvar Rasoi Indian Restaurant" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Manvar Rasoi Indian Restaurant                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Da Nang                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    03 Jul 2024 / 5:16 PM                                            </td>
+                                                <td>
+                                                    25 Oct 2024 / 3:17 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTY0" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTY0">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTY0">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="163"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1720000117744_Central 1 u.jpg" alt="Benaras Central Da Nang" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Benaras Central Da Nang                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Da Nang                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    03 Jul 2024 / 3:18 PM                                            </td>
+                                                <td>
+                                                    25 Oct 2024 / 3:11 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTYz" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTYz">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTYz">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="162"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1719991443531_Maharaja 2 u.jpg" alt="Maharaja Indian Restaurant, Da Nang" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Maharaja Indian Restaurant, Da Nang                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Da Nang                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    03 Jul 2024 / 12:43 PM                                            </td>
+                                                <td>
+                                                    25 Oct 2024 / 2:59 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTYy" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTYy">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTYy">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="161"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1719988349909_Veda 1 u.jpg" alt="Veda's Kitchen Indian Restaurant" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Veda's Kitchen Indian Restaurant                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Da Nang                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    03 Jul 2024 / 12:02 PM                                            </td>
+                                                <td>
+                                                    25 Oct 2024 / 2:52 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTYx" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTYx">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTYx">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="160"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1719923745271_Mumtaz 1 u.jpg" alt="Mumtaz Indian Aroma Restaurant" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Mumtaz Indian Aroma Restaurant                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Da Nang                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    02 Jul 2024 / 6:05 PM                                            </td>
+                                                <td>
+                                                    25 Oct 2024 / 2:50 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTYw" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTYw">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTYw">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="159"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1719920447194_Gaylord 1 u.jpg" alt="Gaylord Indian Restaurant" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Gaylord Indian Restaurant                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Melbourne                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    02 Jul 2024 / 4:43 PM                                            </td>
+                                                <td>
+                                                    24 Jul 2024 / 4:12 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTU5" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTU5">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTU5">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="158"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1719916000493_Tonka 1 u.jpg" alt="Tonka" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Tonka                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Melbourne                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    02 Jul 2024 / 3:56 PM                                            </td>
+                                                <td>
+                                                    25 Oct 2024 / 2:35 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTU4" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTU4">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTU4">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="157"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1719903702742_Masti 1 u.jpg" alt="Masti" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Masti                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Melbourne                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    02 Jul 2024 / 12:31 PM                                            </td>
+                                                <td>
+                                                    25 Oct 2024 / 2:33 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTU3" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTU3">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTU3">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="156"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1719899912709_Horn 1 u.jpg" alt="Horn Please" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Horn Please                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Melbourne                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    02 Jul 2024 / 11:26 AM                                            </td>
+                                                <td>
+                                                    25 Oct 2024 / 2:31 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTU2" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTU2">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTU2">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="155"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1719897087917_ELCHI 1 u.jpg" alt="ELCHI" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    ELCHI                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Melbourne                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    02 Jul 2024 / 10:40 AM                                            </td>
+                                                <td>
+                                                    25 Oct 2024 / 2:30 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTU1" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTU1">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTU1">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="154"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/17198372765_Stone 1 u.jpg" alt="Stone &amp; Copper" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Stone &amp; Copper                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Brisbane                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    01 Jul 2024 / 6:04 PM                                            </td>
+                                                <td>
+                                                    25 Oct 2024 / 2:17 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTU0" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTU0">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTU0">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="153"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1719833486438_Mirchi 1 u.jpg" alt="It's Mirchi Healthy Indian" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    It's Mirchi Healthy Indian                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Brisbane                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    01 Jul 2024 / 5:01 PM                                            </td>
+                                                <td>
+                                                    25 Oct 2024 / 2:16 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTUz" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTUz">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTUz">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="152"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1719830754980_Eden 1 u.jpg" alt="Eden Garden Indian Restaurant" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Eden Garden Indian Restaurant                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Brisbane                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    01 Jul 2024 / 4:15 PM                                            </td>
+                                                <td>
+                                                    24 Jul 2024 / 4:24 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTUy" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTUy">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTUy">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="151"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1719826976726_Palace 1 u.jpg" alt="Punjabi Palace" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Punjabi Palace                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Brisbane                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    01 Jul 2024 / 3:12 PM                                            </td>
+                                                <td>
+                                                    24 Jul 2024 / 4:24 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTUx" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTUx">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTUx">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="150"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1719579945934_Curryville 1 u.jpg" alt="Curryville" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Curryville                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Brisbane                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    28 Jun 2024 / 6:35 PM                                            </td>
+                                                <td>
+                                                    25 Oct 2024 / 2:09 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTUw" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTUw">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTUw">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="149"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1719572637316_Darbar 1 u.jpg" alt="Bombay Darbar" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Bombay Darbar                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Male                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    28 Jun 2024 / 4:33 PM                                            </td>
+                                                <td>
+                                                    25 Oct 2024 / 2:06 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTQ5" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTQ5">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTQ5">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="148"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1719566369224_Chinar 1 u.jpg" alt="Chinar" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Chinar                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Baku                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    28 Jun 2024 / 2:49 PM                                            </td>
+                                                <td>
+                                                    25 Oct 2024 / 12:54 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTQ4" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTQ4">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTQ4">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="147"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1719490197200_Abhi 1 u.jpg" alt="Abhi's" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Abhi's                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Sydney                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    27 Jun 2024 / 5:39 PM                                            </td>
+                                                <td>
+                                                    25 Oct 2024 / 12:40 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTQ3" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTQ3">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTQ3">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="146"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1719483838966_Aunty 1 u.jpg" alt="Don't Tell Aunty" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Don't Tell Aunty                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Sydney                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    27 Jun 2024 / 3:53 PM                                            </td>
+                                                <td>
+                                                    25 Oct 2024 / 12:40 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTQ2" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTQ2">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTQ2">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="145"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1719481050871_Chatkazz 1 u.jpg" alt="Chatkazz Harris Park Restaurant" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Chatkazz Harris Park Restaurant                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Sydney                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    27 Jun 2024 / 3:06 PM                                            </td>
+                                                <td>
+                                                    25 Oct 2024 / 12:31 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTQ1" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTQ1">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTQ1">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="144"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1719472379616_Room1 u.jpg" alt="The Spice Room" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    The Spice Room                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Sydney                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    27 Jun 2024 / 12:43 PM                                            </td>
+                                                <td>
+                                                    25 Oct 2024 / 12:27 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTQ0" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTQ0">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTQ0">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="143"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1719402348568_Manjits1 u.jpg" alt="Manjits Wharf" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Manjits Wharf                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Sydney                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    26 Jun 2024 / 5:15 PM                                            </td>
+                                                <td>
+                                                    25 Oct 2024 / 12:26 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTQz" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTQz">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTQz">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="142"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1719396839420_Spice 1 u.jpg" alt="Spice Shop Indian Cuisine" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Spice Shop Indian Cuisine                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Taipei City                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    26 Jun 2024 / 3:44 PM                                            </td>
+                                                <td>
+                                                    25 Oct 2024 / 11:58 AM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTQy" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTQy">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTQy">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="141"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/171938637089_Balle 1 u.jpg" alt="Balle Balle Indian Restaurant &amp; Bar" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Balle Balle Indian Restaurant &amp; Bar                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Taipei City                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    26 Jun 2024 / 12:49 PM                                            </td>
+                                                <td>
+                                                    24 Jul 2024 / 4:31 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTQx" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTQx">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTQx">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="140"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1719382777537_Saffron 1 u.jpg" alt="Saffron Fine Indian Cuisine" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Saffron Fine Indian Cuisine                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Taipei City                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    26 Jun 2024 / 11:49 AM                                            </td>
+                                                <td>
+                                                    25 Oct 2024 / 12:02 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTQw" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTQw">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTQw">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="139"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1719377343445_Tandoor 1 u.jpg" alt="Tandoor Indian Restaurant" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Tandoor Indian Restaurant                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Taipei City                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    26 Jun 2024 / 10:19 AM                                            </td>
+                                                <td>
+                                                    25 Oct 2024 / 12:07 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTM5" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTM5">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTM5">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="138"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/17193113220_Mayur 1 u.jpg" alt="Mayur Indian Kitchen" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Mayur Indian Kitchen                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Taipei City                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    25 Jun 2024 / 3:58 PM                                            </td>
+                                                <td>
+                                                    25 Oct 2024 / 12:06 PM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTM4" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTM4">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTM4">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                        
+                                            <tr>
+                                                <td>
+                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="137"></label>
+                                                </td>
+    
+                                                <td>
+                                                    
+                                                        <img src="https://agent.dookinternational.com/uploads/restaurant/thumbnail/1718606656670_Bukhari 1 u.jpg" alt="Bukhari - COMO Uma Punakha" class="tts-blog-image">
+                                                                                                </td>
+    
+                                                <td>
+                                                    Bukhari - COMO Uma Punakha                                            </td>
+    
+                                                <td>
+                                                                                                </td>
+    
+    
+    
+                                                <td>
+                                                    Punakha                                            </td>
+    
+                                                <td>
+    
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+    
+                                                </td>
+    
+                                                <td>
+                                                    17 Jun 2024 / 12:14 PM                                            </td>
+                                                <td>
+                                                    25 Oct 2024 / 11:56 AM                                            </td>
+    
+                                                <td>
+    
+                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action
+                                                    </button>
+                                                    <!-- <button class="actbtn" type="button"></button> -->
+                                                    <div class="dropdown-menu">
+                                                                                                                <a class="dropdown-item" view-data-modal="true" data-controller="Restaurant" data-id="MTM3" data-href="https://agent.dookinternational.com/adminpanel/restaurant/edit-restaurant-template/MTM3">Edit</a>
+                                                        
+    
+    
+                                                        <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/restaurant/restaurant-menu-list/MTM3">
+                                                            Menu List
+                                                        </a>
+    
+                                                        
+                                                        
+                                                    </div>
+    
+                                                </td>
+    
+                                            </tr>
+                                                                    </tbody>
+                            </table>
+    
+                        </form>
+    
+                    </div>
+                    <div class="row pagiantion_row align-items-center">
+                        <div class="col-6">
+                            <p class="pagiantion_text">Page
+                                1 of
+                                5, total
+                                172 records found
+                            </p>
+                        </div>
+                        <div class="col-6">
+                                                        <!-- DEBUG-VIEW START 3 SYSTEMPATH/Pager/Views/default_full.php -->
+    
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            
+                        <li class="active">
+                    <a href="https://agent.dookinternational.com/adminpanel/restaurant?page=1">
+                        1				</a>
+                </li>
+                        <li>
+                    <a href="https://agent.dookinternational.com/adminpanel/restaurant?page=2">
+                        2				</a>
+                </li>
+                        <li>
+                    <a href="https://agent.dookinternational.com/adminpanel/restaurant?page=3">
+                        3				</a>
+                </li>
+            
+                        <li>
+                    <a href="https://agent.dookinternational.com/adminpanel/restaurant?page=4" aria-label="Next">
+                        <span aria-hidden="true">Next</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://agent.dookinternational.com/adminpanel/restaurant?page=5" aria-label="Last">
+                        <span aria-hidden="true">Last</span>
+                    </a>
+                </li>
+                </ul>
+    </nav>
+    
+    <!-- DEBUG-VIEW ENDED 3 SYSTEMPATH/Pager/Views/default_full.php -->
+                                                </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+</body>
+</html>

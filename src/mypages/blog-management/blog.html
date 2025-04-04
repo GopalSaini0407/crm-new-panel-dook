@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="content ">
+        <div class="page-content">
+            <div class="table_title">
+                <div class="sale_bar">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 mb-3 mb-lg-0">
+                            <h5 class="m0">Blog List</h5>
+                        </div>
+                        <div class="col-md-8 text-md-right">
+                            
+                                <a href="https://agent.dookinternational.com/adminpanel/blog/blog-category-list/" class="badge badge-wt">
+                                    <i class="fa-solid fa-list "></i> Blog Category</a>
+                            
+                            
+                                <button class="badge badge-wt" view-data-modal="true" data-controller="blogs" data-href="https://agent.dookinternational.com/adminpanel/blog/add-blog-template">
+                                    <i class="fa-solid fa-add "></i> Add Blog
+                                </button>
+                            
+                                                        <button class="badge badge-wt" onclick="confirm_change_status('status_change')">
+                                    <i class="fa-solid fa-exchange"></i> Change Status
+                                </button>
+                            
+                                                        <button class="badge badge-danger badge-wt danger disable_badge" tts-disable_badge="" onclick="confirm_delete('formbloglist')"><i class="fa-solid fa-trash "></i> Delete
+                                </button>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content-area">
+    
+    
+                <div class="card-body">
+                    <div class="row">
+                        <!----------Start Search Bar ----------------->
+                        <form action="https://agent.dookinternational.com/adminpanel/blog" method="GET" class="tts-dis-content" name="blog-search" onsubmit="return searchvalidateForm()">
+                            <div class="col-md-3">
+                                <div class="form-group form-mb-20">
+                                    <label>Select key to search by *</label>
+                                    <select name="key" class="form-control" onchange="tts_searchkey(this,'blog-search')" tts-validatation="Required" tts-error-msg="Please select search key">
+                                        <option value="">Please select</option>
+                                        <option value="post_title">Post Title
+                                        </option>
+                                        <option value="posted_by">Posted By
+                                        </option>
+                                        <option value="date-range">Date Range
+                                        </option>
+                                    </select>
+                                </div>
+                                <input type="hidden" name="key-text" value="">
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group form-mb-20">
+                                    <label>
+                                        Value                                </label>
+                                    <input type="text" name="value" placeholder="Value" value="" class="form-control" tts-validatation="Required" tts-error-msg="Please enter value">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-mb-20">
+                                    <label>From Date</label><input type="text" data-searchbar-from="true" name="from_date" value="" placeholder="Select From Date" class="form-control" tts-error-msg="Please select from date" readonly="">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-mb-20">
+                                    <label>To Date</label><input type="text" data-searchbar-to="true" name="to_date" value="" placeholder="Select To Date" class="form-control" tts-error-msg="Please select to date" readonly="">
+                                </div>
+                            </div>
+                            <div class="col-md-2 align-self-end">
+                                <div class="form-group form-mb-20">
+    
+                                    <button type="submit" class="badge badge-md badge-primary badge_search">Search <i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+    
+                            <!--? if (isset($search_bar_data['key'])): ?-->
+                            <div class="col-md-3 mb-3">
+                                <div class="search-reset-btn">
+                                    <a href="https://agent.dookinternational.com/adminpanel/blog">Reset Search</a>
+                                </div>
+                            </div>
+                            <!--? endif ?-->
+    
+                        </form>
+                    </div>
+    
+                    <!----------End Search Bar ----------------->
+    
+                    <div class="table-responsive">
+                                            <form action="https://agent.dookinternational.com/adminpanel/blog/remove-blog" method="POST" tts-form="true" id="formbloglist">
+                            <table class="table table-bordered table-hover">
+                                <thead class="table-active">
+                                    <tr>
+    
+                                                                            <th><label><input type="checkbox" name="check_all" id="selectall"></label>
+                                        </th>
+                                        
+                                        <th>Blog Image</th>
+                                        <th>Blog Title</th>
+                                        <th>Slug</th>
+                                        <th>Category</th>
+                                        <th>Status</th>
+                                        <th>Post By</th>
+                                        <th>Created Date</th>
+                                        <th>Modified Date</th>
+                                                                            <th>Action</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                    <tr>
+                                                                            <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="1"></label>
+                                        </td>
+                                        
+                                        <td>
+                                            <img src="https://agent.dookinternational.com/uploads/blog/thumbnail/1677754920_kerala.jpeg" alt="Dolorum optio tempore voluptas" class="tts-blog-image">
+                                        </td>
+    
+                                        <td>
+                                            Dolorum optio tempore voluptas                                    </td>
+                                        <td>
+                                            Dolorum-optio-tempore-voluptas                                    </td>
+                                        <td>
+                                            Dummy-Category                                    </td>
+                                        <td>
+    
+                                            <span class="inactive-status">
+                                                Inactive                                        </span>
+    
+                                        </td>
+    
+                                        <td>
+                                            Admin                                    </td>
+    
+    
+                                        <td>
+                                            23 Jan 2023 / 3:24 PM                                    </td>
+                                        <td>
+                                            02 Mar 2023 / 4:32 PM                                    </td>
+    
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="blogs" data-id="MQ--" data-href="https://agent.dookinternational.com/adminpanel/blog/edit-blog-template/MQ--"><i class="tts-icon edit "></i></a>
+                                        </td>
+                                        
+                                    </tr>
+                                    
+                                    <tr>
+                                                                            <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="2"></label>
+                                        </td>
+                                        
+                                        <td>
+                                            <img src="https://agent.dookinternational.com/uploads/blog/thumbnail/1677752160_blog.jpeg" alt="Top 10 Difference Between North Goa And South Goa In 2023" class="tts-blog-image">
+                                        </td>
+    
+                                        <td>
+                                            Top 10 Difference Between North Goa And South Goa In 2023                                    </td>
+                                        <td>
+                                            op-10-difference-between-north-goa-and-south-goa-in-2023                                    </td>
+                                        <td>
+                                            Dummy-Category                                    </td>
+                                        <td>
+    
+                                            <span class="inactive-status">
+                                                Inactive                                        </span>
+    
+                                        </td>
+    
+                                        <td>
+                                            Admin                                    </td>
+    
+    
+                                        <td>
+                                            02 Mar 2023 / 3:46 PM                                    </td>
+                                        <td>
+                                            -                                    </td>
+    
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="blogs" data-id="Mg--" data-href="https://agent.dookinternational.com/adminpanel/blog/edit-blog-template/Mg--"><i class="tts-icon edit "></i></a>
+                                        </td>
+                                        
+                                    </tr>
+                                    
+                                    <tr>
+                                                                            <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="3"></label>
+                                        </td>
+                                        
+                                        <td>
+                                            <img src="https://agent.dookinternational.com/uploads/blog/thumbnail/1677752280_blog1.jpeg" alt="Top 10 Rich Experiences You Should Try in the Andaman Islands in 2023" class="tts-blog-image">
+                                        </td>
+    
+                                        <td>
+                                            Top 10 Rich Experiences You Should Try in the Andaman Islands in 2023                                    </td>
+                                        <td>
+                                            top-10-rich-experiences-you-should-try-in-the-andaman-islands-in-2023                                    </td>
+                                        <td>
+                                            Dummy-Category                                    </td>
+                                        <td>
+    
+                                            <span class="inactive-status">
+                                                Inactive                                        </span>
+    
+                                        </td>
+    
+                                        <td>
+                                            Admin                                    </td>
+    
+    
+                                        <td>
+                                            02 Mar 2023 / 3:48 PM                                    </td>
+                                        <td>
+                                            -                                    </td>
+    
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="blogs" data-id="Mw--" data-href="https://agent.dookinternational.com/adminpanel/blog/edit-blog-template/Mw--"><i class="tts-icon edit "></i></a>
+                                        </td>
+                                        
+                                    </tr>
+                                    
+                                    <tr>
+                                                                            <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="4"></label>
+                                        </td>
+                                        
+                                        <td>
+                                            <img src="https://agent.dookinternational.com/uploads/blog/thumbnail/1677752400_blog2.jpeg" alt="Top 10 Best Beaches in the World" class="tts-blog-image">
+                                        </td>
+    
+                                        <td>
+                                            Top 10 Best Beaches in the World                                    </td>
+                                        <td>
+                                            top-10-best-beaches-in-the-world                                    </td>
+                                        <td>
+                                            Dummy-Category                                    </td>
+                                        <td>
+    
+                                            <span class="inactive-status">
+                                                Inactive                                        </span>
+    
+                                        </td>
+    
+                                        <td>
+                                            Admin                                    </td>
+    
+    
+                                        <td>
+                                            02 Mar 2023 / 3:50 PM                                    </td>
+                                        <td>
+                                            -                                    </td>
+    
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="blogs" data-id="NA--" data-href="https://agent.dookinternational.com/adminpanel/blog/edit-blog-template/NA--"><i class="tts-icon edit "></i></a>
+                                        </td>
+                                        
+                                    </tr>
+                                                                </tbody>
+                            </table>
+    
+                        </form>
+    
+    
+                    </div>
+                    <div class="row pagiantion_row align-items-center">
+                        <div class="col-md-6 mb-3 mb-lg-0">
+                            <p class="pagiantion_text">Page
+                                1                            of
+                                1, total
+                                4 records found
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                                                    <!-- DEBUG-VIEW START 3 SYSTEMPATH/Pager/Views/default_full.php -->
+    
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            
+                        <li class="active">
+                    <a href="https://agent.dookinternational.com/adminpanel/blog?page=1">
+                        1				</a>
+                </li>
+            
+                </ul>
+    </nav>
+    
+    <!-- DEBUG-VIEW ENDED 3 SYSTEMPATH/Pager/Views/default_full.php -->
+                                                </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

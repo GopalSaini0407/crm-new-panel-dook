@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="content ">
+        <div class="page-content">
+            <div class="table_title">
+                <div class="sale_bar">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 mb-3 mb-lg-0">
+                            <h5 class="m0">Super Admin Holiday Discount</h5>
+                        </div>
+                        <div class="col-md-8 text-md-right">
+                                                        <button class="badge badge-wt" view-data-modal="true" data-controller="flight" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/super-admin-holiday-discount-view"><i class="fa-solid fa-add"></i> Add Holiday Discount
+                                </button>
+                                                                                <button class="badge badge-wt" onclick="confirm_change_status('status_change')"><i class="fa-solid fa-exchange"></i> Change Status
+                                </button>
+                                                                                <button class="badge badge-danger badge-wt danger disable_badge" tts-disable_badge="" onclick="confirm_delete('formmarkuplist')"><i class="fa-solid fa-trash"></i> Delete
+                                </button>
+                                                </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content-area">
+                <div class="card-body">
+                    <div class="row mb_10">
+                        <!----------Start Search Bar ----------------->
+                        <form action="https://agent.dookinternational.com/adminpanel/markup-discount/super-admin-holiday-discount-list" method="GET" class="tts-dis-content" name="markup-search" onsubmit="return searchvalidateForm()">
+                            <div class="col-md-2">
+                                <div class="form-group form-mb-20">
+                                    <label>Select key to search by *</label>
+                                    <select name="key" class="form-control" onchange="tts_searchkey(this,'markup-search')" tts-validatation="Required" tts-error-msg="Please select search key">
+                                        <option value="">Please select</option>
+    
+                                        <!--<option value="discount_type"   >Discount Type</option>-->
+                                        <option value="date-range">
+                                            Date Range
+                                        </option>
+                                    </select>
+                                </div>
+                                <input type="hidden" name="key-text" value="">
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-mb-20">
+                                    <label>Value                                </label>
+                                    <input type="text" name="value" placeholder="Value" value="" class="form-control" tts-validatation="Required" tts-error-msg="Please enter value">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-mb-20">
+                                    <label>From Date</label><input type="text" data-searchbar-from="true" name="from_date" value="" placeholder="Select From Date" class="form-control" tts-error-msg="Please select from date" readonly="">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-mb-20">
+                                    <label>To Date</label><input type="text" data-searchbar-to="true" name="to_date" value="" placeholder="Select To Date" class="form-control" tts-error-msg="Please select to date" readonly="">
+                                </div>
+                            </div>
+                            <div class="col-md-2 align-self-end">
+                                <div class="form-group form-mb-20">
+    
+                                    <button type="submit" class="badge badge-md badge-primary badge_search">Search <i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <!--? if (isset($search_bar_data['key'])): ?-->
+    
+                                    <div class="search-reset-btn">
+                                        <a href="https://agent.dookinternational.com/adminpanel/markup-discount/super-admin-holiday-discount-list">Reset
+                                            Search</a>
+                                    </div>
+    
+                                <!--? endif ?-->
+                            </div>
+                        </form>
+                    </div>
+    
+                    <!----------End Search Bar ----------------->
+    
+    
+                                    <form action="https://agent.dookinternational.com/adminpanel/markup-discount/remove-super-admin-holiday-discount" method="POST" tts-form="true" id="formmarkuplist">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead class="table-active">
+                                    <tr>
+                                                                            <th><label><input type="checkbox" name="check_all" id="selectall"></label>
+                                        </th>
+                                                                            <th>Web Partner Class</th>
+                                        <th>Value</th>
+                                        <th>Max Limit</th>
+                                        <th>Extra Discount</th>
+                                        <th>Discount Type</th>
+    
+                                        <th>Themes</th>
+                                        <th>Destinations</th>
+                                        <th>Departures</th>
+    
+                                        <th>From Date</th>
+                                        <th>To Date</th>
+    
+                                        <th>Status</th>
+                                        <th>Created</th>
+                                        <th>Modified</th>
+                                                                            <th>Action</th>
+                                                                        </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="23"></label>
+                                        </td>
+                                                                            <td>
+                                            Platinum                                    </td>
+                                        <td>
+                                            3899                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Fixed                                    </td>
+    
+    
+                                        <td>
+                                            Family                                    </td>
+                                        <td>
+                                            Tbilisi                                    </td>
+                                        <td>
+                                            Tbilisi &amp; Batumi Highlights Group Tour- 21 Mar,Tbilisi &amp; Batumi Highlights Group Tour- 5 Mar                                    </td>
+    
+                                        
+                                        <td>
+                                            30 Jan 2025                                    </td>
+                                        <td>
+                                            15 Apr 2025                                    </td>
+                                        
+    
+                                        <td>
+                                            <span class="active-status">
+                                                Active                                        </span>
+                                        </td>
+                                        <td>
+                                            30 Jan 2025 / 11:22 AM                                    </td>
+    
+                                        <td>
+                                            30 Jan 2025 / 11:40 AM                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="MjM-" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-discount-template/MjM-"><i class="fa-solid fa-edit "></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="22"></label>
+                                        </td>
+                                                                            <td>
+                                            Platinum                                    </td>
+                                        <td>
+                                            800                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Fixed                                    </td>
+    
+    
+                                        <td>
+                                            Family                                    </td>
+                                        <td>
+                                            Baku                                    </td>
+                                        <td>
+                                            Baku 4 Nights  Departure- 13 Mar,25                                    </td>
+    
+                                        
+                                        <td>
+                                            29 Jan 2025                                    </td>
+                                        <td>
+                                            26 Mar 2025                                    </td>
+                                        
+    
+                                        <td>
+                                            <span class="active-status">
+                                                Active                                        </span>
+                                        </td>
+                                        <td>
+                                            29 Jan 2025 / 5:16 PM                                    </td>
+    
+                                        <td>
+                                            -                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="MjI-" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-discount-template/MjI-"><i class="fa-solid fa-edit "></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="21"></label>
+                                        </td>
+                                                                            <td>
+                                            Platinum                                    </td>
+                                        <td>
+                                            1299                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Fixed                                    </td>
+    
+    
+                                        <td>
+                                            Family                                    </td>
+                                        <td>
+                                            Tbilisi                                    </td>
+                                        <td>
+                                            Georgia  A Journey Through Wonders- 25 Mar,Georgia  A Journey Through Wonders- 21 Mar,Georgia  A Journey Through Wonders- 19 Mar,Georgia  A Journey Through Wonders- 05 Mar,Georgia  A Journey Through Wonders- 27 Feb                                    </td>
+    
+                                        
+                                        <td>
+                                            29 Jan 2025                                    </td>
+                                        <td>
+                                            28 Aug 2025                                    </td>
+                                        
+    
+                                        <td>
+                                            <span class="active-status">
+                                                Active                                        </span>
+                                        </td>
+                                        <td>
+                                            29 Jan 2025 / 1:16 PM                                    </td>
+    
+                                        <td>
+                                            29 Jan 2025 / 5:13 PM                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="MjE-" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-discount-template/MjE-"><i class="fa-solid fa-edit "></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="19"></label>
+                                        </td>
+                                                                            <td>
+                                            Platinum                                    </td>
+                                        <td>
+                                            1000                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Fixed                                    </td>
+    
+    
+                                        <td>
+                                            Family                                    </td>
+                                        <td>
+                                            Almaty                                     </td>
+                                        <td>
+                                            Almaty  4 Nights-27 Feb,25- Air Astana,Almaty  4 Nights-22 Feb,25- Air Astana,Almaty  4 Nights-20 Feb,25- Air Astana,Almaty  4 Nights-15 Feb,25- Air Astana,Almaty  4 Nights-13 Feb,25- Air Astana,Almaty  4 Nights-08 Feb,25- Air Astana,Almaty  4 Nights-06 Feb,25- Air Astana                                    </td>
+    
+                                        
+                                        <td>
+                                            24 Jan 2025                                    </td>
+                                        <td>
+                                            01 Mar 2025                                    </td>
+                                        
+    
+                                        <td>
+                                            <span class="active-status">
+                                                Active                                        </span>
+                                        </td>
+                                        <td>
+                                            24 Jan 2025 / 11:11 AM                                    </td>
+    
+                                        <td>
+                                            24 Jan 2025 / 11:23 AM                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="MTk-" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-discount-template/MTk-"><i class="fa-solid fa-edit "></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="18"></label>
+                                        </td>
+                                                                            <td>
+                                            Platinum                                    </td>
+                                        <td>
+                                            3000                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Fixed                                    </td>
+    
+    
+                                        <td>
+                                            Family                                    </td>
+                                        <td>
+                                            Tashkent                                    </td>
+                                        <td>
+                                            Tashkent 4 Nights- 20th Feb                                    </td>
+    
+                                        
+                                        <td>
+                                            23 Jan 2025                                    </td>
+                                        <td>
+                                            20 Aug 2025                                    </td>
+                                        
+    
+                                        <td>
+                                            <span class="active-status">
+                                                Active                                        </span>
+                                        </td>
+                                        <td>
+                                            23 Jan 2025 / 5:30 PM                                    </td>
+    
+                                        <td>
+                                            -                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="MTg-" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-discount-template/MTg-"><i class="fa-solid fa-edit "></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="17"></label>
+                                        </td>
+                                                                            <td>
+                                            Platinum                                    </td>
+                                        <td>
+                                            28581                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Fixed                                    </td>
+    
+    
+                                        <td>
+                                            Family                                    </td>
+                                        <td>
+                                            Helsinki                                    </td>
+                                        <td>
+                                            Best 4 of Scandinavia 10 Nights- 17 Jul ,25,Best 4 of Scandinavia 10 Nights- 19 Jun ,25,Best 4 of Scandinavia 10 Nights- 12 Jun ,25,Best 4 of Scandinavia 10 Nights- 24 May ,25                                    </td>
+    
+                                        
+                                        <td>
+                                            20 Jan 2025                                    </td>
+                                        <td>
+                                            11 Mar 2026                                    </td>
+                                        
+    
+                                        <td>
+                                            <span class="active-status">
+                                                Active                                        </span>
+                                        </td>
+                                        <td>
+                                            20 Jan 2025 / 4:39 PM                                    </td>
+    
+                                        <td>
+                                            -                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="MTc-" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-discount-template/MTc-"><i class="fa-solid fa-edit "></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="16"></label>
+                                        </td>
+                                                                            <td>
+                                            Platinum                                    </td>
+                                        <td>
+                                            22930                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Fixed                                    </td>
+    
+    
+                                        <td>
+                                            Family                                    </td>
+                                        <td>
+                                            Helsinki                                    </td>
+                                        <td>
+                                             Scandinavia Delights 9 Nights - 21 Aug, Scandinavia Delights 9 Nights - 07 Aug, Scandinavia Delights 9 Nights - 24 Jul, Scandinavia Delights 9 Nights - 17 Jul, Scandinavia Delights 9 Nights - 10 Jul, Scandinavia Delights 9 Nights - 26 Jun, Scandinavia Delights 9 Nights - 12 Jun, Scandinavia Delights 9 Nights - 22 May, Scandinavia Delights 9 Nights - 08 May, Scandinavia Delights 9 Nights - 01 May                                     </td>
+    
+                                        
+                                        <td>
+                                            20 Jan 2025                                    </td>
+                                        <td>
+                                            10 Mar 2026                                    </td>
+                                        
+    
+                                        <td>
+                                            <span class="active-status">
+                                                Active                                        </span>
+                                        </td>
+                                        <td>
+                                            20 Jan 2025 / 4:37 PM                                    </td>
+    
+                                        <td>
+                                            -                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="MTY-" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-discount-template/MTY-"><i class="fa-solid fa-edit "></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="15"></label>
+                                        </td>
+                                                                            <td>
+                                            Platinum                                    </td>
+                                        <td>
+                                            24432                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Fixed                                    </td>
+    
+    
+                                        <td>
+                                            Family                                    </td>
+                                        <td>
+                                            paris,london                                    </td>
+                                        <td>
+                                            Grand Exclusive Europe 12 Nights- 05 Apr 25,Grand Exclusive Europe 12 Nights- 12 Apr 25,Grand Exclusive Europe 12 Nights- 19 Apr 25,Grand Exclusive Europe 12 Nights- 01 May 25,Grand Exclusive Europe 12 Nights- 06 May 25,Grand Exclusive Europe 12 Nights- 13 May 25,Grand Exclusive Europe 12 Nights- 15 May 25,Grand Exclusive Europe 12 Nights- 22 May 25,Grand Exclusive Europe 12 Nights- 31 May 25,Grand Exclusive Europe 12 Nights- 03 Jun 25,Grand Exclusive Europe 12 Nights- 07 Jun 25,Grand Exclusive Europe 12 Nights- 14 Jun 25,Grand Exclusive Europe 12 Nights- 21 Jun 25,Grand Exclusive Europe 12 Nights- 06 Jul 25,Grand Exclusive Europe 12 Nights- 12 Jul 25,Grand Exclusive Europe 12 Nights- 24 Jul 25,Grand Exclusive Europe 12 Nights- 30 Jul 25,Grand Exclusive Europe 12 Nights- 06 Aug 25,Grand Exclusive Europe 12 Nights- 13 Aug 25,Grand Exclusive Europe 12 Nights- 20 Aug 25,Grand Exclusive Europe 12 Nights- 30 Aug 25,Grand Exclusive Europe 12 Nights- 03 Sep 25,Grand Exclusive Europe 12 Nights- 09 Sep 25,Grand Exclusive Europe 12 Nights- 25 Sep 25,Grand Exclusive Europe 12 Nights- 14 Oct 25,Grand Exclusive Europe 12 Nights- 23 Oct 25                                     </td>
+    
+                                        
+                                        <td>
+                                            09 Jan 2025                                    </td>
+                                        <td>
+                                            30 Dec 2025                                    </td>
+                                        
+    
+                                        <td>
+                                            <span class="active-status">
+                                                Active                                        </span>
+                                        </td>
+                                        <td>
+                                            09 Jan 2025 / 1:44 PM                                    </td>
+    
+                                        <td>
+                                            -                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="MTU-" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-discount-template/MTU-"><i class="fa-solid fa-edit "></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="14"></label>
+                                        </td>
+                                                                            <td>
+                                            Platinum                                    </td>
+                                        <td>
+                                            15398                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Fixed                                    </td>
+    
+    
+                                        <td>
+                                            Family                                    </td>
+                                        <td>
+                                            london                                    </td>
+                                        <td>
+                                            Glimpses of United Kingdom 07 Nights - 19 Apr ,Glimpses of United Kingdom 07 Nights - 01 May,Glimpses of United Kingdom 07 Nights - 13 May,Glimpses of United Kingdom 07 Nights - 22 May,Glimpses of United Kingdom 07 Nights - 31 May,Glimpses of United Kingdom 07 Nights - 07 Jun,Glimpses of United Kingdom 07 Nights - 14 Jun,Glimpses of United Kingdom 07 Nights - 21 Jun,Glimpses of United Kingdom 07 Nights - 06 Jul,Glimpses of United Kingdom 07 Nights - 24 Jul ,Glimpses of United Kingdom 07 Nights - 13 Aug ,Glimpses of United Kingdom 07 Nights - 30 Aug,Glimpses of United Kingdom 07 Nights - 09 Sep                                    </td>
+    
+                                        
+                                        <td>
+                                            09 Jan 2025                                    </td>
+                                        <td>
+                                            27 Nov 2025                                    </td>
+                                        
+    
+                                        <td>
+                                            <span class="active-status">
+                                                Active                                        </span>
+                                        </td>
+                                        <td>
+                                            09 Jan 2025 / 12:08 PM                                    </td>
+    
+                                        <td>
+                                            -                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="MTQ-" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-discount-template/MTQ-"><i class="fa-solid fa-edit "></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="13"></label>
+                                        </td>
+                                                                            <td>
+                                            Platinum                                    </td>
+                                        <td>
+                                            400                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Fixed                                    </td>
+    
+    
+                                        <td>
+                                            Family                                    </td>
+                                        <td>
+                                            Baku                                    </td>
+                                        <td>
+                                            Baku 4 Nights  Departure- 13 Feb,25                                    </td>
+    
+                                        
+                                        <td>
+                                            09 Jan 2025                                    </td>
+                                        <td>
+                                            18 Feb 2025                                    </td>
+                                        
+    
+                                        <td>
+                                            <span class="active-status">
+                                                Active                                        </span>
+                                        </td>
+                                        <td>
+                                            09 Jan 2025 / 11:56 AM                                    </td>
+    
+                                        <td>
+                                            -                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="MTM-" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-discount-template/MTM-"><i class="fa-solid fa-edit "></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="12"></label>
+                                        </td>
+                                                                            <td>
+                                            Platinum                                    </td>
+                                        <td>
+                                            14604                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Fixed                                    </td>
+    
+    
+                                        <td>
+                                            Family                                    </td>
+                                        <td>
+                                            paris                                    </td>
+                                        <td>
+                                            European Highlights 08 Nights- 11 Apr,European Highlights 08 Nights- 18Apr ,European Highlights 08 Nights- 25 Apr ,European Highlights 08 Nights- 02 May,European Highlights 08 Nights- 09 May,European Highlights 08 Nights- 16 May,European Highlights 08 Nights- 23 May,European Highlights 08 Nights- 30 May ,European Highlights 08 Nights- 06 Jun,European Highlights 08 Nights- 13 Jun,European Highlights 08 Nights- 20 Jun,European Highlights 08 Nights- 27 Jun ,European Highlights 08 Nights- 04 Jul,European Highlights 08 Nights- 11 Jul,European Highlights 08 Nights- 18 Jul,European Highlights 08 Nights- 25 Jul,European Highlights 08 Nights- 01 Aug,European Highlights 08 Nights- 08 Aug,European Highlights 08 Nights- 15 Aug,European Highlights 08 Nights- 22 Aug,European Highlights 08 Nights- 29 Aug ,European Highlights 08 Nights- 05 Sep,European Highlights 08 Nights- 19 Sep,European Highlights 08 Nights- 03 Oct                                    </td>
+    
+                                        
+                                        <td>
+                                            08 Jan 2025                                    </td>
+                                        <td>
+                                            30 Nov 2025                                    </td>
+                                        
+    
+                                        <td>
+                                            <span class="active-status">
+                                                Active                                        </span>
+                                        </td>
+                                        <td>
+                                            08 Jan 2025 / 6:44 PM                                    </td>
+    
+                                        <td>
+                                            08 Jan 2025 / 6:45 PM                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="MTI-" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-discount-template/MTI-"><i class="fa-solid fa-edit "></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="11"></label>
+                                        </td>
+                                                                            <td>
+                                            Platinum                                    </td>
+                                        <td>
+                                            24000                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Fixed                                    </td>
+    
+    
+                                        <td>
+                                            Family                                    </td>
+                                        <td>
+                                            tokyo                                    </td>
+                                        <td>
+                                            Cherry Blossom 7 Nights- 08 Apr,Cherry Blossom 7 Nights- 06 Apr,Cherry Blossom 7 Nights- 02 Apr,Cherry Blossom 7 Nights- 30 Mar,Cherry Blossom 7 Nights- 27 Mar,Cherry Blossom 7 Nights- 23 Mar,Cherry Blossom 7 Nights- 22 Mar,Cherry Blossom 7 Nights- 14 Mar                                    </td>
+    
+                                        
+                                        <td>
+                                            08 Jan 2025                                    </td>
+                                        <td>
+                                            30 Jun 2025                                    </td>
+                                        
+    
+                                        <td>
+                                            <span class="active-status">
+                                                Active                                        </span>
+                                        </td>
+                                        <td>
+                                            08 Jan 2025 / 3:58 PM                                    </td>
+    
+                                        <td>
+                                            08 Jan 2025 / 3:59 PM                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="MTE-" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-discount-template/MTE-"><i class="fa-solid fa-edit "></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="10"></label>
+                                        </td>
+                                                                            <td>
+                                            Platinum                                    </td>
+                                        <td>
+                                            13194                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Fixed                                    </td>
+    
+    
+                                        <td>
+                                            Family                                    </td>
+                                        <td>
+                                            Vienna,budapest,paris                                    </td>
+                                        <td>
+                                            Jewels of East Europe 7 Nights - 27 Sep,Jewels of East Europe 7 Nights - 23 Aug ,Jewels of East Europe 7 Nights - 09 Aug ,Jewels of East Europe 7 Nights - 27 Jul,Jewels of East Europe 7 Nights - 12 Jul,Jewels of East Europe 7 Nights - 04 Jul,Jewels of East Europe 7 Nights - 25 Jun,Jewels of East Europe 7 Nights - 15 Jun,Jewels of East Europe 7 Nights - 07 Jun ,Jewels of East Europe 7 Nights - 24 May,Jewels of East Europe 7 Nights - 14 May,Jewels of East Europe 7 Nights - 04 May                                    </td>
+    
+                                        
+                                        <td>
+                                            07 Jan 2025                                    </td>
+                                        <td>
+                                            30 Nov 2025                                    </td>
+                                        
+    
+                                        <td>
+                                            <span class="active-status">
+                                                Active                                        </span>
+                                        </td>
+                                        <td>
+                                            07 Jan 2025 / 5:48 PM                                    </td>
+    
+                                        <td>
+                                            07 Jan 2025 / 5:54 PM                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="MTA-" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-discount-template/MTA-"><i class="fa-solid fa-edit "></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="9"></label>
+                                        </td>
+                                                                            <td>
+                                            Platinum                                    </td>
+                                        <td>
+                                            15969                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Fixed                                    </td>
+    
+    
+                                        <td>
+                                            Family                                    </td>
+                                        <td>
+                                            paris                                    </td>
+                                        <td>
+                                            Fascinating Europe 7 Nights -07 Apr,Fascinating Europe 7 Nights -14 Apr,Fascinating Europe 7 Nights -19 Apr,Fascinating Europe 7 Nights -21 Apr,Fascinating Europe 7 Nights -26 Apr  ,Fascinating Europe 7 Nights -03 May,Fascinating Europe 7 Nights -06 May,Fascinating Europe 7 Nights -08 May,Fascinating Europe 7 Nights -11 May,Fascinating Europe 7 Nights -15 May,Fascinating Europe 7 Nights -17 May,Fascinating Europe 7 Nights -24 May,Fascinating Europe 7 Nights -27 May,Fascinating Europe 7 Nights -30 May ,Fascinating Europe 7 Nights -02 Jun,Fascinating Europe 7 Nights -05 Jun,Fascinating Europe 7 Nights -09 Jun,Fascinating Europe 7 Nights -12 Jun,Fascinating Europe 7 Nights -19 Jun,Fascinating Europe 7 Nights -23 Jun,Fascinating Europe 7 Nights -28 Jun,Fascinating Europe 7 Nights -08 Jul,Fascinating Europe 7 Nights -14 Jul,Fascinating Europe 7 Nights -19 Jul,Fascinating Europe 7 Nights -26 Jul ,Fascinating Europe 7 Nights -01 Aug,Fascinating Europe 7 Nights -08 Aug,Fascinating Europe 7 Nights -15 Aug,Fascinating Europe 7 Nights -22 Aug ,Fascinating Europe 7 Nights -01 Sep,Fascinating Europe 7 Nights -05 Sep,Fascinating Europe 7 Nights -11 Sep,Fascinating Europe 7 Nights -17 Sep,Fascinating Europe 7 Nights -25 Sep,Fascinating Europe 7 Nights -27Sep,Fascinating Europe 7 Nights -03 Oct,Fascinating Europe 7 Nights -16 Oct                                    </td>
+    
+                                        
+                                        <td>
+                                            07 Jan 2025                                    </td>
+                                        <td>
+                                            31 Oct 2025                                    </td>
+                                        
+    
+                                        <td>
+                                            <span class="active-status">
+                                                Active                                        </span>
+                                        </td>
+                                        <td>
+                                            07 Jan 2025 / 12:51 PM                                    </td>
+    
+                                        <td>
+                                            -                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="OQ--" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-discount-template/OQ--"><i class="fa-solid fa-edit "></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="8"></label>
+                                        </td>
+                                                                            <td>
+                                            Platinum                                    </td>
+                                        <td>
+                                            22300                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Fixed                                    </td>
+    
+    
+                                        <td>
+                                            ANY                                    </td>
+                                        <td>
+                                            paris                                    </td>
+                                        <td>
+                                            Best of Europe 12 Nights - 07 Apr,25,Best of Europe 12 Nights - 11 Apr,25,Best of Europe 12 Nights - 14 Apr,25,Best of Europe 12 Nights - 18 Apr,25,Best of Europe 12 Nights - 21 Apr,25,Best of Europe 12 Nights - 23 Apr,25,Best of Europe 12 Nights - 25 Apr,25,Best of Europe 12 Nights - 27 Apr,25,Best of Europe 12 Nights - 29 Apr,25,Best of Europe 12 Nights - 01 May,25,Best of Europe 12 Nights - 03 May,25,Best of Europe 12 Nights - 05 May,25,Best of Europe 12 Nights - 07 May,25,Best of Europe 12 Nights - 08 May,25,Best of Europe 12 Nights - 10 May,25,Best of Europe 12 Nights - 12 May,25,Best of Europe 12 Nights - 14 May,25,Best of Europe 12 Nights - 15 May,25,Best of Europe 12 Nights - 17 May,25,Best of Europe 12 Nights - 19 May,25,Best of Europe 12 Nights - 21 May,25,Best of Europe 12 Nights - 22 May,25,Best of Europe 12 Nights - 24 May,25,Best of Europe 12 Nights - 26 May,25,Best of Europe 12 Nights - 28 May,25,Best of Europe 12 Nights - 29 May,25,Best of Europe 12 Nights - 02 Jun,25,Best of Europe 12 Nights - 04 Jun,25,Best of Europe 12 Nights - 05 Jun,25,Best of Europe 12 Nights - 07 Jun,25,Best of Europe 12 Nights - 09 Jun,25,Best of Europe 12 Nights - 11 Jun,25,Best of Europe 12 Nights - 12 Jun,25,Best of Europe 12 Nights - 14 Jun,25,Best of Europe 12 Nights - 16 Jun,25,Best of Europe 12 Nights - 18 Jun,25,Best of Europe 12 Nights - 19 Jun,25,Best of Europe 12 Nights - 21 Jun,25,Best of Europe 12 Nights - 23 Jun,25,Best of Europe 12 Nights - 25 Jun,25,Best of Europe 12 Nights - 26 Jun,25,Best of Europe 12 Nights - 30 Jun,25,Best of Europe 12 Nights - 19 Jul,25,Best of Europe 12 Nights - 26 Jul,25,Best of Europe 12 Nights - 01 Aug,25,Best of Europe 12 Nights - 08 Aug,25,Best of Europe 12 Nights - 15 Aug,25,Best of Europe 12 Nights - 22 Aug,25,Best of Europe 12 Nights - 28 Aug,25,Best of Europe 12 Nights - 01 Sep,25,Best of Europe 12 Nights - 05 Sep,25,Best of Europe 12 Nights - 11 Sep,25,Best of Europe 12 Nights - 14 Sep,25,Best of Europe 12 Nights - 19 Sep,25,Best of Europe 12 Nights - 24 Sep,25,Best of Europe 12 Nights - 27 Sep,25,Best of Europe 12 Nights - 03 Oct,25,Best of Europe 12 Nights - 16 Oct,25                                    </td>
+    
+                                        
+                                        <td>
+                                            03 Jan 2025                                    </td>
+                                        <td>
+                                            30 Nov 2025                                    </td>
+                                        
+    
+                                        <td>
+                                            <span class="active-status">
+                                                Active                                        </span>
+                                        </td>
+                                        <td>
+                                            03 Jan 2025 / 3:34 PM                                    </td>
+    
+                                        <td>
+                                            -                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="OA--" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-discount-template/OA--"><i class="fa-solid fa-edit "></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="7"></label>
+                                        </td>
+                                                                            <td>
+                                            Platinum                                    </td>
+                                        <td>
+                                            11955                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Fixed                                    </td>
+    
+    
+                                        <td>
+                                            Family                                    </td>
+                                        <td>
+                                            paris                                    </td>
+                                        <td>
+                                            Grand Fascinating Europe 8 Nights- Oct 23,Grand Fascinating Europe 8 Nights- Oct 14,Grand Fascinating Europe 8 Nights- Sep 25,Grand Fascinating Europe 8 Nights- Sep 09,Grand Fascinating Europe 8 Nights- Sep 03,Grand Fascinating Europe 8 Nights- Aug 30,Grand Fascinating Europe 8 Nights- Aug 20,Grand Fascinating Europe 8 Nights- Aug 13,Grand Fascinating Europe 8 Nights- Aug 06 ,Grand Fascinating Europe 8 Nights- Jul 30,Grand Fascinating Europe 8 Nights- Jul 24,Grand Fascinating Europe 8 Nights- Jul 12,Grand Fascinating Europe 8 Nights- Jul 06,Grand Fascinating Europe 8 Nights- Jun 21,Grand Fascinating Europe 8 Nights- Jun 14,Grand Fascinating Europe 8 Nights- Jun 07,Grand Fascinating Europe 8 Nights- Jun 03,Grand Fascinating Europe 8 Nights- May 31,Grand Fascinating Europe 8 Nights- May 22,Grand Fascinating Europe 8 Nights- May 15,Grand Fascinating Europe 8 Nights- May 13,Grand Fascinating Europe 8 Nights- May 06,Grand Fascinating Europe 8 Nights- May 01,Grand Fascinating Europe 8 Nights- Apr 19,Grand Fascinating Europe 8 Nights- Apr 12,Grand Fascinating Europe 8 Nights- Apr 05                                    </td>
+    
+                                        
+                                        <td>
+                                            03 Jan 2025                                    </td>
+                                        <td>
+                                            26 Nov 2025                                    </td>
+                                        
+    
+                                        <td>
+                                            <span class="active-status">
+                                                Active                                        </span>
+                                        </td>
+                                        <td>
+                                            03 Jan 2025 / 12:34 PM                                    </td>
+    
+                                        <td>
+                                            -                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="Nw--" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-discount-template/Nw--"><i class="fa-solid fa-edit "></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="6"></label>
+                                        </td>
+                                                                            <td>
+                                            Platinum                                    </td>
+                                        <td>
+                                            19280                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Fixed                                    </td>
+    
+    
+                                        <td>
+                                            Family                                    </td>
+                                        <td>
+                                            paris,brussels,Amsterdam                                    </td>
+                                        <td>
+                                            Grand Wonders of Europe 14 Nights- 23 Oct,25,Grand Wonders of Europe 14 Nights- 14Oct,25,Grand Wonders of Europe 14 Nights- 25 Sep,25,Grand Wonders of Europe 14 Nights- 17 Sep,25,Grand Wonders of Europe 14 Nights- 09 Sep,25,Grand Wonders of Europe 14 Nights- 03 Sep,25,Grand Wonders of Europe 14 Nights- 30 Aug,25,Grand Wonders of Europe 14 Nights- 20 Aug,25,Grand Wonders of Europe 14 Nights- 13 Aug,25,Grand Wonders of Europe 14 Nights- 06 Aug,25,Grand Wonders of Europe 14 Nights- 30 Jul,25,Grand Wonders of Europe 14 Nights- 24 Jul,25,Grand Wonders of Europe 14 Nights- 12 Jul,25,Grand Wonders of Europe 14 Nights- 06 Jul,25,Grand Wonders of Europe 14 Nights- 28 Jun,25,Grand Wonders of Europe 14 Nights- 21 Jun,25,Grand Wonders of Europe 14 Nights- 14 Jun,25,Grand Wonders of Europe 14 Nights- 07 Jun,25,Grand Wonders of Europe 14 Nights- 03 Jun,25,Grand Wonders of Europe 14 Nights- 31 May,25,Grand Wonders of Europe 14 Nights- 26 May,25,Grand Wonders of Europe 14 Nights- 22 May,25,Grand Wonders of Europe 14 Nights- 15 May,25,Grand Wonders of Europe 14 Nights- 13 May,25,Grand Wonders of Europe 14 Nights- 06 May,25,Grand Wonders of Europe 14 Nights- 05 May,25,Grand Wonders of Europe 14 Nights- 01 May,25,Grand Wonders of Europe 14 Nights- 25 Apr,25,Grand Wonders of Europe 14 Nights- 21 Apr,25,Grand Wonders of Europe 14 Nights- 19 Apr,25,Grand Wonders of Europe 14 Nights- 12 Apr,25,Grand Wonders of Europe 14 Nights- 05 Apr,25                                    </td>
+    
+                                        
+                                        <td>
+                                            01 Jan 2025                                    </td>
+                                        <td>
+                                            23 Oct 2025                                    </td>
+                                        
+    
+                                        <td>
+                                            <span class="active-status">
+                                                Active                                        </span>
+                                        </td>
+                                        <td>
+                                            02 Jan 2025 / 5:55 PM                                    </td>
+    
+                                        <td>
+                                            02 Jan 2025 / 5:57 PM                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="Ng--" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-discount-template/Ng--"><i class="fa-solid fa-edit "></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="5"></label>
+                                        </td>
+                                                                            <td>
+                                            Platinum                                    </td>
+                                        <td>
+                                            19837                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Fixed                                    </td>
+    
+    
+                                        <td>
+                                            Family                                    </td>
+                                        <td>
+                                            paris,zurich,florence                                    </td>
+                                        <td>
+                                            Exclusive Europe 10 Nights- 26 Apr, 25,Exclusive Europe 10 Nights- 21 Apr, 25,Exclusive Europe 10 Nights- 19 Apr, 25,Exclusive Europe 10 Nights- 14 Apr, 25,Exclusive Europe 10 Nights- 07 Apr, 25                                    </td>
+    
+                                        
+                                        <td>
+                                            01 Jan 2025                                    </td>
+                                        <td>
+                                            30 Apr 2025                                    </td>
+                                        
+    
+                                        <td>
+                                            <span class="active-status">
+                                                Active                                        </span>
+                                        </td>
+                                        <td>
+                                            02 Jan 2025 / 5:43 PM                                    </td>
+    
+                                        <td>
+                                            02 Jan 2025 / 5:47 PM                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="NQ--" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-discount-template/NQ--"><i class="fa-solid fa-edit "></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="4"></label>
+                                        </td>
+                                                                            <td>
+                                            Platinum                                    </td>
+                                        <td>
+                                            2899                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Fixed                                    </td>
+    
+    
+                                        <td>
+                                            Family                                    </td>
+                                        <td>
+                                            Tbilisi                                    </td>
+                                        <td>
+                                            Georgia  A Journey Through Wonders                                    </td>
+    
+                                        
+                                        <td>
+                                            19 Dec 2024                                    </td>
+                                        <td>
+                                            01 Feb 2025                                    </td>
+                                        
+    
+                                        <td>
+                                            <span class="active-status">
+                                                Active                                        </span>
+                                        </td>
+                                        <td>
+                                            20 Dec 2024 / 12:09 PM                                    </td>
+    
+                                        <td>
+                                            20 Dec 2024 / 1:06 PM                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="NA--" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-discount-template/NA--"><i class="fa-solid fa-edit "></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="3"></label>
+                                        </td>
+                                                                            <td>
+                                            Platinum                                    </td>
+                                        <td>
+                                            3.15                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Percent                                    </td>
+    
+    
+                                        <td>
+                                            ANY                                    </td>
+                                        <td>
+                                            ANY                                    </td>
+                                        <td>
+                                            Baku 5 Nights Fixed Departure- 30 Dec'24,Baku 5 Nights Fixed Departure- 29 Dec'24,Baku 5 Nights Fixed Departure- 28 Dec'24,Baku 5 Nights Fixed Departure- 27 Dec'24                                    </td>
+    
+                                        
+                                        <td>
+                                            16 Jul 2024                                    </td>
+                                        <td>
+                                            31 Dec 2024                                    </td>
+                                        
+    
+                                        <td>
+                                            <span class="active-status">
+                                                Active                                        </span>
+                                        </td>
+                                        <td>
+                                            12 Jul 2024 / 5:27 PM                                    </td>
+    
+                                        <td>
+                                            16 Jul 2024 / 12:43 PM                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="Mw--" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-discount-template/Mw--"><i class="fa-solid fa-edit "></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="2"></label>
+                                        </td>
+                                                                            <td>
+                                            Platinum                                    </td>
+                                        <td>
+                                            3.15                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Percent                                    </td>
+    
+    
+                                        <td>
+                                            ANY                                    </td>
+                                        <td>
+                                            ANY                                    </td>
+                                        <td>
+                                            Baku 5 Nights Fixed Departure- 26 Dec'24                                    </td>
+    
+                                        
+                                        <td>
+                                            16 Jul 2024                                    </td>
+                                        <td>
+                                            31 Dec 2024                                    </td>
+                                        
+    
+                                        <td>
+                                            <span class="active-status">
+                                                Active                                        </span>
+                                        </td>
+                                        <td>
+                                            12 Jul 2024 / 5:24 PM                                    </td>
+    
+                                        <td>
+                                            16 Jul 2024 / 12:43 PM                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="Mg--" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-discount-template/Mg--"><i class="fa-solid fa-edit "></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="1"></label>
+                                        </td>
+                                                                            <td>
+                                            Platinum                                    </td>
+                                        <td>
+                                            2.65                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Percent                                    </td>
+    
+    
+                                        <td>
+                                            ANY                                    </td>
+                                        <td>
+                                            ANY                                    </td>
+                                        <td>
+                                            Baku 4 Nights Departure 24 Dec,24                                    </td>
+    
+                                        
+                                        <td>
+                                            16 Jul 2024                                    </td>
+                                        <td>
+                                            31 Dec 2024                                    </td>
+                                        
+    
+                                        <td>
+                                            <span class="active-status">
+                                                Active                                        </span>
+                                        </td>
+                                        <td>
+                                            08 Feb 2023 / 6:28 PM                                    </td>
+    
+                                        <td>
+                                            16 Jul 2024 / 12:43 PM                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="MQ--" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-discount-template/MQ--"><i class="fa-solid fa-edit "></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                </tbody>
+                            </table>
+                        </div>
+                    </form>
+    
+    
+    
+                    <div class="row pagiantion_row align-items-center">
+                        <div class="col-md-6 mb-3 mb-lg-0">
+                            <p class="pagiantion_text">Page
+                                1                            of
+                                1, total
+                                22 records found
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                                                    <!-- DEBUG-VIEW START 3 SYSTEMPATH/Pager/Views/default_full.php -->
+    
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            
+                        <li class="active">
+                    <a href="https://agent.dookinternational.com/adminpanel/markup-discount/super-admin-holiday-discount-list?page=1">
+                        1				</a>
+                </li>
+            
+                </ul>
+    </nav>
+    
+    <!-- DEBUG-VIEW ENDED 3 SYSTEMPATH/Pager/Views/default_full.php -->
+                                                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

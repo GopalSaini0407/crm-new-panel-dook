@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="content ">
+        <div class="page-content">
+            <div class="table_title">
+                <div class="sale_bar">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 mb-3 mb-lg-0">
+                            <h5 class="m0">Super Admin Holiday Markup</h5>
+                        </div>
+                        <div class="col-md-8 text-md-right">
+                                                        <button class="badge badge-wt" view-data-modal="true" data-controller="flight" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/super-admin-holiday-markup-view"><i class="fa-solid fa-add"></i> Add Holiday Markup
+                                </button>
+                                                                                <button class="badge badge-wt" onclick="confirm_change_status('status_change')"><i class="fa-solid fa-exchange"></i> Change Status
+                                </button>
+                                                                                <button class="badge badge-danger badge-wt danger disable_badge" tts-disable_badge="" onclick="confirm_delete('formmarkuplist')"><i class="fa-solid fa-trash"></i> Delete
+                                </button>
+                                                </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content-area">
+                <div class="card-body">
+                    <div class="row">
+                        <!----------Start Search Bar ----------------->
+                        <form action="https://agent.dookinternational.com/adminpanel/markup-discount/super-admin-holiday-markup-list" method="GET" class="tts-dis-content" name="markup-search" onsubmit="return searchvalidateForm()">
+                            <div class="col-md-2">
+                                <div class="form-group form-mb-20">
+                                    <label>Select key to search by *</label>
+                                    <select name="key" class="form-control" onchange="tts_searchkey(this,'markup-search')" tts-validatation="Required" tts-error-msg="Please select search key">
+                                        <option value="">Please select</option>
+    
+                                        <option value="markup_type">Markup Type
+                                        </option>
+                                        <option value="date-range">Date Range
+                                        </option>
+                                    </select>
+                                </div>
+                                <input type="hidden" name="key-text" value="">
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-mb-20">
+                                    <label>
+                                        Value                                </label>
+                                    <input type="text" name="value" placeholder="Value" value="" class="form-control" tts-validatation="Required" tts-error-msg="Please enter value">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-mb-20">
+                                    <label>From Date</label><input type="text" data-searchbar-from="true" name="from_date" value="" placeholder="Select From Date" class="form-control" tts-error-msg="Please select from date" readonly="">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-mb-20">
+                                    <label>To Date</label><input type="text" data-searchbar-to="true" name="to_date" value="" placeholder="Select To Date" class="form-control" tts-error-msg="Please select to date" readonly="">
+                                </div>
+                            </div>
+                            <div class="col-md-1 align-self-end">
+                                <div class="form-group form-mb-20">
+    
+                                    <button type="submit" class="badge badge-md badge-primary badge_search">Search <i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <!--? if (isset($search_bar_data['key'])): ?-->
+    
+                                <div class="search-reset-btn">
+                                    <a href="https://agent.dookinternational.com/adminpanel/markup-discount/super-admin-holiday-markup-list">Reset
+                                        Search</a>
+                                </div>
+    
+                                <!--? endif ?-->
+                            </div>
+                        </form>
+                    </div>
+    
+                    <!----------End Search Bar ----------------->
+    
+    
+                                    <form action="https://agent.dookinternational.com/adminpanel/markup-discount/remove-super-admin-holiday-markup" method="POST" tts-form="true" id="formmarkuplist">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead class="table-active">
+                                    <tr>
+                                                                            <th><label><input type="checkbox" name="check_all" id="selectall"></label>
+                                        </th>
+                                                                            <th>Web Partner Class</th>
+                                        <th>Value</th>
+                                        <th>Max Limit</th>
+                                        <th>Markup Type</th>
+    
+                                        <th>Themes</th>
+                                        <th>Destinations</th>
+                                        <th>Departures</th>
+    
+                                        <th>From Date</th>
+                                        <th>To Date</th>
+    
+                                        <th>Status</th>
+                                        <th>Created</th>
+                                        <th>Modified</th>
+                                                                            <th>Action</th>
+                                                                        </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="11"></label>
+                                        </td>
+                                                                            <td>
+                                            Platinum                                    </td>
+                                        <td>
+                                            17000                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Fixed                                    </td>
+    
+    
+                                        <td>
+                                            Family                                    </td>
+                                        <td>
+                                            Hanoi,Ha Long Bay                                    </td>
+                                        <td>
+                                            Vietnam Beauty- 30 May,Vietnam Beauty- 23 May,Vietnam Beauty- 16 May,Vietnam Beauty- 09 May,Vietnam Beauty- 02 May,Vietnam Beauty- 25 Apr,Vietnam Beauty- 18 Apr,Vietnam Beauty- 11 Apr,Vietnam Beauty- 04 Apr,Vietnam Beauty- 30 Mar,Vietnam Beauty- 28 Mar,Vietnam Beauty- 21 Mar,Vietnam Beauty- 14 Mar,Vietnam Beauty- 07 Mar                                    </td>
+    
+                                        <td>
+                                            29 Jan 2025                                    </td>
+                                        <td>
+                                            30 Jun 2025                                    </td>
+    
+    
+                                        <td>
+                                            <span class="active-status">
+                                                Active                                        </span>
+                                        </td>
+    
+                                        <td>
+                                            29 Jan 2025 / 11:47 AM                                    </td>
+    
+                                        <td>
+                                            29 Jan 2025 / 11:47 AM                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="MTE-" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-markup-template/MTE-"><i class="fa-solid fa-edit"></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="10"></label>
+                                        </td>
+                                                                            <td>
+                                            Platinum                                    </td>
+                                        <td>
+                                            11600                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Fixed                                    </td>
+    
+    
+                                        <td>
+                                            Family                                    </td>
+                                        <td>
+                                            Hanoi                                    </td>
+                                        <td>
+                                            Timeless Vietnam  8N/9D- 25 May,Timeless Vietnam  8N/9D- 18 May,Timeless Vietnam  8N/9D- 11 May,Timeless Vietnam  8N/9D- 04May,Timeless Vietnam  8N/9D- 27 Apr,Timeless Vietnam  8N/9D- 20 Apr,Timeless Vietnam  8N/9D- 13 Apr,Timeless Vietnam  8N/9D- 06 Apr,Timeless Vietnam  8N/9D- 30 Mar,Timeless Vietnam  8N/9D- 23 Mar,Timeless Vietnam  8N/9D- 16 Mar,Timeless Vietnam  8N/9D- 09 Mar,Timeless Vietnam 8N/9D- 02 Mar                                    </td>
+    
+                                        <td>
+                                            28 Jan 2025                                    </td>
+                                        <td>
+                                            30 Oct 2025                                    </td>
+    
+    
+                                        <td>
+                                            <span class="active-status">
+                                                Active                                        </span>
+                                        </td>
+    
+                                        <td>
+                                            28 Jan 2025 / 2:59 PM                                    </td>
+    
+                                        <td>
+                                            28 Jan 2025 / 3:04 PM                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="MTA-" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-markup-template/MTA-"><i class="fa-solid fa-edit"></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="9"></label>
+                                        </td>
+                                                                            <td>
+                                            Platinum                                    </td>
+                                        <td>
+                                            10000                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Fixed                                    </td>
+    
+    
+                                        <td>
+                                            Family                                    </td>
+                                        <td>
+                                            Kathmandu                                    </td>
+                                        <td>
+                                            Mt. Kailash &amp; Mansarovar Yatra Ex Kathmandu 12 N /13 D- 20 Sep,Mt. Kailash &amp; Mansarovar Yatra Ex Kathmandu 12 N /13 D- 15 Sep,Mt. Kailash &amp; Mansarovar Yatra Ex Kathmandu 12 N /13 D- 11 Sep,Mt. Kailash &amp; Mansarovar Yatra Ex Kathmandu 12 N /13 D- 02 Sep,Mt. Kailash &amp; Mansarovar Yatra Ex Kathmandu 12 N /13 D- 31 Aug,Mt. Kailash &amp; Mansarovar Yatra Ex Kathmandu 12 N /13 D- 22 Aug,Mt. Kailash &amp; Mansarovar Yatra Ex Kathmandu 12 N /13 D- 17 Aug,Mt. Kailash &amp; Mansarovar Yatra Ex Kathmandu 12 N /13 D- 13 Aug,Mt. Kailash &amp; Mansarovar Yatra Ex Kathmandu 12 N /13 D- 04 Aug,Mt. Kailash &amp; Mansarovar Yatra Ex Kathmandu 12 N /13 D- 23 Jul,Mt. Kailash &amp; Mansarovar Yatra Ex Kathmandu 12 N /13 D- 10 Jull,Mt. Kailash &amp; Mansarovar Yatra Ex Kathmandu 12 N /13 D- 14 Jul,Mt. Kailash &amp; Mansarovar Yatra Ex Kathmandu 12 N /13 D- 01 Jul,Mt. Kailash &amp; Mansarovar Yatra Ex Kathmandu 12 N /13 D- 05 Jul,Mt. Kailash &amp; Mansarovar Yatra Ex Kathmandu 12 N /13 D- 25 Jun,Mt. Kailash &amp; Mansarovar Yatra Ex Kathmandu 12 N /13 D- 21 Jun,Mt. Kailash &amp; Mansarovar Yatra Ex Kathmandu 12 N /13 D- 16 Jun,Mt. Kailash &amp; Mansarovar Yatra Ex Kathmandu 12 N /13 D- 12 Jun,Mt. Kailash &amp; Mansarovar Yatra Ex Kathmandu 12 N /13 D- 07 Jun,Mt. Kailash &amp; Mansarovar Yatra Ex Kathmandu 12 N /13 D- 21 May,Mt. Kailash &amp; Mansarovar Yatra Ex Kathmandu 12 N /13 D- 16 May,Mt. Kailash &amp; Mansarovar Yatra Ex Kathmandu 12 N /13 D- 12 May,Mt. Kailash &amp; Mansarovar Yatra Ex Kathmandu 12 N /13 D- 7 May                                    </td>
+    
+                                        <td>
+                                            24 Jan 2025                                    </td>
+                                        <td>
+                                            31 Dec 2025                                    </td>
+    
+    
+                                        <td>
+                                            <span class="active-status">
+                                                Active                                        </span>
+                                        </td>
+    
+                                        <td>
+                                            24 Jan 2025 / 3:57 PM                                    </td>
+    
+                                        <td>
+                                            -                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="OQ--" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-markup-template/OQ--"><i class="fa-solid fa-edit"></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="8"></label>
+                                        </td>
+                                                                            <td>
+                                            Platinum                                    </td>
+                                        <td>
+                                            10000                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Fixed                                    </td>
+    
+    
+                                        <td>
+                                            Family                                    </td>
+                                        <td>
+                                            Manasarovar                                    </td>
+                                        <td>
+                                            Mt. Kailash &amp; Mansarover Yatra 08N/09D  (By Helicopter Via Lucknow) - 27 Sep,Mt. Kailash &amp; Mansarover Yatra 08N/09D  (By Helicopter Via Lucknow) - 21 Sep,Mt. Kailash &amp; Mansarover Yatra 08N/09D  (By Helicopter Via Lucknow) - 15 Sep,Mt. Kailash &amp; Mansarover Yatra 08N/09D  (By Helicopter Via Lucknow) - 03 Sep,Mt. Kailash &amp; Mansarover Yatra 08N/09D  (By Helicopter Via Lucknow) - 23 Aug,Mt. Kailash &amp; Mansarover Yatra 08N/09D  (By Helicopter Via Lucknow) - 17 Aug,Mt. Kailash &amp; Mansarover Yatra 08N/09D  (By Helicopter Via Lucknow) - 11 Aug,Mt. Kailash &amp; Mansarover Yatra 08N/09D  (By Helicopter Via Lucknow) - 05 Aug,Mt. Kailash &amp; Mansarover Yatra 08N/09D  (By Helicopter Via Lucknow) - 28 Jul,Mt. Kailash &amp; Mansarover Yatra 08N/09D  (By Helicopter Via Lucknow) - 22 Jul,Mt. Kailash &amp; Mansarover Yatra 08N/09D  (By Helicopter Via Lucknow) - 18 Jul,Mt. Kailash &amp; Mansarover Yatra 08N/09D  (By Helicopter Via Lucknow) - 12 Jul,Mt. Kailash &amp; Mansarover Yatra 08N/09D  (By Helicopter Via Lucknow) - 06 Jul,Mt. Kailash &amp; Mansarover Yatra 08N/09D  (By Helicopter Via Lucknow) - 26 Jun,Mt. Kailash &amp; Mansarover Yatra 08N/09D  (By Helicopter Via Lucknow) - 20 Jun,Mt. Kailash &amp; Mansarover Yatra 08N/09D  (By Helicopter Via Lucknow) - 14 Jun,Mt. Kailash &amp; Mansarover Yatra 08N/09D  (By Helicopter Via Lucknow) - 08 Jun,Mt. Kailash &amp; Mansarover Yatra 08N/09D  (By Helicopter Via Lucknow) - 31 May,Mt. Kailash &amp; Mansarover Yatra 08N/09D  (By Helicopter Via Lucknow) - 26 May,Mt. Kailash &amp; Mansarover Yatra 08N/09D  (By Helicopter Via Lucknow) - 20 May,Mt. Kailash &amp; Mansarover Yatra 08N/09D  (By Helicopter Via Lucknow) - 14 May ,Mt. Kailash &amp; Mansarover Yatra 08N/09D  (By Helicopter Via Lucknow) - 08 May                                     </td>
+    
+                                        <td>
+                                            24 Jan 2025                                    </td>
+                                        <td>
+                                            24 Dec 2025                                    </td>
+    
+    
+                                        <td>
+                                            <span class="active-status">
+                                                Active                                        </span>
+                                        </td>
+    
+                                        <td>
+                                            24 Jan 2025 / 12:27 PM                                    </td>
+    
+                                        <td>
+                                            24 Jan 2025 / 12:39 PM                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="OA--" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-markup-template/OA--"><i class="fa-solid fa-edit"></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="7"></label>
+                                        </td>
+                                                                            <td>
+                                            Platinum                                    </td>
+                                        <td>
+                                            9991                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Fixed                                    </td>
+    
+    
+                                        <td>
+                                            Family                                    </td>
+                                        <td>
+                                            Almaty                                     </td>
+                                        <td>
+                                            Almaty  4 Nights-19 Apr,25- Air Astana,Almaty  4 Nights-17Apr,25- Air Astana,Almaty  4 Nights-12 Apr,25- Air Astana,Almaty  4 Nights-08 Apr,25- Air Astana,Almaty  4 Nights-01 Mar,25- Air Astana,Almaty  4 Nights-22 Mar,25- Air Astana,Almaty  4 Nights-20 Mar,25- Air Astana,Almaty  4 Nights-15 Mar,25- Air Astana,Almaty  4 Nights-13 Mar,25- Air Astana,Almaty  4 Nights-08 Mar,25- Air Astana,Almaty  4 Nights-06 Mar,25- Air Astana                                    </td>
+    
+                                        <td>
+                                            24 Jan 2025                                    </td>
+                                        <td>
+                                            30 Apr 2025                                    </td>
+    
+    
+                                        <td>
+                                            <span class="active-status">
+                                                Active                                        </span>
+                                        </td>
+    
+                                        <td>
+                                            24 Jan 2025 / 11:24 AM                                    </td>
+    
+                                        <td>
+                                            24 Jan 2025 / 12:18 PM                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="Nw--" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-markup-template/Nw--"><i class="fa-solid fa-edit"></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="6"></label>
+                                        </td>
+                                                                            <td>
+                                            Platinum                                    </td>
+                                        <td>
+                                            9000                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Fixed                                    </td>
+    
+    
+                                        <td>
+                                            Family                                    </td>
+                                        <td>
+                                            Tashkent                                    </td>
+                                        <td>
+                                            Tashkent 4 Nights- 20th Feb                                    </td>
+    
+                                        <td>
+                                            22 Jan 2025                                    </td>
+                                        <td>
+                                            28 Feb 2025                                    </td>
+    
+    
+                                        <td>
+                                            <span class="active-status">
+                                                Active                                        </span>
+                                        </td>
+    
+                                        <td>
+                                            22 Jan 2025 / 12:14 PM                                    </td>
+    
+                                        <td>
+                                            22 Jan 2025 / 12:15 PM                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="Ng--" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-markup-template/Ng--"><i class="fa-solid fa-edit"></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="4"></label>
+                                        </td>
+                                                                            <td>
+                                            Platinum                                    </td>
+                                        <td>
+                                            10                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Percent                                    </td>
+    
+    
+                                        <td>
+                                            ANY                                    </td>
+                                        <td>
+                                            ANY                                    </td>
+                                        <td>
+                                            ANY                                    </td>
+    
+                                        <td>
+                                            25 Sep 2024                                    </td>
+                                        <td>
+                                            31 Dec 2025                                    </td>
+    
+    
+                                        <td>
+                                            <span class="active-status">
+                                                Active                                        </span>
+                                        </td>
+    
+                                        <td>
+                                            25 Sep 2024 / 6:52 PM                                    </td>
+    
+                                        <td>
+                                            02 Jan 2025 / 1:15 PM                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="NA--" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-markup-template/NA--"><i class="fa-solid fa-edit"></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="3"></label>
+                                        </td>
+                                                                            <td>
+                                            Gold                                    </td>
+                                        <td>
+                                            10                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Percent                                    </td>
+    
+    
+                                        <td>
+                                            ANY                                    </td>
+                                        <td>
+                                            ANY                                    </td>
+                                        <td>
+                                            ANY                                    </td>
+    
+                                        <td>
+                                            16 Jul 2024                                    </td>
+                                        <td>
+                                            19 Nov 2025                                    </td>
+    
+    
+                                        <td>
+                                            <span class="active-status">
+                                                Active                                        </span>
+                                        </td>
+    
+                                        <td>
+                                            27 Mar 2024 / 11:07 AM                                    </td>
+    
+                                        <td>
+                                            07 Oct 2024 / 3:31 PM                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="Mw--" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-markup-template/Mw--"><i class="fa-solid fa-edit"></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="2"></label>
+                                        </td>
+                                                                            <td>
+                                            Silver                                    </td>
+                                        <td>
+                                            10                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Percent                                    </td>
+    
+    
+                                        <td>
+                                            ANY                                    </td>
+                                        <td>
+                                            ANY                                    </td>
+                                        <td>
+                                            ANY                                    </td>
+    
+                                        <td>
+                                            01 Jan 1970                                    </td>
+                                        <td>
+                                            01 Jan 1970                                    </td>
+    
+    
+                                        <td>
+                                            <span class="inactive-status">
+                                                Inactive                                        </span>
+                                        </td>
+    
+                                        <td>
+                                            28 Feb 2024 / 12:19 PM                                    </td>
+    
+                                        <td>
+                                            03 Jul 2024 / 2:00 PM                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="Mg--" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-markup-template/Mg--"><i class="fa-solid fa-edit"></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                    <tr>
+                                        
+                                        <td>
+                                            <label><input type="checkbox" name="checklist[]" class="checkbox" value="1"></label>
+                                        </td>
+                                                                            <td>
+                                            Platinum                                    </td>
+                                        <td>
+                                            10                                    </td>
+                                        <td>
+                                            0                                    </td>
+                                        <td>
+                                            Percent                                    </td>
+    
+    
+                                        <td>
+                                            ANY                                    </td>
+                                        <td>
+                                            ANY                                    </td>
+                                        <td>
+                                            ANY                                    </td>
+    
+                                        <td>
+                                            16 Jul 2024                                    </td>
+                                        <td>
+                                            31 Dec 2024                                    </td>
+    
+    
+                                        <td>
+                                            <span class="inactive-status">
+                                                Inactive                                        </span>
+                                        </td>
+    
+                                        <td>
+                                            08 Feb 2023 / 6:30 PM                                    </td>
+    
+                                        <td>
+                                            02 Jan 2025 / 12:59 PM                                    </td>
+                                                                            <td>
+                                            <a href="javascript:void(0);" view-data-modal="true" data-controller="bus" data-id="MQ--" data-href="https://agent.dookinternational.com/adminpanel/markup-discount/edit-admin-holiday-markup-template/MQ--"><i class="fa-solid fa-edit"></i></a>
+                                        </td>
+                                                                        </tr>
+                                                                </tbody>
+                            </table>
+                        </div>
+                    </form>
+    
+    
+    
+                    <div class="row pagiantion_row align-items-center">
+                        <div class="col-md-6 mb-3 mb-lg-0">
+                            <p class="pagiantion_text">Page
+                                1                            of
+                                1, total
+                                10 records found
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                                                    <!-- DEBUG-VIEW START 3 SYSTEMPATH/Pager/Views/default_full.php -->
+    
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            
+                        <li class="active">
+                    <a href="https://agent.dookinternational.com/adminpanel/markup-discount/super-admin-holiday-markup-list?page=1">
+                        1				</a>
+                </li>
+            
+                </ul>
+    </nav>
+    
+    <!-- DEBUG-VIEW ENDED 3 SYSTEMPATH/Pager/Views/default_full.php -->
+                                                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

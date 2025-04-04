@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="content ">
+        <div class="page-content">
+            <div class="table_title">
+                <div class="sale_bar">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 mb-3 mb-lg-0">
+                            <h5 class="m0"> Pages List</h5>
+                        </div>
+                        <div class="col-md-8 text-md-right">
+                                                        <button class="badge badge-wt" view-data-modal="true" data-controller="pages" data-href="https://agent.dookinternational.com/adminpanel/pages/add-pages-template"><i class="fa-solid fa-add "></i> Add Page
+                                </button>
+                                                                                <button class="badge badge-wt" onclick="confirm_change_status('status_change')"><i class="fa-solid fa-exchange"></i> Change Status
+                                </button>
+                                                                                <button class="badge badge-danger badge-wt danger disable_badge" tts-disable_badge="" onclick="confirm_delete('formpagelist')"><i class="fa-solid fa-trash"></i> Delete
+                                </button>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content-area">
+    
+    
+                <div class="card-body">
+                    <div class="row">
+                        <!----------Start Search Bar ----------------->
+                        <form action="https://agent.dookinternational.com/adminpanel/pages" method="GET" class="tts-dis-content" name="page-search" onsubmit="return searchvalidateForm()">
+                            <div class="col-md-3">
+                                <div class="form-group form-mb-20">
+                                    <label>Select key to search by *</label>
+                                    <select name="key" class="form-control" onchange="tts_searchkey(this,'page-search')" tts-validatation="Required" tts-error-msg="Please select search key">
+                                        <option value="">Please select</option>
+                                        <option value="title">Title
+                                        </option>
+                                        <option value="status">Status
+                                        </option>
+                                        <option value="date-range">Date Range
+                                        </option>
+                                    </select>
+                                </div>
+                                <input type="hidden" name="key-text" value="">
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group form-mb-20">
+                                    <label>
+                                        Value                                </label>
+                                    <input type="text" name="value" placeholder="Value" value="" class="form-control" tts-validatation="Required" tts-error-msg="Please enter value">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-mb-20">
+                                    <label>From Date</label><input type="text" data-searchbar-from="true" name="from_date" value="" placeholder="Select From Date" class="form-control" tts-error-msg="Please select from date">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-mb-20">
+                                    <label>To Date</label><input type="text" data-searchbar-to="true" name="to_date" value="" placeholder="Select To Date" class="form-control" tts-error-msg="Please select to date">
+                                </div>
+                            </div>
+                            <div class="col-md-2 align-self-end">
+                                <div class="form-group form-mb-20">
+    
+                                    <button type="submit" class="badge badge-md badge-primary badge_search">Search <i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+    
+                            <!--? if (isset($search_bar_data['key'])): ?-->
+                            <div class="col-md-3 mb-3">
+                                <div class="search-reset-btn">
+                                    <a href="https://agent.dookinternational.com/adminpanel/pages">Reset Search</a>
+                                </div>
+                            </div>
+                            <!--? endif ?-->
+    
+                        </form>
+                    </div>
+    
+                    <!----------End Search Bar ----------------->
+    
+                    <div class="table-responsive">
+                                            <form action="https://agent.dookinternational.com/adminpanel/pages/remove-pages" method="POST" tts-form="true" id="formpagelist">
+                            <table class="table table-bordered table-hover">
+                                <thead class="table-active">
+                                    <tr>
+                                                                            <th><label><input type="checkbox" name="check_all" id="selectall"></label>
+                                        </th>
+                                                                            <th>Title</th>
+                                        <th>Slug</th>
+                                        <!--<th>Status</th>-->
+                                        <th>Created Date</th>
+                                        <th>Modified Date</th>
+                                                                                <th>Action</th>
+                                                                        </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="2"></label>
+                                                    </td>
+                                                
+                                                <td>
+                                                    Terms &amp; conditions                                            </td>
+                                                <td>
+                                                    terms                                            </td>
+    
+                                                <!--<td>
+    
+                                                <span class="">
+                                                                                            </span>
+    
+                                            </td>
+    -->
+    
+                                                <td>11 Feb 2023 / 3:46 PM</td>
+                                                <td>10 Nov 2023 / 11:50 AM                                            </td>
+                                                                                                <td>
+                                                        <a href="javascript:void(0);" view-data-modal="true" data-controller="pages" data-id="Mg--" data-href="https://agent.dookinternational.com/adminpanel/pages/edit-pages-template/Mg--"><i class="fa-solid fa-edit "></i></a>
+    
+                                                    </td>
+                                                
+                                            </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="3"></label>
+                                                    </td>
+                                                
+                                                <td>
+                                                    Payment Security                                            </td>
+                                                <td>
+                                                    payment-security                                            </td>
+    
+                                                <!--<td>
+    
+                                                <span class="">
+                                                                                            </span>
+    
+                                            </td>
+    -->
+    
+                                                <td>11 Feb 2023 / 3:48 PM</td>
+                                                <td>05 Apr 2023 / 1:56 PM                                            </td>
+                                                                                                <td>
+                                                        <a href="javascript:void(0);" view-data-modal="true" data-controller="pages" data-id="Mw--" data-href="https://agent.dookinternational.com/adminpanel/pages/edit-pages-template/Mw--"><i class="fa-solid fa-edit "></i></a>
+    
+                                                    </td>
+                                                
+                                            </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="4"></label>
+                                                    </td>
+                                                
+                                                <td>
+                                                    Privacy Policy                                            </td>
+                                                <td>
+                                                    privacy-policy                                            </td>
+    
+                                                <!--<td>
+    
+                                                <span class="">
+                                                                                            </span>
+    
+                                            </td>
+    -->
+    
+                                                <td>11 Feb 2023 / 3:49 PM</td>
+                                                <td>01 Jan 2024 / 10:52 AM                                            </td>
+                                                                                                <td>
+                                                        <a href="javascript:void(0);" view-data-modal="true" data-controller="pages" data-id="NA--" data-href="https://agent.dookinternational.com/adminpanel/pages/edit-pages-template/NA--"><i class="fa-solid fa-edit "></i></a>
+    
+                                                    </td>
+                                                
+                                            </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="5"></label>
+                                                    </td>
+                                                
+                                                <td>
+                                                    Careers                                            </td>
+                                                <td>
+                                                    career                                            </td>
+    
+                                                <!--<td>
+    
+                                                <span class="">
+                                                                                            </span>
+    
+                                            </td>
+    -->
+    
+                                                <td>11 Feb 2023 / 3:51 PM</td>
+                                                <td>05 Apr 2023 / 1:56 PM                                            </td>
+                                                                                                <td>
+                                                        <a href="javascript:void(0);" view-data-modal="true" data-controller="pages" data-id="NQ--" data-href="https://agent.dookinternational.com/adminpanel/pages/edit-pages-template/NQ--"><i class="fa-solid fa-edit "></i></a>
+    
+                                                    </td>
+                                                
+                                            </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="6"></label>
+                                                    </td>
+                                                
+                                                <td>
+                                                    Contact Us                                            </td>
+                                                <td>
+                                                    contact-us                                            </td>
+    
+                                                <!--<td>
+    
+                                                <span class="">
+                                                                                            </span>
+    
+                                            </td>
+    -->
+    
+                                                <td>11 Feb 2023 / 3:52 PM</td>
+                                                <td>12 May 2023 / 5:57 PM                                            </td>
+                                                                                                <td>
+                                                        <a href="javascript:void(0);" view-data-modal="true" data-controller="pages" data-id="Ng--" data-href="https://agent.dookinternational.com/adminpanel/pages/edit-pages-template/Ng--"><i class="fa-solid fa-edit "></i></a>
+    
+                                                    </td>
+                                                
+                                            </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="7"></label>
+                                                    </td>
+                                                
+                                                <td>
+                                                    Disclaimer                                            </td>
+                                                <td>
+                                                    disclaimer                                            </td>
+    
+                                                <!--<td>
+    
+                                                <span class="">
+                                                                                            </span>
+    
+                                            </td>
+    -->
+    
+                                                <td>13 Feb 2023 / 3:18 PM</td>
+                                                <td>05 Apr 2023 / 1:57 PM                                            </td>
+                                                                                                <td>
+                                                        <a href="javascript:void(0);" view-data-modal="true" data-controller="pages" data-id="Nw--" data-href="https://agent.dookinternational.com/adminpanel/pages/edit-pages-template/Nw--"><i class="fa-solid fa-edit "></i></a>
+    
+                                                    </td>
+                                                
+                                            </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="8"></label>
+                                                    </td>
+                                                
+                                                <td>
+                                                    About Us                                            </td>
+                                                <td>
+                                                    about-us                                            </td>
+    
+                                                <!--<td>
+    
+                                                <span class="">
+                                                                                            </span>
+    
+                                            </td>
+    -->
+    
+                                                <td>14 Mar 2023 / 12:59 PM</td>
+                                                <td>05 Apr 2023 / 1:57 PM                                            </td>
+                                                                                                <td>
+                                                        <a href="javascript:void(0);" view-data-modal="true" data-controller="pages" data-id="OA--" data-href="https://agent.dookinternational.com/adminpanel/pages/edit-pages-template/OA--"><i class="fa-solid fa-edit "></i></a>
+    
+                                                    </td>
+                                                
+                                            </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="9"></label>
+                                                    </td>
+                                                
+                                                <td>
+                                                    Refunds Policy                                            </td>
+                                                <td>
+                                                    refunds                                            </td>
+    
+                                                <!--<td>
+    
+                                                <span class="">
+                                                                                            </span>
+    
+                                            </td>
+    -->
+    
+                                                <td>20 Mar 2023 / 3:59 PM</td>
+                                                <td>05 Apr 2023 / 1:57 PM                                            </td>
+                                                                                                <td>
+                                                        <a href="javascript:void(0);" view-data-modal="true" data-controller="pages" data-id="OQ--" data-href="https://agent.dookinternational.com/adminpanel/pages/edit-pages-template/OQ--"><i class="fa-solid fa-edit "></i></a>
+    
+                                                    </td>
+                                                
+                                            </tr>
+                                                                    </tbody>
+                            </table>
+    
+                        </form>
+    
+    
+                    </div>
+                    <div class="row pagiantion_row align-items-center">
+                        <div class="col-md-6 mb-3 mb-lg-0">
+                            <p class="pagiantion_text">Page 1                            of 1, total 8 records found </p>
+                        </div>
+                        <div class="col-md-6">
+                                                        <!-- DEBUG-VIEW START 3 SYSTEMPATH/Pager/Views/default_full.php -->
+    
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            
+                        <li class="active">
+                    <a href="https://agent.dookinternational.com/adminpanel/pages?page=1">
+                        1				</a>
+                </li>
+            
+                </ul>
+    </nav>
+    
+    <!-- DEBUG-VIEW ENDED 3 SYSTEMPATH/Pager/Views/default_full.php -->
+                                                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

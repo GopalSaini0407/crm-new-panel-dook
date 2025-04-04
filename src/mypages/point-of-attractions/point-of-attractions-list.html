@@ -1,0 +1,1790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="content ">
+        <div class="page-content">
+            <div class="table_title">
+                <div class="sale_bar">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 mb-3 mb-lg-0">
+                            <h5 class="m0"> Point Of Attractions List</h5>
+                        </div>
+                        <div class="col-md-8 text-md-right">
+    
+                                                        <a class="badge badge-wt" data-controller="pointofattractions" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/add-point-of-attractions"><i class="fa-solid fa-add "></i> Add Point Of Attractions</a>
+                            
+                                                        <button class="badge badge-wt" onclick="confirm_change_status('status_change')"><i class="fa-solid fa-exchange"></i> Change Status </button>
+                                                                                <button class="badge badge-danger badge-wt danger disable_badge" tts-disable_badge="" onclick="confirm_delete('formsliderlist')"><i class="fa-solid fa-trash"></i> Delete
+                                </button>
+                                                </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content-area">
+                <div class="card-body">
+                    <form action="https://agent.dookinternational.com/adminpanel/point-of-attractions" method="GET" class="tts-dis-content" name="cruise-ocean-search" onsubmit="return searchvalidateForm()">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group form-mb-20">
+                                    <label>Select key to search by *</label>
+                                    <select name="key" class="form-control" onchange="tts_searchkey(this,'cruise-ocean-search')" tts-validatation="Required" tts-error-msg="Please select search key">
+                                        <option value="">Please select</option>
+                                        <option value="point_of_attractions">Point
+                                            of attractions</option>
+                                        <option value="point_of_attractions_start_price">Price</option>
+                                        <option value="status">Status</option>
+                                        <option value="point_of_attractions_type">Point Of Attractions Type</option>
+                                        <option value="location">Location</option>
+                                        <option value="chargeable">Chargeable
+                                        </option>
+                                        <option value="date-range">Date Range
+                                        </option>
+                                    </select>
+                                </div>
+                                <input type="hidden" name="key-text" value="">
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group form-mb-20">
+                                    <label>
+                                        Value                                </label>
+                                    <input type="text" name="value" placeholder="Value" value="" class="form-control" tts-validatation="Required" tts-error-msg="Please enter value">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-mb-20">
+                                    <label>From Date</label>
+                                    <input type="text" data-searchbar-from="true" name="from_date" value="" placeholder="Select From Date" class="form-control" tts-error-msg="Please select from date" readonly="">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-mb-20">
+                                    <label>To Date</label>
+                                    <input type="text" data-searchbar-to="true" name="to_date" value="" placeholder="Select To Date" class="form-control" tts-error-msg="Please select to date" readonly="">
+                                </div>
+                            </div>
+                            <div class="col-md-2 align-self-end">
+                                <div class="form-group form-mb-20">
+                                    <button type="submit" class="badge badge-md badge-primary badge_search">Search <i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                                                </div>
+                    </form>
+                    <div class="table-responsive">
+                                            <form action="https://agent.dookinternational.com/adminpanel/point-of-attractions/remove-point-of-attractions" method="POST" tts-form="true" id="formsliderlist">
+                            <table class="table table-bordered table-hover">
+                                <thead class="table-active">
+                                    <tr>
+                                                                                <th><label><input type="checkbox" name="check_all" id="selectall"></label></th>
+                                                                            <th>Point Of Attractions Image</th>
+                                        <th>Point Of Attractions Name</th>
+                                        <th>Price</th>
+                                        <th>Location</th>
+                                        <th>Status</th>
+                                        <th>Created Date</th>
+                                        <th>Modified Date</th>
+                                                                                <th>Action</th>
+                                                                        </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="551"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1738216800_Uplistsikhe Cave Town.jpg" alt="Uplistsikhe Cave Town" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTUx" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTUx">Uplistsikhe Cave Town</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Tbilisi                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    30 Jan 2025 / 11:30 AM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTUx">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="550"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1738216500_FS.jpg" alt="Freedom Square" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTUw" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTUw">Freedom Square</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Tbilisi                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    30 Jan 2025 / 11:25 AM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTUw">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="549"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1738064580_Mekong Delta.jpg" alt="Mekong Delta" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTQ5" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTQ5">Mekong Delta</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Ho Chi Minh City                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    28 Jan 2025 / 5:13 PM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTQ5">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="548"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737977400_Bai Dinh pagoda.jpg" alt="Bai Dinh pagoda" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTQ4" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTQ4">Bai Dinh pagoda</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Ho Chi Minh City                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    27 Jan 2025 / 5:00 PM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTQ4">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="547"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737977340_Hoa Lu Temples.jpg" alt="Hoa Lu Temples" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTQ3" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTQ3">Hoa Lu Temples</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Ho Chi Minh City                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    27 Jan 2025 / 4:59 PM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTQ3">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="546"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737976680_Lady Buddha Pagoda.jpg" alt="Lady Buddha Pagoda" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTQ2" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTQ2">Lady Buddha Pagoda</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    HI Long                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    27 Jan 2025 / 4:48 PM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTQ2">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="545"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737976500_Ao dai Museum.jpg" alt="Ao dai Museum" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTQ1" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTQ1">Ao dai Museum</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Ko Chi Minh                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    27 Jan 2025 / 4:45 PM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTQ1">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="544"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737957960_Mt Kailash.jpg" alt="Mt Kailash " class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTQ0" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTQ0">Mt Kailash </a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Nepal                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    27 Jan 2025 / 11:36 AM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTQ0">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="543"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737630540_Kathmandu Durbar Squire.jpg" alt="Kathmandu Durbar Squire" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTQz" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTQz">Kathmandu Durbar Squire</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Nepal                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    23 Jan 2025 / 4:39 PM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTQz">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="542"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737630420_Jala Narayan Temple.jpg" alt="Jala Narayan Temple" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTQy" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTQy">Jala Narayan Temple</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Nepal                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    23 Jan 2025 / 4:37 PM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTQy">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="541"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737630300_Bouddhanath Stupa.jpg" alt="Bouddhanath Stupa" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTQx" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTQx">Bouddhanath Stupa</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Nepal                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    23 Jan 2025 / 4:35 PM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTQx">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="540"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737630240_Pasupatinath Temple.jpg" alt="Pasupatinath Temple" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTQw" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTQw">Pasupatinath Temple</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Nepal                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    23 Jan 2025 / 4:34 PM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTQw">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="539"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737618240_Manasarover lake.jpg" alt="Manasover Lake" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTM5" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTM5">Manasover Lake</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Simri                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    23 Jan 2025 / 1:14 PM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTM5">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="538"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737618060_Lord Shiva Temple.jpg" alt="Lord Shiva Temple " class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTM4" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTM4">Lord Shiva Temple </a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Simikot                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    23 Jan 2025 / 1:11 PM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTM4">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="537"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737612120_Notre Dame Cathedral.jpg" alt="Notre Dame Cathedral" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTM3" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTM3">Notre Dame Cathedral</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Ho Chi Minh City                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    23 Jan 2025 / 11:32 AM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTM3">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="536"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737612060_Reunification Palace.jpg" alt="Reunification Palace" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTM2" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTM2">Reunification Palace</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Ho Chi Minh City                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    23 Jan 2025 / 11:31 AM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTM2">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="535"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737612000_War Remnants Museum.jpg" alt="War Remnants Museum" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTM1" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTM1">War Remnants Museum</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Ho Chi Minh City                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    23 Jan 2025 / 11:30 AM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTM1">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="534"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737611820_Linh Ung Pagoda.jpg" alt="Linh Ung Pagoda" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTM0" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTM0">Linh Ung Pagoda</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Da Nang                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    23 Jan 2025 / 11:27 AM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTM0">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="533"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737611760_Fantasy Park.jpg" alt="Fantasy Park" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTMz" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTMz">Fantasy Park</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Da Nang                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    23 Jan 2025 / 11:26 AM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTMz">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="532"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737611700_The Notre Dame Cathedral.jpg" alt=" The Notre Dame Cathedral" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTMy" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTMy"> The Notre Dame Cathedral</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Da Nang                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    23 Jan 2025 / 11:25 AM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTMy">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="531"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737611640_The Golden Bridge.jpg" alt="The Golden Bridge" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTMx" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTMx">The Golden Bridge</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Da Nang                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    23 Jan 2025 / 11:24 AM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTMx">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="530"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737611580_Han Market.jpg" alt="Han Market" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTMw" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTMw">Han Market</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Hanoi                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    23 Jan 2025 / 11:23 AM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTMw">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="529"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737611520_Hanoi.jpg" alt="Pink Church" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTI5" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTI5">Pink Church</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Hanoi                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    23 Jan 2025 / 11:22 AM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTI5">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="528"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737611460_Dragon Bridge.jpg" alt="Dragon Bridge" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTI4" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTI4">Dragon Bridge</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Hanoi                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    23 Jan 2025 / 11:21 AM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTI4">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="527"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737611400_Lady Buddha Pagoda.jpg" alt="Lady Buddha Pagoda" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTI3" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTI3">Lady Buddha Pagoda</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Hanoi                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    23 Jan 2025 / 11:20 AM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTI3">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="526"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737611280_Ngo Dong River.jpg" alt="Ngo Dong River" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTI2" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTI2">Ngo Dong River</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Hanoi                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    23 Jan 2025 / 11:18 AM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTI2">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="525"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737611160_Dinh Tien Hoang.jpg" alt="Dinh Tien Hoang" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTI1" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTI1">Dinh Tien Hoang</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Hanoi                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    23 Jan 2025 / 11:16 AM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTI1">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="524"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737611100_Sung Sot Cave.jpg" alt="Sung Sot Cave" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTI0" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTI0">Sung Sot Cave</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    HI Long                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    23 Jan 2025 / 11:15 AM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTI0">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="523"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737610740_Hoan Kiem Lake.jpg" alt="Hoan Kiem Lake" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTIz" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTIz">Hoan Kiem Lake</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Ho Chi Minh City                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    23 Jan 2025 / 11:09 AM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTIz">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="522"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737610680_Ho Chi Minh Mausoleum.jpg" alt="Ho Chi Minh Mausoleum" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTIy" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTIy">Ho Chi Minh Mausoleum</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Ho Chi Minh City                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    23 Jan 2025 / 11:08 AM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTIy">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="521"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737610620_Ba Dinh Square.jpg" alt="Ba Dinh Square" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTIx" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTIx">Ba Dinh Square</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Hanoi                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    23 Jan 2025 / 11:07 AM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTIx">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="520"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737457140_Rock Church.jpg" alt="Rock Church " class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTIw" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTIw">Rock Church </a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Helsinki                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    20 Jan 2025 / 1:40 PM                                            </td>
+                                                <td>
+                                                    21 Jan 2025 / 4:29 PM                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTIw">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="519"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737457140_Holmenkollen Ski Museum.jpg" alt="Holmenkollen Ski Museum" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTE5" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTE5">Holmenkollen Ski Museum</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Oslo                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    20 Jan 2025 / 1:38 PM                                            </td>
+                                                <td>
+                                                    21 Jan 2025 / 4:29 PM                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTE5">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="518"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737099960_Tivoli Gardens.jpg" alt="Tivoli Gardens" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTE4" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTE4">Tivoli Gardens</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Copenhagen                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    17 Jan 2025 / 1:16 PM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTE4">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="517"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737099840_Roskilde Cathedral.jpg" alt="Roskilde Cathedral" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTE3" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTE3">Roskilde Cathedral</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Copenhagen                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    17 Jan 2025 / 1:14 PM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTE3">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="516"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737099600_H.C. Andersen.jpg" alt="H.C. Andersen museum" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTE2" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTE2">H.C. Andersen museum</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Norway                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    17 Jan 2025 / 1:10 PM                                            </td>
+                                                <td>
+                                                    17 Jan 2025 / 1:10 PM                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTE2">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="515"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737099360_Mt. Fløyen.jpg" alt="Mt. Fløyen" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTE1" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTE1">Mt. Fløyen</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Bergen                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    17 Jan 2025 / 1:06 PM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTE1">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="514"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737099060_Holmenkollen Ski Jump.jpg" alt="Holmenkollen Ski Jump" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTE0" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTE0">Holmenkollen Ski Jump</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Oslo                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    17 Jan 2025 / 1:01 PM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTE0">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="513"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737099000_Natural History Museum.jpg" alt="Natural History Museum" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTEz" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTEz">Natural History Museum</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Oslo                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    17 Jan 2025 / 1:00 PM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTEz">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                        
+                                            <tr>
+                                                                                                <td>
+                                                        <label><input type="checkbox" name="checklist[]" class="checkbox" value="512"></label>
+                                                    </td>
+                                                                                            <td>
+                                                    <img src="https://agent.dookinternational.com/uploads/pointofattractions/thumbnail/1737098640_oslo.jpg" alt="Klarälven River" class="tts-blog-image">
+                                                </td>
+    
+    
+                                                <td style="white-space:unset">
+                                                    <a href="javascript:void(0);" view-data-modal="true" data-controller="pointofattrctions" data-id="NTEy" data-href="https://agent.dookinternational.com/adminpanel/point-of-attractions/details-point-of-attractions-template/NTEy">Klarälven River</a>
+                                                </td>
+    
+    
+                                                <td><i class="fa fa-inr"></i>
+                                                    0                                            </td>
+                                                <td>
+                                                    Oslo                                            </td>
+    
+                                                <td>
+                                                    <span class="active-status">
+                                                        Active                                                </span>
+                                                </td>
+    
+                                                <td>
+                                                    17 Jan 2025 / 12:54 PM                                            </td>
+                                                <td>
+                                                    -                                            </td>
+                                                                                                <td>
+                                                        <div class="dropdown">
+                                                            <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Action
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/point-of-attractions/edit-point-of-attractions-view/NTEy">Edit
+                                                                        Details</a>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                                                        </tr>
+                                                                    </tbody>
+                            </table>
+                        </form>
+    
+                    </div>
+                    <div class="row pagiantion_row align-items-center">
+                        <div class="col-6">
+                            <p class="pagiantion_text">Page
+                                1 of
+                                14, total
+                                530 records found
+                            </p>
+                        </div>
+                        <div class="col-6">
+                                                        <!-- DEBUG-VIEW START 3 SYSTEMPATH/Pager/Views/default_full.php -->
+    
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            
+                        <li class="active">
+                    <a href="https://agent.dookinternational.com/adminpanel/point-of-attractions?page=1">
+                        1				</a>
+                </li>
+                        <li>
+                    <a href="https://agent.dookinternational.com/adminpanel/point-of-attractions?page=2">
+                        2				</a>
+                </li>
+                        <li>
+                    <a href="https://agent.dookinternational.com/adminpanel/point-of-attractions?page=3">
+                        3				</a>
+                </li>
+            
+                        <li>
+                    <a href="https://agent.dookinternational.com/adminpanel/point-of-attractions?page=4" aria-label="Next">
+                        <span aria-hidden="true">Next</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://agent.dookinternational.com/adminpanel/point-of-attractions?page=14" aria-label="Last">
+                        <span aria-hidden="true">Last</span>
+                    </a>
+                </li>
+                </ul>
+    </nav>
+    
+    <!-- DEBUG-VIEW ENDED 3 SYSTEMPATH/Pager/Views/default_full.php -->
+                                                </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -25,9 +25,14 @@
       <!-- partial:../../partials/_navbar.html -->
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
-          <a class="navbar-brand brand-logo" href="../../index.html"><img src="../../assets/images/logo.svg" alt="logo" /></a>
-          <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../assets/images/logo-mini.svg" alt="logo" /></a>
-        </div>
+          <a class="navbar-brand brand-logo " href="index.html">
+           <!-- <img src="assets/images/logo.svg" alt="logo" /></a> -->
+            BBT CRM
+          <a class="navbar-brand brand-logo-mini" href="index.html">
+           <!-- <img src="assets/images/logo-mini.svg" alt="logo" /> -->
+            BBT CRM
+         </a>
+       </div>
         <div class="navbar-menu-wrapper d-flex align-items-stretch">
           <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
             <span class="mdi mdi-menu"></span>
@@ -752,122 +757,109 @@
        <!-- partial -->
        <div class="main-panel">
         <div class="content-wrapper">
-            <div class="card">
-                <div class="card-body">
-                  <!-- Tabs -->
-                  <ul class="nav nav-tabs" id="activityTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                      <button class="nav-link active" id="location-tab" data-bs-toggle="tab" data-bs-target="#location" type="button" role="tab" aria-controls="location" aria-selected="true">
-                        Activities Location List
-                      </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                      <button class="nav-link" id="inclusion-tab" data-bs-toggle="tab" data-bs-target="#inclusion" type="button" role="tab" aria-controls="inclusion" aria-selected="false">
-                        Activities Inclusions List
-                      </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                      <button class="nav-link" id="exclusion-tab" data-bs-toggle="tab" data-bs-target="#exclusion" type="button" role="tab" aria-controls="exclusion" aria-selected="false">
-                        Activities Exclusions List
-                      </button>
-                    </li>
-                  </ul>
-              
-                  <!-- Tab Contents -->
-                  <div class="tab-content" id="activityTabsContent">
-                    
-                    <!-- Activities Location List Tab -->
-                    <div class="tab-pane fade show active" id="location" role="tabpanel" aria-labelledby="location-tab">
-                      <div class="mt-4">
-                        <!-- Filter/Search Row -->
-                        <div class="row mb-3">
-                          <div class="col-md-2">
-                            <button class="btn btn-primary btn-sm">Add Activities Location</button>
-                          </div>
-                          <div class="col-md-2">
-                            <button class="btn btn-warning btn-sm">Change Status</button>
-                          </div>
-                          <div class="col-md-2">
-                            <button class="btn btn-danger btn-sm">Delete</button>
-                          </div>
-                          <div class="col-md-2">
-                            <select class="form-select form-select-sm">
-                              <option selected>Select key to search by *</option>
-                              <option value="name">Location Name</option>
-                              <option value="status">Status</option>
-                            </select>
-                          </div>
-                          <div class="col-md-2">
-                            <input type="text" class="form-control form-control-sm" placeholder="Value">
-                          </div>
-                          <div class="col-md-2">
-                            <button class="btn btn-success btn-sm w-100">Search</button>
-                          </div>
-                        </div>
-                        <div class="row mb-3">
-                          <div class="col-md-3">
-                            <label class="form-label">From Date</label>
-                            <input type="date" class="form-control form-control-sm">
-                          </div>
-                          <div class="col-md-3">
-                            <label class="form-label">To Date</label>
-                            <input type="date" class="form-control form-control-sm">
-                          </div>
-                        </div>
-              
-                        <!-- Location Table -->
-                        <div class="table-responsive">
-                          <table class="table table-bordered table-striped">
-                            <thead class="table-light">
-                              <tr>
-                                <th>Location Image</th>
-                                <th>Location Name</th>
-                                <th>Starting Price</th>
-                                <th>Status</th>
-                                <th>Created Date</th>
-                                <th>Modified Date</th>
-                                <th>Action</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td><img src="path/to/baku.jpg" alt="Baku" class="img-thumbnail" style="width: 80px; height: 50px;"></td>
-                                <td>Baku</td>
-                                <td>5000</td>
-                                <td><span class="badge bg-success">Active</span></td>
-                                <td>10 Oct 2023 / 4:07 PM</td>
-                                <td>-</td>
-                                <td>
-                                  <button class="btn btn-sm btn-primary">Edit</button>
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                          <p class="text-muted small mt-2">Page 1 of 1, total 1 records found</p>
-                        </div>
-                      </div>
-                    </div>
-              
-                    <!-- Inclusions Tab (empty for now) -->
-                    <div class="tab-pane fade" id="inclusion" role="tabpanel" aria-labelledby="inclusion-tab">
-                      <div class="mt-4">
-                        <!-- Paste your Inclusions table here -->
-                        <p>Inclusions list content goes here.</p>
-                      </div>
-                    </div>
-              
-                    <!-- Exclusions Tab (empty for now) -->
-                    <div class="tab-pane fade" id="exclusion" role="tabpanel" aria-labelledby="exclusion-tab">
-                      <div class="mt-4">
-                        <!-- Paste your Exclusions table here -->
-                        <p>Exclusions list content goes here.</p>
-                      </div>
-                    </div>
-              
+          <div class="container-fluid">
+            <div class="page-header">
+              <h3 class="page-title">Activity Booking List</h3>
+            </div>
+          
+            <!-- Filter Section -->
+            <div class="card mb-4">
+              <div class="card-body">
+                <form class="row g-3">
+                  <div class="col-md-3">
+                    <label class="form-label">Select key to search by *</label>
+                    <select class="form-select">
+                      <option selected>Please select</option>
+                      <option value="ref">Ref. No.</option>
+                      <option value="activity">Activity Name</option>
+                      <option value="location">Location</option>
+                      <option value="status">Booking Status</option>
+                    </select>
                   </div>
+                  <div class="col-md-3">
+                    <label class="form-label">Value</label>
+                    <input type="text" class="form-control" placeholder="Value" />
+                  </div>
+                  <div class="col-md-2">
+                    <label class="form-label">From Date</label>
+                    <input type="date" class="form-control" />
+                  </div>
+                  <div class="col-md-2">
+                    <label class="form-label">To Date</label>
+                    <input type="date" class="form-control" />
+                  </div>
+                 
+                </form>
+                <div class="row gap-3 mt-4"> 
+                  <div class="col-md-1 me-5">
+                  <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+                <div class="col-md-1 d-flex align-items-end">
+                  <button type="reset" class="btn btn-secondary">Reset</button>
+                </div></div>
+              </div>
+            </div>
+          
+            <!-- Table Section -->
+            <div class="card">
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-bordered text-center">
+                    <thead class="bg-primary text-white">
+                      <tr>
+                        <th>Ref. No.</th>
+                        <th>Activity Name</th>
+                        <th>Total Price</th>
+                        <th>Duration</th>
+                        <th>No. of Travellers</th>
+                        <th>Payment Mode</th>
+                        <th>Location</th>
+                        <th>Payment Status</th>
+                        <th>Booking Status</th>
+                        <th>Assign</th>
+                        <th>Book Date</th>
+                        <th>Created</th>
+                        <th>Summary</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- If no data -->
+                      <tr>
+                        <td colspan="13">No Booking Found</td>
+                      </tr>
+          
+                      <!-- Example row (commented) -->
+                      <!--
+                      <tr>
+                        <td>REF12345</td>
+                        <td>Jeep Safari</td>
+                        <td>$350</td>
+                        <td>3 Hours</td>
+                        <td>4</td>
+                        <td>Credit Card</td>
+                        <td>Dubai Desert</td>
+                        <td><span class="badge bg-success">Paid</span></td>
+                        <td><span class="badge bg-info">Confirmed</span></td>
+                        <td><button class="btn btn-sm btn-outline-primary">Assign</button></td>
+                        <td>2025-04-05</td>
+                        <td>2025-04-03</td>
+                        <td><a href="#" class="btn btn-sm btn-info">View</a></td>
+                      </tr>
+                      -->
+                    </tbody>
+                  </table>
+                </div>
+          
+                <!-- Pagination -->
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                  <div>Page 1 of 0, total 0 records found</div>
+                  <!-- Future pagination controls -->
+                  <!-- <nav><ul class="pagination"><li class="page-item active"><a class="page-link" href="#">1</a></li></ul></nav> -->
                 </div>
               </div>
-              
+            </div>
+          </div>
+          
         </div>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->

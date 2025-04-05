@@ -1,378 +1,932 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-<body>
-    <div class="content ">
-        <div class="page-content">
-            <div class="table_title">
-                <div class="sale_bar">
-                    <div class="row align-items-center">
-                        <div class="col-md-4 mb-3 mb-lg-0">
-                            <h5 class="m0">Car Info List</h5>
-                        </div>
-                        <div class="col-md-8 text-md-right">
-                                                        <button class="badge badge-wt" view-data-modal="true" data-controller="car-extranet" data-href="https://agent.dookinternational.com/adminpanel/car-extranet/add-car-info-template">
-                                    <i class="fa-solid fa-add "></i> Add Car Info
-                                </button>
-                                                                                <button class="badge badge-wt" onclick="confirm_change_status('status_change')">
-                                    <i class="fa-solid fa-exchange"></i> Change Status
-                                </button>
-                                                                                <button class="badge badge-danger badge-wt danger disable_badge" tts-disable_badge="" onclick="confirm_delete('formcarextranetinfolist')"><i class="fa-solid fa-trash"></i>
-                                    Delete
-                                </button>
-                                                </div>
-                    </div>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Purple Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../../assets/vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="../../assets/vendors/font-awesome/css/font-awesome.min.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="../../assets/images/favicon.png" />
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:../../partials/_navbar.html -->
+      <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
+          <a class="navbar-brand brand-logo " href="index.html">
+           <!-- <img src="assets/images/logo.svg" alt="logo" /></a> -->
+            BBT CRM
+          <a class="navbar-brand brand-logo-mini" href="index.html">
+           <!-- <img src="assets/images/logo-mini.svg" alt="logo" /> -->
+            BBT CRM
+         </a>
+       </div>
+        <div class="navbar-menu-wrapper d-flex align-items-stretch">
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <span class="mdi mdi-menu"></span>
+          </button>
+          <div class="search-field d-none d-md-block">
+            <form class="d-flex align-items-center h-100" action="#">
+              <div class="input-group">
+                <div class="input-group-prepend bg-transparent">
+                  <i class="input-group-text border-0 mdi mdi-magnify"></i>
                 </div>
-            </div>
-            <div class="page-content-area">
-                <div class="card-body">
-                    <div class="row">
-                        <!----------Start Search Bar ----------------->
-                        <form action="https://agent.dookinternational.com/adminpanel/car-extranet" method="GET" class="tts-dis-content" name="car-extranet-search" onsubmit="return searchvalidateForm()">
-                            <div class="col-md-3">
-                                <div class="form-group form-mb-20">
-                                    <label>Select key to search by *</label>
-                                    <select name="key" class="form-control" onchange="tts_searchkey(this,'car-extranet-search')" tts-validatation="Required" tts-error-msg="Please select search key">
-                                        <option value="">Please select</option>
-                                        <option value="car_name">Car Name
-                                        </option>
-                                        <option value="car_type">Car Type
-                                        </option>
-                                        <option value="seat_capacity">Seat Capacity
-                                        </option>
-                                        <option value="luggage_capacity">Luggage Capacity
-                                        </option>
-                                        <option value="date-range">Date Range
-                                        </option>
-                                    </select>
-                                </div>
-                                <input type="hidden" name="key-text" value="">
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group form-mb-20">
-                                    <label>Value </label>
-                                    <input type="text" name="value" placeholder="Value" value="" class="form-control" tts-validatation="Required" tts-error-msg="Please enter value">
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="form-group form-mb-20">
-                                    <label>From Date</label><input type="text" data-searchbar-from="true" name="from_date" value="" placeholder="Select From Date" class="form-control" tts-error-msg="Please select from date" readonly="">
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="form-group form-mb-20">
-                                    <label>To Date</label>
-                                    <input type="text" data-searchbar-to="true" name="to_date" value="" placeholder="Select To Date" class="form-control" tts-error-msg="Please select to date" readonly="">
-                                </div>
-                            </div>
-                            <div class="col-md-2 align-self-end">
-                                <div class="form-group form-mb-20">
-                                   
-                                    <button type="submit" class="badge badge-md badge-primary badge_search">Search <i class="fa fa-search"></i></button>
-                                </div>
-                            </div>
-                           
-                                                    
-                        </form>
-                    </div>
-                    <!----------End Search Bar ----------------->
-                    <div class="table-responsive">
-                                            <form action="https://agent.dookinternational.com/adminpanel/car-extranet/remove-car-info" method="POST" tts-form="true" id="formcarextranetinfolist">
-                            <table class="table table-bordered table-hover">
-                                <thead class="table-active">
-                                <tr>
-                                                                        <th><label><input type="checkbox" name="check_all" id="selectall"></label>
-                                        </th>
-                                                                    <th>Car Img</th>
-                                    <th>Car Name</th>
-                                    <th>Car Type</th>
-                                    <th>Seat Capacity</th>
-                                    <th>Luggage Capacity</th>
-                                    <th>Price Charge Info</th>
-                                    <th>Status</th>
-    
-                                    <th>Created Date</th>
-                                    <th>Modified Date</th>
-                                                                        <th>Action</th>
-                                                                </tr>
-                                </thead>
-                                <tbody>
-                                                                    <tr>
-                                                                                        <td>
-                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="10"></label>
-                                                </td>
-                                                                                    <td>
-                                                <img src="https://agent.dookinternational.com/uploads/car-extranet/xylo.png" alt="Luxury (4+1 seater)" class="tts-blog-image">
-                                            </td>
-                                            <td class="nowrap">
-                                                Skoda                                        </td>
-                                            <td class="nowrap">
-                                                Luxury (4+1 seater)                                        </td>
-                                            <td>5</td>
-                                            <td>
-                                                3                                        </td>
-                                            <td class="nowrap">
-                                                Per Killometer Charge -: <b>50</b><br>Per Killometer Charge After Ride -: <b>50 </b><br>Driver Stay Charge -: <b>500 </b><br>                                        </td>
-                                            <td>
-                                  <span class="active-status">
-                                  Active                              </span>
-                                            </td>
-    
-    
-                                            <td class="nowrap">13 Sep 2023 / 6:51 PM</td>
-                                            <td class="nowrap">-                                        </td>
-                                                                                    <td>
-                                                <div class="ropdown">
-                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
-                                                    <div class="dropdown-menu">
-                                                                                                            <a class="dropdown-item" href="javascript:void(0);" view-data-modal="true" data-controller="carextranet" data-id="MTA-" data-href="https://agent.dookinternational.com/adminpanel/car-extranet/edit-car-info-template/MTA-">Edit
-                                                            Car Info
-                                                        </a>
-                                                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/car-extranet/get-car-availability?key=MTA-&amp;year=2025">Car
-                                                            Availability
-                                                            List</a>
-                                                        
-                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/car-extranet/city-route-list/MTA-">City Route List</a>
-                                                                                                        </div>
-                                                </div>
-                                            </td>
-                                                                                </tr>
-                                                                        <tr>
-                                                                                        <td>
-                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="9"></label>
-                                                </td>
-                                                                                    <td>
-                                                <img src="https://agent.dookinternational.com/uploads/car-extranet/xylo.png" alt="SUV (6+1 seater)" class="tts-blog-image">
-                                            </td>
-                                            <td class="nowrap">
-                                                Innova Crysta                                        </td>
-                                            <td class="nowrap">
-                                                SUV (6+1 seater)                                        </td>
-                                            <td>6</td>
-                                            <td>
-                                                3                                        </td>
-                                            <td class="nowrap">
-                                                Per Killometer Charge -: <b>18</b><br>Per Killometer Charge After Ride -: <b>19 </b><br>Driver Stay Charge -: <b>450 </b><br>                                        </td>
-                                            <td>
-                                  <span class="active-status">
-                                  Active                              </span>
-                                            </td>
-    
-    
-                                            <td class="nowrap">24 Aug 2023 / 12:34 PM</td>
-                                            <td class="nowrap">24 Aug 2023 / 12:37 PM                                        </td>
-                                                                                    <td>
-                                                <div class="ropdown">
-                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
-                                                    <div class="dropdown-menu">
-                                                                                                            <a class="dropdown-item" href="javascript:void(0);" view-data-modal="true" data-controller="carextranet" data-id="OQ--" data-href="https://agent.dookinternational.com/adminpanel/car-extranet/edit-car-info-template/OQ--">Edit
-                                                            Car Info
-                                                        </a>
-                                                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/car-extranet/get-car-availability?key=OQ--&amp;year=2025">Car
-                                                            Availability
-                                                            List</a>
-                                                        
-                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/car-extranet/city-route-list/OQ--">City Route List</a>
-                                                                                                        </div>
-                                                </div>
-                                            </td>
-                                                                                </tr>
-                                                                        <tr>
-                                                                                        <td>
-                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="8"></label>
-                                                </td>
-                                                                                    <td>
-                                                <img src="https://agent.dookinternational.com/uploads/car-extranet/sedan.png" alt="Compact-SUV (4+1 seater)" class="tts-blog-image">
-                                            </td>
-                                            <td class="nowrap">
-                                                Xylo, Ertiga                                        </td>
-                                            <td class="nowrap">
-                                                Compact-SUV (4+1 seater)                                        </td>
-                                            <td>5</td>
-                                            <td>
-                                                2                                        </td>
-                                            <td class="nowrap">
-                                                Per Killometer Charge -: <b>17</b><br>Per Killometer Charge After Ride -: <b>17.5 </b><br>Driver Stay Charge -: <b>400 </b><br>                                        </td>
-                                            <td>
-                                  <span class="active-status">
-                                  Active                              </span>
-                                            </td>
-    
-    
-                                            <td class="nowrap">24 Aug 2023 / 12:30 PM</td>
-                                            <td class="nowrap">24 Aug 2023 / 12:37 PM                                        </td>
-                                                                                    <td>
-                                                <div class="ropdown">
-                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
-                                                    <div class="dropdown-menu">
-                                                                                                            <a class="dropdown-item" href="javascript:void(0);" view-data-modal="true" data-controller="carextranet" data-id="OA--" data-href="https://agent.dookinternational.com/adminpanel/car-extranet/edit-car-info-template/OA--">Edit
-                                                            Car Info
-                                                        </a>
-                                                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/car-extranet/get-car-availability?key=OA--&amp;year=2025">Car
-                                                            Availability
-                                                            List</a>
-                                                        
-                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/car-extranet/city-route-list/OA--">City Route List</a>
-                                                                                                        </div>
-                                                </div>
-                                            </td>
-                                                                                </tr>
-                                                                        <tr>
-                                                                                        <td>
-                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="7"></label>
-                                                </td>
-                                                                                    <td>
-                                                <img src="https://agent.dookinternational.com/uploads/car-extranet/sedan.png" alt="Compact-SUV (4+1 seater)" class="tts-blog-image">
-                                            </td>
-                                            <td class="nowrap">
-                                                Dzire, Etios                                        </td>
-                                            <td class="nowrap">
-                                                Compact-SUV (4+1 seater)                                        </td>
-                                            <td>4</td>
-                                            <td>
-                                                2                                        </td>
-                                            <td class="nowrap">
-                                                Per Killometer Charge -: <b>16</b><br>Per Killometer Charge After Ride -: <b>16 </b><br>Driver Stay Charge -: <b>300 </b><br>                                        </td>
-                                            <td>
-                                  <span class="active-status">
-                                  Active                              </span>
-                                            </td>
-    
-    
-                                            <td class="nowrap">24 Aug 2023 / 12:25 PM</td>
-                                            <td class="nowrap">24 Aug 2023 / 12:38 PM                                        </td>
-                                                                                    <td>
-                                                <div class="ropdown">
-                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
-                                                    <div class="dropdown-menu">
-                                                                                                            <a class="dropdown-item" href="javascript:void(0);" view-data-modal="true" data-controller="carextranet" data-id="Nw--" data-href="https://agent.dookinternational.com/adminpanel/car-extranet/edit-car-info-template/Nw--">Edit
-                                                            Car Info
-                                                        </a>
-                                                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/car-extranet/get-car-availability?key=Nw--&amp;year=2025">Car
-                                                            Availability
-                                                            List</a>
-                                                        
-                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/car-extranet/city-route-list/Nw--">City Route List</a>
-                                                                                                        </div>
-                                                </div>
-                                            </td>
-                                                                                </tr>
-                                                                        <tr>
-                                                                                        <td>
-                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="6"></label>
-                                                </td>
-                                                                                    <td>
-                                                <img src="https://agent.dookinternational.com/uploads/car-extranet/hatchback.png" alt="hatchback (4+1 seater)" class="tts-blog-image">
-                                            </td>
-                                            <td class="nowrap">
-                                                Indica, Swift                                        </td>
-                                            <td class="nowrap">
-                                                hatchback (4+1 seater)                                        </td>
-                                            <td>4</td>
-                                            <td>
-                                                2                                        </td>
-                                            <td class="nowrap">
-                                                Per Killometer Charge -: <b>15</b><br>Per Killometer Charge After Ride -: <b>15 </b><br>Driver Stay Charge -: <b>250 </b><br>                                        </td>
-                                            <td>
-                                  <span class="active-status">
-                                  Active                              </span>
-                                            </td>
-    
-    
-                                            <td class="nowrap">24 Aug 2023 / 10:47 AM</td>
-                                            <td class="nowrap">24 Aug 2023 / 12:35 PM                                        </td>
-                                                                                    <td>
-                                                <div class="ropdown">
-                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
-                                                    <div class="dropdown-menu">
-                                                                                                            <a class="dropdown-item" href="javascript:void(0);" view-data-modal="true" data-controller="carextranet" data-id="Ng--" data-href="https://agent.dookinternational.com/adminpanel/car-extranet/edit-car-info-template/Ng--">Edit
-                                                            Car Info
-                                                        </a>
-                                                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/car-extranet/get-car-availability?key=Ng--&amp;year=2025">Car
-                                                            Availability
-                                                            List</a>
-                                                        
-                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/car-extranet/city-route-list/Ng--">City Route List</a>
-                                                                                                        </div>
-                                                </div>
-                                            </td>
-                                                                                </tr>
-                                                                        <tr>
-                                                                                        <td>
-                                                    <label><input type="checkbox" name="checklist[]" class="checkbox" value="1"></label>
-                                                </td>
-                                                                                    <td>
-                                                <img src="https://agent.dookinternational.com/uploads/car-extranet/xylo.png" alt="SUV (6+1 seater)" class="tts-blog-image">
-                                            </td>
-                                            <td class="nowrap">
-                                                Toyota Innova specific model                                        </td>
-                                            <td class="nowrap">
-                                                SUV (6+1 seater)                                        </td>
-                                            <td>4</td>
-                                            <td>
-                                                1                                        </td>
-                                            <td class="nowrap">
-                                                Per Killometer Charge -: <b>22</b><br>Per Killometer Charge After Ride -: <b>22 </b><br>Driver Stay Charge -: <b>450 </b><br>                                        </td>
-                                            <td>
-                                  <span class="active-status">
-                                  Active                              </span>
-                                            </td>
-    
-    
-                                            <td class="nowrap">19 Jan 2023 / 7:23 PM</td>
-                                            <td class="nowrap">24 Aug 2023 / 10:51 AM                                        </td>
-                                                                                    <td>
-                                                <div class="ropdown">
-                                                    <button class="actbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
-                                                    <div class="dropdown-menu">
-                                                                                                            <a class="dropdown-item" href="javascript:void(0);" view-data-modal="true" data-controller="carextranet" data-id="MQ--" data-href="https://agent.dookinternational.com/adminpanel/car-extranet/edit-car-info-template/MQ--">Edit
-                                                            Car Info
-                                                        </a>
-                                                                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/car-extranet/get-car-availability?key=MQ--&amp;year=2025">Car
-                                                            Availability
-                                                            List</a>
-                                                        
-                                                                                                                <a class="dropdown-item" href="https://agent.dookinternational.com/adminpanel/car-extranet/city-route-list/MQ--">City Route List</a>
-                                                                                                        </div>
-                                                </div>
-                                            </td>
-                                                                                </tr>
-                                                                </tbody>
-                            </table>
-                        </form>
-                       
-                    </div>
-                    <div class="row pagiantion_row align-items-center">
-                                <div class="col-md-6 mb-3 mb-lg-0">
-                                    <p class="pagiantion_text">Page 1                                    of 1, total 6 records found
-                                    </p>
-                                </div>
-                                <div class="col-md-6">
-                                                                        <!-- DEBUG-VIEW START 3 SYSTEMPATH/Pager/Views/default_full.php -->
-    
-    <nav aria-label="Page navigation">
-        <ul class="pagination">
-            
-                        <li class="active">
-                    <a href="https://agent.dookinternational.com/adminpanel/car-extranet/car-info-list?page=1">
-                        1				</a>
-                </li>
-            
-                </ul>
-    </nav>
-    
-    <!-- DEBUG-VIEW ENDED 3 SYSTEMPATH/Pager/Views/default_full.php -->
-                                                                </div>
-                            </div>
+                <input type="text" class="form-control bg-transparent border-0" placeholder="Search projects">
+              </div>
+            </form>
+          </div>
+          <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item nav-profile dropdown">
+              <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="nav-profile-img">
+                  <img src="../../assets/images/faces/face1.jpg" alt="image">
+                  <span class="availability-status online"></span>
                 </div>
-            </div>
+                <div class="nav-profile-text">
+                  <p class="mb-1 text-black">David Greymaax</p>
+                </div>
+              </a>
+              <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
+                <a class="dropdown-item" href="#">
+                  <i class="mdi mdi-cached me-2 text-success"></i> Activity Log </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">
+                  <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
+              </div>
+            </li>
+            <li class="nav-item d-none d-lg-block full-screen-link">
+              <a class="nav-link">
+                <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="mdi mdi-email-outline"></i>
+                <span class="count-symbol bg-warning"></span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+                <h6 class="p-3 mb-0">Messages</h6>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <img src="../../assets/images/faces/face4.jpg" alt="image" class="profile-pic">
+                  </div>
+                  <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                    <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Mark send you a message</h6>
+                    <p class="text-gray mb-0"> 1 Minutes ago </p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <img src="../../assets/images/faces/face2.jpg" alt="image" class="profile-pic">
+                  </div>
+                  <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                    <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Cregh send you a message</h6>
+                    <p class="text-gray mb-0"> 15 Minutes ago </p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <img src="../../assets/images/faces/face3.jpg" alt="image" class="profile-pic">
+                  </div>
+                  <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                    <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Profile picture updated</h6>
+                    <p class="text-gray mb-0"> 18 Minutes ago </p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <h6 class="p-3 mb-0 text-center">4 new messages</h6>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
+                <i class="mdi mdi-bell-outline"></i>
+                <span class="count-symbol bg-danger"></span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+                <h6 class="p-3 mb-0">Notifications</h6>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-success">
+                      <i class="mdi mdi-calendar"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                    <h6 class="preview-subject font-weight-normal mb-1">Event today</h6>
+                    <p class="text-gray ellipsis mb-0"> Just a reminder that you have an event today </p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-warning">
+                      <i class="mdi mdi-cog"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                    <h6 class="preview-subject font-weight-normal mb-1">Settings</h6>
+                    <p class="text-gray ellipsis mb-0"> Update dashboard </p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-info">
+                      <i class="mdi mdi-link-variant"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                    <h6 class="preview-subject font-weight-normal mb-1">Launch Admin</h6>
+                    <p class="text-gray ellipsis mb-0"> New admin wow! </p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <h6 class="p-3 mb-0 text-center">See all notifications</h6>
+              </div>
+            </li>
+            <li class="nav-item nav-logout d-none d-lg-block">
+              <a class="nav-link" href="#">
+                <i class="mdi mdi-power"></i>
+              </a>
+            </li>
+            <li class="nav-item nav-settings d-none d-lg-block">
+              <a class="nav-link" href="#">
+                <i class="mdi mdi-format-line-spacing"></i>
+              </a>
+            </li>
+          </ul>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+            <span class="mdi mdi-menu"></span>
+          </button>
         </div>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:../../partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+          <ul class="nav">
+            <li class="nav-item nav-profile">
+              <a href="#" class="nav-link">
+                <div class="nav-profile-image">
+                  <img src="../../assets/images/faces/face1.jpg" alt="profile" />
+                  <span class="login-status online"></span>
+                  <!--change to offline or busy as needed-->
+                </div>
+                <div class="nav-profile-text d-flex flex-column">
+                  <span class="font-weight-bold mb-2">David Grey. H</span>
+                  <span class="text-secondary text-small">Project Manager</span>
+                </div>
+                <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/src/index.html">
+                <span class="menu-title">Dashboard</span>
+                <i class="mdi mdi-home menu-icon"></i>
+              </a>
+            </li>
+                    <!-- ==================== Hotel Management Sidebar Section ==================== -->
+<li class="nav-item">
+    <a class="nav-link" data-bs-toggle="collapse" href="#hotelManagement" aria-expanded="false" aria-controls="hotelManagement">
+      <span class="menu-title">Hotel Management</span>
+      <i class="menu-arrow"></i>
+      <i class="mdi mdi-hotel menu-icon"></i>
+    </a>
+    <div class="collapse" id="hotelManagement">
+      <ul class="nav flex-column sub-menu">
+        <li class="nav-item"><a class="nav-link" href="../hotel-managemnt/HotelBookingList.html">Hotel Booking List</a></li>
+        <li class="nav-item"><a class="nav-link" href="../hotel-managemnt/PendingBookingList.html">Pending Booking List</a></li>
+        <li class="nav-item"><a class="nav-link" href="../hotel-managemnt/CancelledBookingList.html">Cancelled Booking List</a></li>
+        <li class="nav-item"><a class="nav-link" href="../hotel-managemnt/HotelAmendmentList.html">Hotel Amendment List</a></li>
+        <li class="nav-item"><a class="nav-link" href="../hotel-managemnt/HotelRefundList.html">Hotel Refund List</a></li>
+      </ul>
     </div>
-</body>
+  </li>
+  <!-- =============== End Hotel Management Sidebar Section ================== -->
+  
+   <!-- =============== End Hotel Management Sidebar Section ================== -->
+  
+   <!-- ==================== Hotel Extranet Sidebar Section ==================== -->
+   <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="collapse" href="#hotelExtranet" aria-expanded="false" aria-controls="hotelExtranet">
+    <span class="menu-title">Hotel Extranet</span>
+    <i class="menu-arrow"></i>
+    <i class="mdi mdi-hotel menu-icon"></i>
+    </a>
+    <div class="collapse" id="hotelExtranet">
+       <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+             <a class="nav-link" href="../hotel-extranet/add-hotel.html">Add Hotel</a>
+          </li>
+          <li class="nav-item">
+             <a class="nav-link" href="../hotel-extranet/hotel-list.html">Hotel List</a>
+          </li>
+          <li class="nav-item">
+             <a class="nav-link" href="../hotel-extranet/hotel-settins.html">Hotel Settings</a>
+          </li>
+       </ul>
+    </div>
+  </li>
+  <!-- ================== End Hotel Extranet Sidebar Section ================== -->
+  
+    <!-- Departure Management -->
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="collapse" href="#departure" aria-expanded="false" aria-controls="departure">
+      <span class="menu-title">Departure Management</span>
+      <i class="menu-arrow"></i>
+      <i class="mdi mdi-airplane menu-icon"></i>
+      </a>
+      <div class="collapse" id="departure">
+         <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+               <a class="nav-link" href="../departure-management/add-new-departure.html">Add New Departure</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="../departure-management/departure-list.html">Departure List</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="../departure-management/departure-settings.html">Departure Settings</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="../departure-management/departure-booking-list.html">Departure Booking List</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="../departure-management/departure-query-list.html">Departure Query List</a>
+            </li>
+         </ul>
+      </div>
+   </li>
+  
+   <!-- ==================== Flight Management Sidebar Section ==================== -->
+  <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="collapse" href="#flightManagement" aria-expanded="false" aria-controls="flightManagement">
+      <span class="menu-title">Flight Management</span>
+      <i class="menu-arrow"></i>
+      <i class="mdi mdi-airplane menu-icon"></i>
+    </a>
+    <div class="collapse" id="flightManagement">
+      <ul class="nav flex-column sub-menu">
+        <li class="nav-item"><a class="nav-link active" href="../fight-management/FlightBookingList.html">Flight Booking List</a></li>
+        <li class="nav-item"><a class="nav-link" href="../fight-management/FlightPendingBookingList.html">Flight Pending Booking List</a></li>
+        <li class="nav-item"><a class="nav-link" href="../fight-management/FlightCancelledBookingList.html">Flight Cancelled Booking List</a></li>
+        <li class="nav-item"><a class="nav-link" href="../fight-management/FlightAmendmentsList.html">Flight Amendments List</a></li>
+        <li class="nav-item"><a class="nav-link" href="../fight-management/FlightRefundsList.html">Flight Refunds List</a></li>
+        <li class="nav-item"><a class="nav-link" href="../fight-management/FlightUploadTicket.html">Flight Upload Ticket</a></li>
+        <li class="nav-item"><a class="nav-link" href="../fight-management/FlightBookingCalender.html">Flight Booking Calender</a></li>
+        <li class="nav-item"><a class="nav-link" href="../fight-management/SupplierManagement.html">Supplier Management</a></li>
+        <li class="nav-item"><a class="nav-link" href="../fight-management/FlightTopRoutes.html">Flight Top Routes</a></li>
+      </ul>
+    </div>
+  </li>
+  <!-- =============== End Flight Management Sidebar Section ================== -->
+  
+   <!-- ==================== Excursion Sidebar Section ==================== -->
+   <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="collapse" href="#excursion" aria-expanded="false" aria-controls="excursion">
+    <span class="menu-title">Excursion</span>
+    <i class="menu-arrow"></i>
+    <i class="mdi mdi-map-marker-radius menu-icon"></i>
+    </a>
+    <div class="collapse" id="excursion">
+       <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+             <a class="nav-link" href="../exclusion/add-excusion.html">Add Excursion</a>
+          </li>
+          <li class="nav-item">
+             <a class="nav-link" href="../exclusion/list-of-excursion.html">List of Excursion</a>
+          </li>
+          <li class="nav-item">
+             <a class="nav-link" href="../exclusion/exclusion-settings.html">Excursion Settings</a>
+          </li>
+          <li class="nav-item">
+             <a class="nav-link" href="../exclusion/excursion-booking-list.html">Excursion Booking List</a>
+          </li>
+       </ul>
+    </div>
+  </li>
+  <!-- ================== End Excursion Sidebar Section ================== -->
+  
+  <!-- ==================== Restaurant Management Sidebar Section ==================== -->
+  <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="collapse" href="#restaurantManagement" aria-expanded="false" aria-controls="restaurantManagement">
+      <span class="menu-title">Restaurant Management</span>
+      <i class="menu-arrow"></i>
+      <i class="mdi mdi-silverware menu-icon"></i>
+    </a>
+    <div class="collapse" id="restaurantManagement">
+      <ul class="nav flex-column sub-menu">
+        <li class="nav-item">
+          <a class="nav-link" href="../restaurant-management/restaurant-list.html">Restaurant List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../restaurant-management/restaurant-menu-category.html">Restaurant Menu Category List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../restaurant-management/restaurant-booking-list.html">Restaurant Booking List</a>
+        </li>
+      </ul>
+    </div>
+  </li>
+  
+  <!-- ==================== Point Of Attractions Sidebar Section ==================== -->
+  <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="collapse" href="#pointOfAttractions" aria-expanded="false" aria-controls="pointOfAttractions">
+      <span class="menu-title">Point Of Attractions</span>
+      <i class="menu-arrow"></i>
+      <i class="mdi mdi-map-marker menu-icon"></i>
+    </a>
+    <div class="collapse" id="pointOfAttractions">
+      <ul class="nav flex-column sub-menu">
+        <li class="nav-item">
+          <a class="nav-link" href="../point-of-attractions/point-of-attractions-list.html">Point Of Attractions List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../point-of-attractions/point-of-attractions-books.html">Point Of Attractions Booking List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../point-of-attractions/point-of-attractions-category.html">Point Of Attractions Categories List</a>
+        </li>
+      </ul>
+    </div>
+  </li>
+  <!-- =============== End Point Of Attractions Sidebar Section =================== -->
+  
+  <!-- ==================== Car Management Sidebar Section ==================== -->
+  <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="collapse" href="#carManagement" aria-expanded="false" aria-controls="carManagement">
+      <span class="menu-title">Car Management</span>
+      <i class="menu-arrow"></i>
+      <i class="mdi mdi-car menu-icon"></i>
+    </a>
+    <div class="collapse" id="carManagement">
+      <ul class="nav flex-column sub-menu">
+        <li class="nav-item">
+          <a class="nav-link" href="../car-management/car-info-list.html">Car Info List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../car-management/car-settings.html">Car Settings</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../car-management/car-bookiing-list.html">Car Booking List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../car-management/amendments-list.html">Amendments List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../car-management/refunds-list.html">Refunds List</a>
+        </li>
+      </ul>
+    </div>
+  </li>
+  <!-- ================= End Car Management Sidebar Section =================== -->
+  
+  <!-- ==================== Supplier List Sidebar Section ==================== -->
+  <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="collapse" href="#supplierList" aria-expanded="false" aria-controls="supplierList">
+      <span class="menu-title">Supplier List</span>
+      <i class="menu-arrow"></i>
+      <i class="mdi mdi-truck-delivery menu-icon"></i>
+    </a>
+    <div class="collapse" id="supplierList">
+      <ul class="nav flex-column sub-menu">
+        <li class="nav-item">
+          <a class="nav-link" href="../supplier-list/add-supplier.html">Add Supplier</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../supplier-list/supplier-list.html">Supplier List</a>
+        </li>
+      </ul>
+    </div>
+  </li>
+  <!-- ================= End Supplier List Sidebar Section =================== -->
+  
+  <!-- ==================== Agent List Sidebar Section ==================== -->
+  <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="collapse" href="#agentList" aria-expanded="false" aria-controls="agentList">
+      <span class="menu-title">Agent List</span>
+      <i class="menu-arrow"></i>
+      <i class="mdi mdi-account-multiple menu-icon"></i>
+    </a>
+    <div class="collapse" id="agentList">
+      <ul class="nav flex-column sub-menu">
+        <li class="nav-item">
+          <a class="nav-link" href="../agent-list/add-agent.html">Add Agent</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../agent-list/agent-list.html">Agent List</a>
+        </li>
+      </ul>
+    </div>
+  </li>
+  <!-- ================= End Agent List Sidebar Section =================== -->
+  
+  <!-- ==================== Customer Management Sidebar Link ==================== -->
+  <li class="nav-item">
+    <a class="nav-link" href="../customer-management/">
+      <span class="menu-title">Customer Management</span>
+      <i class="mdi mdi-account-multiple menu-icon"></i>
+    </a>
+  </li>
+  <!-- =============== End Customer Management Sidebar Link ================== -->
+  
+                    <!-- Website settings -->
+                    <li class="nav-item">
+                       <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+                       <span class="menu-title">Website Settings</span>
+                       <i class="menu-arrow"></i>
+                       <i class="mdi mdi-lock menu-icon"></i>
+                       </a>
+                       <div class="collapse" id="auth">
+                          <ul class="nav flex-column sub-menu">
+                             <li class="nav-item">
+                                <a class="nav-link" href="../website-settings/website-setting.html">Website Setting</a>
+                             </li>
+                             <li class="nav-item">
+                                <a class="nav-link" href="../website-settings/convenience-fee.html">Convenience Fee</a>
+                             </li>
+                             <li class="nav-item">
+                                <a class="nav-link" href="../website-settings/offline-supplier.html">Offline Supplier</a>
+                             </li>
+                             <li class="nav-item">
+                                <a class="nav-link" href="../website-settings/notification.html">Notification</a>
+                             </li>
+                          </ul>
+                       </div>
+                    </li>                
+       
+                    
+                    <!-- ==================== Private Fare Sidebar Section ==================== -->
+                    <!-- <li class="nav-item">
+                       <a class="nav-link" data-bs-toggle="collapse" href="#privateFare" aria-expanded="false" aria-controls="privateFare">
+                       <span class="menu-title">Private Fare</span>
+                       <i class="menu-arrow"></i>
+                       <i class="mdi mdi-currency-inr menu-icon"></i>
+                       </a>
+                       <div class="collapse" id="privateFare">
+                          <ul class="nav flex-column sub-menu">
+                             <li class="nav-item">
+                                <a class="nav-link" href="./mypages/private-fare/add-private-fare.html">Add Private Fare</a>
+                             </li>
+                             <li class="nav-item">
+                                <a class="nav-link" href="./mypages/private-fare/private-fare-list.html">Private Fare List</a>
+                             </li>
+                             <li class="nav-item">
+                                <a class="nav-link" href="./mypages/private-fare/add-fare-rule.html">Add Fare Rule</a>
+                             </li>
+                             <li class="nav-item">
+                                <a class="nav-link" href="./mypages/private-fare/fare-rule-list.html">Fare Rule List</a>
+                             </li>
+                             <li class="nav-item">
+                                <a class="nav-link" href="./mypages/private-fare/rate-plan-list.html">Rate Plan List</a>
+                             </li>
+                          </ul>
+                       </div>
+                    </li> -->
+                    <!-- ================== End Private Fare Sidebar Section ================== -->
+                   
+  
+  <!-- ================== End Restaurant Management Sidebar Section ================== -->
+  
+  <!-- ==================== Tour Guide Management Sidebar Section ==================== -->
+  <!-- <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="collapse" href="#tourGuideManagement" aria-expanded="false" aria-controls="tourGuideManagement">
+      <span class="menu-title">Tour Guide Management</span>
+      <i class="menu-arrow"></i>
+      <i class="mdi mdi-account-tie menu-icon"></i>
+    </a>
+    <div class="collapse" id="tourGuideManagement">
+      <ul class="nav flex-column sub-menu">
+        <li class="nav-item">
+          <a class="nav-link" href="./mypages/tour-guide-management/tour-guide-list.html">Tour Guide List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./mypages/tour-guide-management/tour-guide-booking-list.html">Tour Guide Booking List</a>
+        </li>
+      </ul>
+    </div>
+  </li> -->
+  <!-- =============== End Tour Guide Management Sidebar Section =================== -->
+  <!-- ==================== Car Management Sidebar Section ==================== -->
+  <!-- <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="collapse" href="#carManagement" aria-expanded="false" aria-controls="carManagement">
+      <span class="menu-title">Car Management</span>
+      <i class="menu-arrow"></i>
+      <i class="mdi mdi-car menu-icon"></i>
+    </a>
+    <div class="collapse" id="carManagement">
+      <ul class="nav flex-column sub-menu">
+        <li class="nav-item">
+          <a class="nav-link" href="./mypages/car-management/car-info-list.html">Car Info List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./mypages/car-management/car-settings.html">Car Settings</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./mypages/car">Car Booking List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./AmendmentsList.html">Amendments List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./RefundsList.html">Refunds List</a>
+        </li>
+      </ul>
+    </div>
+  </li> -->
+  <!-- ================= End Car Management Sidebar Section =================== -->
+  
+  
+  <!-- ==================== Accounts Sidebar Section ==================== -->
+  <!-- <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="collapse" href="#accounts" aria-expanded="false" aria-controls="accounts">
+      <span class="menu-title">Accounts</span>
+      <i class="menu-arrow"></i>
+      <i class="mdi mdi-currency-inr menu-icon"></i>
+    </a>
+    <div class="collapse" id="accounts">
+      <ul class="nav flex-column sub-menu">
+        <li class="nav-item">
+          <a class="nav-link" href="./OnlineTransactionList.html">Online Transaction List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./PaymentHistory.html">Payment History</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./AgentAccount.html">Agent Account</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./SalesReport.html">Sales Report</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./AgentAccountLogs.html">Agent Account Logs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./FlightCreditNotes.html">Flight Credit Notes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./HotelCreditNotes.html">Hotel Credit Notes</a>
+        </li>
+      </ul>
+    </div>
+  </li> -->
+  <!-- ================= End Accounts Sidebar Section =================== -->
+  <!-- ==================== Deals & Markups Sidebar Section ==================== -->
+  <!-- <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="collapse" href="#dealsMarkups" aria-expanded="false" aria-controls="dealsMarkups">
+      <span class="menu-title">Deals & Markups</span>
+      <i class="menu-arrow"></i>
+      <i class="mdi mdi-tag-multiple menu-icon"></i>
+    </a>
+    <div class="collapse" id="dealsMarkups">
+      <ul class="nav flex-column sub-menu">
+        <li class="nav-item"><a class="nav-link" href="./FlightDiscount.html">Flight Discount</a></li>
+        <li class="nav-item"><a class="nav-link" href="./FlightMarkup.html">Flight Markup</a></li>
+        <li class="nav-item"><a class="nav-link" href="./HotelDiscount.html">Hotel Discount</a></li>
+        <li class="nav-item"><a class="nav-link" href="./HotelMarkup.html">Hotel Markup</a></li>
+        <li class="nav-item"><a class="nav-link" href="./BusDiscount.html">Bus Discount</a></li>
+        <li class="nav-item"><a class="nav-link" href="./BusMarkup.html">Bus Markup</a></li>
+        <li class="nav-item"><a class="nav-link" href="./HolidayDiscount.html">Holiday Discount</a></li>
+        <li class="nav-item"><a class="nav-link" href="./HolidayMarkup.html">Holiday Markup</a></li>
+        <li class="nav-item"><a class="nav-link" href="./ActivityMarkup.html">Activity Markup</a></li>
+        <li class="nav-item"><a class="nav-link" href="./ActivityDiscount.html">Activity Discount</a></li>
+      </ul>
+    </div>
+  </li> -->
+  <!-- =============== End Deals & Markups Sidebar Section ================== -->
+  <!-- ==================== Coupon Management Sidebar Section ==================== -->
+  <!-- <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="collapse" href="#couponManagement" aria-expanded="false" aria-controls="couponManagement">
+      <span class="menu-title">Coupon Management</span>
+      <i class="menu-arrow"></i>
+      <i class="mdi mdi-ticket-percent menu-icon"></i>
+    </a>
+    <div class="collapse" id="couponManagement">
+      <ul class="nav flex-column sub-menu">
+        <li class="nav-item"><a class="nav-link" href="./FlightCouponList.html">Flight Coupon List</a></li>
+        <li class="nav-item"><a class="nav-link" href="./HotelCouponList.html">Hotel Coupon List</a></li>
+        <li class="nav-item"><a class="nav-link" href="./BusCouponList.html">Bus Coupon List</a></li>
+      </ul>
+    </div>
+  </li> -->
+  <!-- =============== End Coupon Management Sidebar Section ================== -->
+  
+  
+  <!-- ==================== Bus Management Sidebar Section ==================== -->
+  <!-- <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="collapse" href="#busManagement" aria-expanded="false" aria-controls="busManagement">
+      <span class="menu-title">Bus Management</span>
+      <i class="menu-arrow"></i>
+      <i class="mdi mdi-bus menu-icon"></i>
+    </a>
+    <div class="collapse" id="busManagement">
+      <ul class="nav flex-column sub-menu">
+        <li class="nav-item"><a class="nav-link" href="./BusBookingList.html">Bus Booking List</a></li>
+        <li class="nav-item"><a class="nav-link" href="./BusAmendmentsList.html">Bus Amendments List</a></li>
+        <li class="nav-item"><a class="nav-link" href="./BusRefundsList.html">Bus Refunds List</a></li>
+      </ul>
+    </div>
+  </li> -->
+  <!-- =============== End Bus Management Sidebar Section ================== -->
+  
+  <!-- ==================== Offers Management Sidebar Section ==================== -->
+  <!-- <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="collapse" href="#offersManagement" aria-expanded="false" aria-controls="offersManagement">
+      <span class="menu-title">Offers Management</span>
+      <i class="menu-arrow"></i>
+      <i class="mdi mdi-tag-multiple menu-icon"></i>
+    </a>
+    <div class="collapse" id="offersManagement">
+      <ul class="nav flex-column sub-menu">
+        <li class="nav-item"><a class="nav-link" href="./OffersList.html">Offers List</a></li>
+      </ul>
+    </div>
+  </li> -->
+  <!-- =============== End Offers Management Sidebar Section ================== -->
+  <!-- ==================== Slider Management Sidebar Section ==================== -->
+  <!-- <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="collapse" href="#sliderManagement" aria-expanded="false" aria-controls="sliderManagement">
+      <span class="menu-title">Slider Management</span>
+      <i class="menu-arrow"></i>
+      <i class="mdi mdi-image-album menu-icon"></i>
+    </a>
+    <div class="collapse" id="sliderManagement">
+      <ul class="nav flex-column sub-menu">
+        <li class="nav-item"><a class="nav-link active" href="./Slider.html">Slider</a></li>
+        <li class="nav-item"><a class="nav-link" href="./SliderCategory.html">Slider Category</a></li>
+      </ul>
+    </div>
+  </li> -->
+  <!-- =============== End Slider Management Sidebar Section ================== -->
+  <!-- ==================== Query Management Sidebar Section ==================== -->
+  <!-- <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="collapse" href="#queryManagement" aria-expanded="false" aria-controls="queryManagement">
+      <span class="menu-title">Query Management</span>
+      <i class="menu-arrow"></i>
+      <i class="mdi mdi-comment-question-outline menu-icon"></i>
+    </a>
+    <div class="collapse" id="queryManagement">
+      <ul class="nav flex-column sub-menu">
+        <li class="nav-item"><a class="nav-link active" href="./ContactUs.html">Contact Us</a></li>
+      </ul>
+    </div>
+  </li> -->
+  <!-- =============== End Query Management Sidebar Section ================== -->
+  <!-- ==================== Page Management Sidebar Section ==================== -->
+  <!-- <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="collapse" href="#pageManagement" aria-expanded="false" aria-controls="pageManagement">
+      <span class="menu-title">Page Management</span>
+      <i class="menu-arrow"></i>
+      <i class="mdi mdi-file-document menu-icon"></i>
+    </a>
+    <div class="collapse" id="pageManagement">
+      <ul class="nav flex-column sub-menu">
+        <li class="nav-item"><a class="nav-link" href="./PageList.html">Page List</a></li>
+        <li class="nav-item"><a class="nav-link" href="./MenuList.html">Menu</a></li>
+      </ul>
+    </div>
+  </li> -->
+  
+  <!-- =============== End Page Management Sidebar Section ================== -->
+  
+  <!-- ==================== Blog Management Sidebar Section ==================== -->
+  <!-- <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="collapse" href="#blogManagement" aria-expanded="false" aria-controls="blogManagement">
+      <span class="menu-title">Blog Management</span>
+      <i class="menu-arrow"></i>
+      <i class="mdi mdi-blogger menu-icon"></i>
+    </a>
+    <div class="collapse" id="blogManagement">
+      <ul class="nav flex-column sub-menu">
+        <li class="nav-item"><a class="nav-link" href="./blog.html">Blog</a></li>
+      </ul>
+    </div>
+  </li> -->
+  <!-- ==================== Newsletter List Sidebar Section ==================== -->
+  <!-- <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="collapse" href="#newsletterList" aria-expanded="false" aria-controls="newsletterList">
+      <span class="menu-title">Newsletter List</span>
+      <i class="menu-arrow"></i>
+      <i class="mdi mdi-email-outline menu-icon"></i>
+    </a>
+    <div class="collapse" id="newsletterList">
+      <ul class="nav flex-column sub-menu">
+        <li class="nav-item"><a class="nav-link" href="./Newsletter.html">Newsletter</a></li>
+      </ul>
+    </div>
+  </li> -->
+  <!-- ==================== Feedback Management Sidebar Section ==================== -->
+  <!-- <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="collapse" href="#feedbackManagement" aria-expanded="false" aria-controls="feedbackManagement">
+      <span class="menu-title">Feedback Management</span>
+      <i class="menu-arrow"></i>
+      <i class="mdi mdi-message-reply-text menu-icon"></i>
+    </a>
+    <div class="collapse" id="feedbackManagement">
+      <ul class="nav flex-column sub-menu">
+        <li class="nav-item"><a class="nav-link" href="./Feedback.html">Feedback</a></li>
+      </ul>
+    </div>
+  </li> -->
+  <!-- ==================== Flight Settings Sidebar Link ==================== -->
+  <!-- <li class="nav-item">
+    <a class="nav-link" href="./FlightSettings.html">
+      <span class="menu-title">Flight Settings</span>
+      <i class="mdi mdi-airplane menu-icon"></i>
+    </a>
+  </li> -->
+  
+
+          </ul>
+        </nav>
+        <!-- partial -->
+       <!-- partial -->
+       <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="card">
+                <div class="card-body">
+                  <ul class="nav nav-tabs mb-4" id="carTab" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" id="car-city-tab" data-bs-toggle="tab" href="#car-city" role="tab">Car City List</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="car-airport-tab" data-bs-toggle="tab" href="#car-airport" role="tab">Car Airport List</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="car-inclusion-tab" data-bs-toggle="tab" href="#car-inclusion" role="tab">Car Inclusion List</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="car-exclusion-tab" data-bs-toggle="tab" href="#car-exclusion" role="tab">Car Exclusion List</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="car-facilities-tab" data-bs-toggle="tab" href="#car-facilities" role="tab">Car Facilities List</a>
+                    </li>
+                  </ul>
+              
+                  <div class="tab-content" id="carTabContent">
+                    <!-- Car City List Tab -->
+                    <div class="tab-pane fade show active" id="car-city" role="tabpanel">
+                      <!-- Table or content here -->
+                      <div class="tab-pane fade show active" id="car-info" role="tabpanel">
+                        <div class="d-flex justify-content-between mb-3">
+                          <h5>Car Info List</h5>
+                          <div>
+                            <button class="btn btn-sm btn-success">Add Car Info</button>
+                            <button class="btn btn-sm btn-warning">Change Status</button>
+                            <button class="btn btn-sm btn-danger">Delete</button>
+                          </div>
+                        </div>
+                      
+                        <!-- Filters -->
+                        <form class="row g-3 mb-3">
+                          <div class="col-md-3">
+                            <label class="form-label">Select key to search by</label>
+                            <select class="form-select">
+                              <option selected>Please select</option>
+                              <option value="car-name">Car Name</option>
+                              <option value="car-type">Car Type</option>
+                            </select>
+                          </div>
+                          <div class="col-md-3">
+                            <label class="form-label">Value</label>
+                            <input type="text" class="form-control" placeholder="Value" />
+                          </div>
+                          <div class="col-md-2">
+                            <label class="form-label">From Date</label>
+                            <input type="date" class="form-control" />
+                          </div>
+                          <div class="col-md-2">
+                            <label class="form-label">To Date</label>
+                            <input type="date" class="form-control" />
+                          </div>
+                          <div class="col-md-2 d-flex align-items-end">
+                            <button type="submit" class="btn btn-primary w-100">Search</button>
+                          </div>
+                        </form>
+                      
+                        <!-- Table -->
+                        <div class="table-responsive">
+                          <table class="table table-bordered table-hover">
+                            <thead class="table-light">
+                              <tr>
+                                <th>Car Img</th>
+                                <th>Car Name</th>
+                                <th>Car Type</th>
+                                <th>Seat Capacity</th>
+                                <th>Luggage Capacity</th>
+                                <th>Price Charge Info</th>
+                                <th>Status</th>
+                                <th>Created Date</th>
+                                <th>Modified Date</th>
+                                <th>Action</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Luxury (4+1 seater)</td>
+                                <td>Skoda</td>
+                                <td>Luxury (4+1 seater)</td>
+                                <td>5</td>
+                                <td>3</td>
+                                <td>
+                                  Per Km: ₹50<br />
+                                  After Ride: ₹50<br />
+                                  Driver Stay: ₹500
+                                </td>
+                                <td><span class="badge bg-success">Active</span></td>
+                                <td>13 Sep 2023 / 6:51 PM</td>
+                                <td>-</td>
+                                <td><button class="btn btn-sm btn-primary">Edit</button></td>
+                              </tr>
+                      
+                              <tr>
+                                <td>SUV (6+1 seater)</td>
+                                <td>Innova Crysta</td>
+                                <td>SUV (6+1 seater)</td>
+                                <td>6</td>
+                                <td>3</td>
+                                <td>
+                                  Per Km: ₹18<br />
+                                  After Ride: ₹19<br />
+                                  Driver Stay: ₹450
+                                </td>
+                                <td><span class="badge bg-success">Active</span></td>
+                                <td>24 Aug 2023 / 12:34 PM</td>
+                                <td>24 Aug 2023 / 12:37 PM</td>
+                                <td><button class="btn btn-sm btn-primary">Edit</button></td>
+                              </tr>
+                      
+                              <!-- More rows can be added here -->
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      
+                    </div>
+              
+                    <!-- Car Airport List Tab -->
+                    <div class="tab-pane fade" id="car-airport" role="tabpanel">
+                      <p>Airport table yahan ayega.</p>
+                    </div>
+              
+                    <!-- Car Inclusion List Tab -->
+                    <div class="tab-pane fade" id="car-inclusion" role="tabpanel">
+                      <p>Inclusion table yahan ayega.</p>
+                    </div>
+              
+                    <!-- Car Exclusion List Tab -->
+                    <div class="tab-pane fade" id="car-exclusion" role="tabpanel">
+                      <p>Exclusion table yahan ayega.</p>
+                    </div>
+              
+                    <!-- Car Facilities List Tab -->
+                    <div class="tab-pane fade" id="car-facilities" role="tabpanel">
+                      <p>Facilities table yahan ayega.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+  
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+    
+        <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+</div>
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="../../assets/js/off-canvas.js"></script>
+    <script src="../../assets/js/misc.js"></script>
+    <script src="../../assets/js/settings.js"></script>
+    <script src="../../assets/js/todolist.js"></script>
+    <script src="../../assets/js/jquery.cookie.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <!-- End custom js for this page -->
+  </body>
 </html>

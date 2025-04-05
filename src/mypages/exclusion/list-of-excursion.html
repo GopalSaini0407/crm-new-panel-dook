@@ -25,9 +25,14 @@
       <!-- partial:../../partials/_navbar.html -->
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
-          <a class="navbar-brand brand-logo" href="../../index.html"><img src="../../assets/images/logo.svg" alt="logo" /></a>
-          <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../assets/images/logo-mini.svg" alt="logo" /></a>
-        </div>
+          <a class="navbar-brand brand-logo " href="index.html">
+           <!-- <img src="assets/images/logo.svg" alt="logo" /></a> -->
+            BBT CRM
+          <a class="navbar-brand brand-logo-mini" href="index.html">
+           <!-- <img src="assets/images/logo-mini.svg" alt="logo" /> -->
+            BBT CRM
+         </a>
+       </div>
         <div class="navbar-menu-wrapper d-flex align-items-stretch">
           <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
             <span class="mdi mdi-menu"></span>
@@ -752,81 +757,102 @@
        <!-- partial -->
        <div class="main-panel">
         <div class="content-wrapper">
-            <div class="main-panel">
-                <div class="content-wrapper">
-                  <div class="page-header">
-                    <h3 class="page-title">Activity Booking List</h3>
+          <div class="container-fluid">
+            <div class="page-header">
+              <h3 class="page-title">Activities List</h3>
+            </div>
+          
+            <!-- Filter Section -->
+            <div class="card mb-4">
+              <div class="card-body">
+                <form class="row g-3">
+                  <div class="col-md-3">
+                    <label class="form-label">Select key to search by *</label>
+                    <select class="form-select">
+                      <option selected>Please select</option>
+                      <option value="name">Activities Name</option>
+                      <option value="price">Price</option>
+                      <option value="status">Status</option>
+                    </select>
                   </div>
-              
-                  <div class="card">
-                    <div class="card-body">
-                      <!-- Search Filter -->
-                      <form class="row g-3 mb-4">
-                        <div class="col-md-3">
-                          <label class="form-label">Select key to search by *</label>
-                          <select class="form-select">
-                            <option>Please select</option>
-                            <option>Ref. No.</option>
-                            <option>Activity Name</option>
-                            <option>Payment Status</option>
-                            <option>Booking Status</option>
-                            <option>Location</option>
-                          </select>
-                        </div>
-                        <div class="col-md-3">
-                          <label class="form-label">Value</label>
-                          <input type="text" class="form-control" placeholder="Value">
-                        </div>
-                        <div class="col-md-2">
-                          <label class="form-label">From Date</label>
-                          <input type="date" class="form-control">
-                        </div>
-                        <div class="col-md-2">
-                          <label class="form-label">To Date</label>
-                          <input type="date" class="form-control">
-                        </div>
-                        <div class="col-md-1 d-flex align-items-end">
-                          <button class="btn btn-primary w-100">Search</button>
-                        </div>
-                        <div class="col-md-1 d-flex align-items-end">
-                          <button class="btn btn-light w-100">Reset</button>
-                        </div>
-                      </form>
-              
-                      <!-- Data Table -->
-                      <div class="table-responsive">
-                        <table class="table table-bordered table-hover text-center">
-                          <thead class="table-light">
-                            <tr>
-                              <th>Ref. No.</th>
-                              <th>Activity Name</th>
-                              <th>Total Price</th>
-                              <th>Activity Duration</th>
-                              <th>Number of Travellers</th>
-                              <th>Payment Mode</th>
-                              <th>Location</th>
-                              <th>Payment Status</th>
-                              <th>Booking Status</th>
-                              <th>Assign</th>
-                              <th>Book Date</th>
-                              <th>Created</th>
-                              <th>Summary</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td colspan="13" class="text-muted">No Booking Found</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                        <p class="text-muted mt-2">Page 1 of 0, total 0 records found</p>
-                      </div>
-                    </div>
+                  <div class="col-md-3">
+                    <label class="form-label">Value</label>
+                    <input type="text" class="form-control" placeholder="Value" />
                   </div>
-              
+                  <div class="col-md-2">
+                    <label class="form-label">From Date</label>
+                    <input type="date" class="form-control" />
+                  </div>
+                  <div class="col-md-2">
+                    <label class="form-label">To Date</label>
+                    <input type="date" class="form-control" />
+                  </div>
+                  <div class="col-md-2 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary w-100">Search</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          
+            <!-- Table Section -->
+            <div class="card">
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-bordered text-center">
+                    <thead class="bg-primary text-white">
+                      <tr>
+                        <th>Activities Image</th>
+                        <th>Activities Name</th>
+                        <th>Price</th>
+                        <th>Activities Status</th>
+                        <th>Created Date</th>
+                        <th>Modified Date</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><img src="https://via.placeholder.com/100" class="img-fluid rounded" alt="Activity Image" /></td>
+                        <td>Mtirala National Park Jeep Tour</td>
+                        <td>$200</td>
+                        <td><span class="badge bg-success">Active</span></td>
+                        <td>2025-04-01</td>
+                        <td>2025-04-04</td>
+                        <td>
+                          <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#statusModal">Change Status</button>
+                          <button class="btn btn-sm btn-danger">Delete</button>
+                        </td>
+                      </tr>
+                      <!-- Add more rows dynamically -->
+                    </tbody>
+                  </table>
                 </div>
               </div>
-              
+            </div>
+          </div>
+          
+          <!-- Status Modal -->
+          <div class="modal fade" id="statusModal" tabindex="-1" aria-labelledby="statusModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <form class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="statusModalLabel">Change Activity Status</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                  <select class="form-select">
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                    <option value="pending">Pending</option>
+                  </select>
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary">Update Status</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          
               
         </div>
         <!-- content-wrapper ends -->

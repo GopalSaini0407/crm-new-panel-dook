@@ -25,9 +25,14 @@
       <!-- partial:../../partials/_navbar.html -->
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
-          <a class="navbar-brand brand-logo" href="../../index.html"><img src="../../assets/images/logo.svg" alt="logo" /></a>
-          <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../assets/images/logo-mini.svg" alt="logo" /></a>
-        </div>
+          <a class="navbar-brand brand-logo " href="index.html">
+           <!-- <img src="assets/images/logo.svg" alt="logo" /></a> -->
+            BBT CRM
+          <a class="navbar-brand brand-logo-mini" href="index.html">
+           <!-- <img src="assets/images/logo-mini.svg" alt="logo" /> -->
+            BBT CRM
+         </a>
+       </div>
         <div class="navbar-menu-wrapper d-flex align-items-stretch">
           <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
             <span class="mdi mdi-menu"></span>
@@ -752,6 +757,78 @@
        <!-- partial -->
        <div class="main-panel">
         <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                  <h5 class="mb-0">Supplier Management List</h5>
+                  <div class="d-flex gap-2">
+                    <button class="btn btn-sm btn-success">Add Flight API</button>
+                    <button class="btn btn-sm btn-warning text-white">Management API Supplier</button>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <!-- Search Filters -->
+                  <form class="row g-3 mb-4">
+                    <div class="col-md-3">
+                      <label class="form-label">Search By</label>
+                      <select class="form-select">
+                        <option selected>Please select</option>
+                        <option value="apiSupplier">API Supplier</option>
+                        <option value="airType">Air Type</option>
+                        <option value="status">Status</option>
+                      </select>
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label">Value</label>
+                      <input type="text" class="form-control" placeholder="Enter value">
+                    </div>
+                    <div class="col-md-2">
+                      <label class="form-label">From Date</label>
+                      <input type="date" class="form-control">
+                    </div>
+                    <div class="col-md-2">
+                      <label class="form-label">To Date</label>
+                      <input type="date" class="form-control">
+                    </div>
+                    <div class="col-md-2 d-flex align-items-end gap-2">
+                      <button type="submit" class="btn btn-success">Search</button>
+                      <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                    </div>
+                  </form>
+          
+                  <!-- Table -->
+                  <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                      <thead class="table-light">
+                        <tr>
+                          <th>API Supplier</th>
+                          <th>Air Type</th>
+                          <th>Search Type</th>
+                          <th>Allowed Airline</th>
+                          <th>Excluded Airline</th>
+                          <th>Status</th>
+                          <th>Created</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td colspan="8" class="text-center text-muted py-4">No Data Found</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+          
+                  <div class="d-flex justify-content-between align-items-center mt-3">
+                    <div>
+                      <small class="text-muted">Page 1 of 0, total 0 records found</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           
           
         </div>
